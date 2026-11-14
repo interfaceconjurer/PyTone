@@ -5,7 +5,14 @@ import sys
 from pathlib import Path
 
 from .color import render_colored
-from .core import DEFAULT_CHARS, get_color_data, image_to_ascii
+from .core import (
+    DEFAULT_CHARS,
+    HTML_ROW_FACTOR,
+    SVG_CELL_ASPECT,
+    SVG_ROW_FACTOR,
+    get_color_data,
+    image_to_ascii,
+)
 from .html_output import save_html
 from .svg_output import save_svg
 
@@ -156,6 +163,7 @@ def main(argv: list[str] | None = None) -> int:
             invert=args.invert,
             rainbow=args.rainbow,
             gradient=gradient_colors,
+            row_factor=HTML_ROW_FACTOR,
         )
         output_path = args.output or Path("ascii_art.html")
         save_html(rows, output_path, title=args.image.stem, pixel_width=args.pixel_width)
@@ -171,16 +179,17 @@ def main(argv: list[str] | None = None) -> int:
             invert=args.invert,
             rainbow=args.rainbow,
             gradient=gradient_colors,
+            row_factor=SVG_ROW_FACTOR,
         )
         output_path = args.output or Path("ascii_art.svg")
         # Calculate char dimensions based on pixel width if provided
         if args.pixel_width and rows:
             char_count = len(rows[0])
             char_width = args.pixel_width / char_count
-            char_height = char_width * 1.6  # Maintain aspect ratio
+            char_height = char_width * SVG_CELL_ASPECT
         else:
             char_width = 10.0
-            char_height = 16.0
+            char_height = char_width * SVG_CELL_ASPECT
         save_svg(rows, output_path, title=args.image.stem, char_width=char_width, char_height=char_height)
         print(f"Saved SVG to {output_path}")
 
