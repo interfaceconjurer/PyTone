@@ -17,4 +17,5 @@ samples/*
 !samples/*.html
 *.svg
 !samples/*.svg
+!docs/**/*.svg
 .DS_Store

@@ -8,6 +8,15 @@ from PIL import Image
 # Default character ramp: dark → light
 DEFAULT_CHARS = "B S#&@$%*!:. "
 
+# Rows per column of source pixels. Terminal cells are roughly 1:1.8 (width:height),
+# so 0.55 keeps terminal output in proportion.
+TERMINAL_ROW_FACTOR = 0.55
+# SVG cells are char_width × char_width*1.6, so rows must be sampled at 1/1.6.
+SVG_CELL_ASPECT = 1.6
+SVG_ROW_FACTOR = 1 / SVG_CELL_ASPECT
+# HTML uses Courier New (advance width 0.6em) with line-height 1.0, a 0.6:1 cell.
+HTML_ROW_FACTOR = 0.6
+
 
 def load_image(path: str | Path) -> Image.Image:
     """Load an image from disk."""
@@ -17,14 +26,17 @@ def load_image(path: str | Path) -> Image.Image:
     return Image.open(path)
 
 
-def resize_image(img: Image.Image, new_width: int = 120) -> Image.Image:
+def resize_image(
+    img: Image.Image, new_width: int = 120, row_factor: float = TERMINAL_ROW_FACTOR
+) -> Image.Image:
     """Resize image while preserving aspect ratio.
 
-    The 0.55 factor compensates for terminal characters being taller than wide.
+    ``row_factor`` compensates for character cells being taller than wide. It should be
+    the cell's width/height ratio: 0.55 for terminals (default), 1/1.6 for SVG output.
     """
     width, height = img.size
     aspect_ratio = height / width
-    new_height = int(aspect_ratio * new_width * 0.55)
+    new_height = max(1, int(aspect_ratio * new_width * row_factor))
     return img.resize((new_width, new_height))
 
 
@@ -70,8 +82,12 @@ def pixels_to_ascii(img: Image.Image, chars: str = DEFAULT_CHARS, invert: bool =
     pixels = list(img.get_flattened_data())
     if invert:
         pixels = [255 - pixel for pixel in pixels]
-    divisor = 256 // len(chars)
-    return "".join(chars[min(pixel // divisor, len(chars) - 1)] for pixel in pixels)
+    n = len(chars)
+    if n > 256:
+        # More glyphs than gray levels: spread pixels proportionally across the ramp.
+        return "".join(chars[pixel * n // 256] for pixel in pixels)
+    divisor = 256 // n
+    return "".join(chars[min(pixel // divisor, n - 1)] for pixel in pixels)
 
 
 def image_to_ascii(
@@ -111,6 +127,7 @@ def get_color_data(
     invert: bool = False,
     rainbow: bool = False,
     gradient: list[tuple[int, int, int]] | None = None,
+    row_factor: float = TERMINAL_ROW_FACTOR,
 ) -> list[list[tuple[str, tuple[int, int, int]]]]:
     """Convert an image to ASCII with per-character RGB color data.
 
@@ -125,11 +142,12 @@ def get_color_data(
         gradient: If provided, apply custom gradient from top-left to bottom-right.
                  List of 2+ RGB tuples: [(r1,g1,b1), (r2,g2,b2), ...].
                  Colors are interpolated along the diagonal gradient path.
+        row_factor: Cell width/height ratio used when resizing (see resize_image).
 
     Returns a list of rows, each row a list of (char, (r, g, b)) tuples.
     """
     img = load_image(path)
-    img = resize_image(img, new_width=width)
+    img = resize_image(img, new_width=width, row_factor=row_factor)
 
     # Get RGB values from the resized image
     rgb_img = img.convert("RGB")
@@ -143,6 +161,11 @@ def get_color_data(
     grayscale = img.convert("L")
     ascii_str = pixels_to_ascii(grayscale, chars, invert=invert)
 
+    def shape_value(x: int, y: int) -> float:
+        """Grayscale (0-1) used to modulate rainbow/gradient colors, matching the glyphs."""
+        value = grayscale.getpixel((x, y)) / 255.0
+        return 1.0 - value if invert else value
+
     # Pair each character with its color
     rows: list[list[tuple[str, tuple[int, int, int]]]] = []
     for y in range(rgb_img.height):
@@ -155,7 +178,7 @@ def get_color_data(
             # Apply rainbow gradient if requested
             if rainbow:
                 # Get grayscale value for saturation (shape definition)
-                gray_val = grayscale.getpixel((x, y)) / 255.0
+                gray_val = shape_value(x, y)
                 # Create rainbow based on horizontal position
                 hue = x / rgb_img.width
                 # Use grayscale for saturation, keep brightness at maximum
@@ -166,7 +189,7 @@ def get_color_data(
             # Apply custom gradient if requested
             elif gradient:
                 # Get grayscale value for saturation (shape definition)
-                gray_val = grayscale.getpixel((x, y)) / 255.0
+                gray_val = shape_value(x, y)
                 # Calculate diagonal position from top-left (0.0) to bottom-right (1.0)
                 t = (x / rgb_img.width + y / rgb_img.height) / 2.0
 

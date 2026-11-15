@@ -7,6 +7,8 @@ from PIL import Image
 
 from ascii_art.core import (
     DEFAULT_CHARS,
+    SVG_CELL_ASPECT,
+    SVG_ROW_FACTOR,
     get_color_data,
     image_to_ascii,
     pixels_to_ascii,
@@ -104,3 +106,72 @@ class TestGetColorData:
         # Flatten chars and check we get more than one unique character
         chars = {char for row in rows for char, _ in row}
         assert len(chars) > 1
+
+
+class TestRowFactor:
+    def test_default_row_factor_unchanged(self):
+        img = Image.new("RGB", (400, 400))
+        assert resize_image(img, new_width=100).height == 55
+
+    def test_svg_row_factor_matches_cell_aspect(self):
+        img = Image.new("RGB", (400, 400))
+        resized = resize_image(img, new_width=100, row_factor=SVG_ROW_FACTOR)
+        # 100 columns × 1.6 cell height ≈ 100 cell widths: a square stays square.
+        assert resized.height == 62
+        assert abs(resized.height * SVG_CELL_ASPECT - 100) < SVG_CELL_ASPECT
+
+    def test_tiny_image_has_at_least_one_row(self):
+        img = Image.new("RGB", (1000, 1))
+        assert resize_image(img, new_width=10).height == 1
+
+
+class TestLongRamps:
+    @staticmethod
+    def _ramp_image() -> Image.Image:
+        img = Image.new("L", (256, 1))
+        for x in range(256):
+            img.putpixel((x, 0), x)
+        return img
+
+    def test_ramp_longer_than_256_does_not_crash(self):
+        chars = "".join(chr(0x4E00 + i) for i in range(300))
+        result = pixels_to_ascii(self._ramp_image(), chars=chars)
+        assert len(result) == 256
+        assert result[0] == chars[0]
+        assert result[-1] == chars[(255 * 300) // 256]
+
+    def test_short_ramp_bucketing_unchanged(self):
+        # Regression guard: ramps of ≤256 chars keep the original 256 // n bucketing.
+        chars = DEFAULT_CHARS
+        divisor = 256 // len(chars)
+        expected = "".join(chars[min(p // divisor, len(chars) - 1)] for p in range(256))
+        assert pixels_to_ascii(self._ramp_image(), chars=chars) == expected
+
+
+class TestInvertWithColorEffects:
+    @pytest.fixture
+    def white_on_black(self, tmp_path: Path) -> Path:
+        """Black image with a white square in the middle."""
+        img = Image.new("RGB", (40, 40), color=(0, 0, 0))
+        for x in range(10, 30):
+            for y in range(10, 30):
+                img.putpixel((x, y), (255, 255, 255))
+        path = tmp_path / "square.png"
+        img.save(path)
+        return path
+
+    # Constant-hue gradient and a fixed column, so only the shape modulation differs.
+    @pytest.mark.parametrize(
+        "kwargs", [{"gradient": [(255, 0, 0), (255, 0, 0)]}, {"rainbow": True}]
+    )
+    def test_invert_flips_color_modulation(self, white_on_black: Path, kwargs):
+        normal = get_color_data(white_on_black, width=20, **kwargs)
+        inverted = get_color_data(white_on_black, width=20, invert=True, **kwargs)
+        x, edge, centre = 10, 0, len(normal) // 2  # top edge is black, centre is white
+        assert normal[centre][x][1] != normal[edge][x][1]
+        # With invert, the white square should take the black background's colour and
+        # vice versa, so the subject (not the background) ends up bright.
+        assert inverted[centre][x][1] == normal[edge][x][1]
+        assert inverted[edge][x][1] == normal[centre][x][1]
+        # Glyphs still invert as before.
+        assert inverted[centre][x][0] == normal[edge][x][0]
