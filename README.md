@@ -151,7 +151,7 @@ ascii-art virgin-annunciate.jpg -m svg \
 
 <table>
 <tr>
-<td width="460" valign="top">
+<td width="50%" valign="top">
 <img src="docs/gallery/mona-lisa.svg" alt="Mona Lisa, rendered as ASCII art" width="100%">
 
 <b>Mona Lisa</b><br><sub>Leonardo da Vinci, c. 1503–1519</sub>
@@ -165,12 +165,7 @@ ascii-art mona-lisa.jpg -m svg -w 110 \
 <sub>Prep: auto-level, gamma 1.3</sub>
 
 </td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="460" valign="top">
+<td width="50%" valign="top">
 <img src="docs/gallery/starry-night.svg" alt="The Starry Night, rendered as ASCII art" width="100%">
 
 <b>The Starry Night</b><br><sub>Vincent van Gogh, 1889</sub>
@@ -305,23 +300,6 @@ NASA and ESA imagery. Where it fits, the ramp matches the subject: Saturn in rin
 <!-- GALLERY:space -->
 <table>
 <tr>
-<td width="460" valign="top">
-<img src="docs/gallery/saturn.svg" alt="Saturn in rings, rendered as ASCII art" width="100%">
-
-<b>Saturn in rings</b><br><sub>NASA/JPL/Space Science Institute (Cassini), 2008</sub>
-
-```bash
-ascii-art saturn.jpg -m svg -w 160 \
-  --pixel-width 800 -c " ·∘○◯" -s 1.4 \
-  -b 1.5 -o saturn.svg
-```
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
 <td width="50%" valign="top">
 <img src="docs/gallery/whirlpool-galaxy.svg" alt="Whirlpool Galaxy (M51), rendered as ASCII art" width="100%">
 
@@ -381,6 +359,23 @@ ascii-art pleiades.jpg -m svg -w 130 \
 ```
 
 <sub>Prep: crop, -level 10%,100%, gamma 1.3</sub>
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="460" valign="top">
+<img src="docs/gallery/saturn.svg" alt="Saturn in rings, rendered as ASCII art" width="100%">
+
+<b>Saturn in rings</b><br><sub>NASA/JPL/Space Science Institute (Cassini), 2008</sub>
+
+```bash
+ascii-art saturn.jpg -m svg -w 160 \
+  --pixel-width 800 -c " ·∘○◯" -s 1.4 \
+  -b 1.5 -o saturn.svg
+```
 
 </td>
 </tr>
