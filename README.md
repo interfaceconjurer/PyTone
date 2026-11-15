@@ -149,7 +149,6 @@ ascii-art virgin-annunciate.jpg -m svg \
 </tr>
 </table>
 
-<div align="center">
 <table>
 <tr>
 <td width="460" valign="top">
@@ -168,9 +167,7 @@ ascii-art mona-lisa.jpg -m svg -w 110 \
 </td>
 </tr>
 </table>
-</div>
 
-<div align="center">
 <table>
 <tr>
 <td width="460" valign="top">
@@ -187,7 +184,6 @@ ascii-art starry-night.jpg -m svg -w 110 \
 </td>
 </tr>
 </table>
-</div>
 
 <sub>More from this section.</sub>
 
@@ -307,7 +303,6 @@ ascii-art in.jpg \
 NASA and ESA imagery. Where it fits, the ramp matches the subject: Saturn in rings, the Moon in moon phases, Jupiter in bands.
 
 <!-- GALLERY:space -->
-<div align="center">
 <table>
 <tr>
 <td width="460" valign="top">
@@ -324,7 +319,6 @@ ascii-art saturn.jpg -m svg -w 160 \
 </td>
 </tr>
 </table>
-</div>
 
 <table>
 <tr>
@@ -541,7 +535,6 @@ ascii-art audrey-hepburn.jpg -m svg -w 120 \
 </tr>
 </table>
 
-<div align="center">
 <table>
 <tr>
 <td width="460" valign="top">
@@ -560,7 +553,6 @@ ascii-art baldwin-iv.jpg -m svg -w 130 \
 </td>
 </tr>
 </table>
-</div>
 
 <sub>More from this section.</sub>
 
