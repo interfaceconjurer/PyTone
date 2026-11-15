@@ -112,6 +112,9 @@ ascii-art lady-with-an-ermine.jpg -m svg \
 
 </td>
 </tr>
+</table>
+
+<table>
 <tr>
 <td width="50%" valign="top">
 <img src="docs/gallery/medusa.svg" alt="Medusa, rendered as ASCII art" width="100%">
@@ -211,6 +214,9 @@ ascii-art in.jpg \
 
 </td>
 </tr>
+</table>
+
+<table>
 <tr>
 <td width="25%" valign="top">
 <img src="docs/gallery/man-in-a-red-turban.svg" alt="Portrait of a Man (Self-Portrait?), rendered as ASCII art" width="100%">
@@ -298,8 +304,8 @@ NASA and ESA imagery. Where it fits, the ramp matches the subject: Saturn in rin
 
 ```bash
 ascii-art jupiter.jpg -m svg -w 120 \
-  --pixel-width 720 -c " -=≡" -s 1.8 -b 1.6 \
-  -o jupiter.svg
+  --pixel-width 720 -c " -=≡" -s 1.8 \
+  -b 1.6 -o jupiter.svg
 ```
 
 <sub>Prep: -modulate 100,220 -sigmoidal-contrast 7x50%</sub>
@@ -311,15 +317,18 @@ ascii-art jupiter.jpg -m svg -w 120 \
 <b>Whirlpool Galaxy (M51)</b><br><sub>NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team</sub>
 
 ```bash
-ascii-art whirlpool-galaxy.jpg -m svg -w 130 \
-  --pixel-width 715 -c " ·∘○◯●" -s 1.6 \
-  -b 1.4 -o whirlpool-galaxy.svg
+ascii-art whirlpool-galaxy.jpg -m svg \
+  -w 130 --pixel-width 715 -c " ·∘○◯●" \
+  -s 1.6 -b 1.4 -o whirlpool-galaxy.svg
 ```
 
 <sub>Prep: -level 12%,100% -clahe 25x25%+128+3 -sigmoidal-contrast 4x45%</sub>
 
 </td>
 </tr>
+</table>
+
+<table>
 <tr>
 <td width="50%" valign="top">
 <img src="docs/gallery/moon.svg" alt="The Moon, in moon phases, rendered as ASCII art" width="100%">
@@ -328,7 +337,8 @@ ascii-art whirlpool-galaxy.jpg -m svg -w 130 \
 
 ```bash
 ascii-art moon.jpg -m svg -w 108 \
-  --pixel-width 1188 -c " 🌑🌒🌓🌔🌕" -o moon.svg
+  --pixel-width 1188 -c " 🌑🌒🌓🌔🌕" \
+  -o moon.svg
 ```
 
 <sub>Prep: custom lit-sphere render, 1.19× horizontal stretch for emoji width</sub>
@@ -341,8 +351,8 @@ ascii-art moon.jpg -m svg -w 108 \
 
 ```bash
 ascii-art saturn.jpg -m svg -w 160 \
-  --pixel-width 800 -c " ·∘○◯" -s 1.4 -b 1.5 \
-  -o saturn.svg
+  --pixel-width 800 -c " ·∘○◯" -s 1.4 \
+  -b 1.5 -o saturn.svg
 ```
 
 </td>
@@ -422,6 +432,9 @@ ascii-art in.jpg \
 
 </td>
 </tr>
+</table>
+
+<table>
 <tr>
 <td width="25%" valign="top">
 <img src="docs/gallery/helix-nebula.svg" alt="Helix Nebula (NGC 7293), rendered as ASCII art" width="100%">
@@ -460,8 +473,8 @@ Halftone dots in a single ink, `-c " ·•●" --gradient "#F2E8D5,#F2E8D5"`, pl
 <b>Abraham Lincoln</b><br><sub>Alexander Gardner, 1863</sub>
 
 ```bash
-ascii-art abraham-lincoln.jpg -m svg -w 110 \
-  --pixel-width 715 -c " ·•●" \
+ascii-art abraham-lincoln.jpg -m svg \
+  -w 110 --pixel-width 715 -c " ·•●" \
   --gradient "#F2E8D5,#F2E8D5" \
   -o abraham-lincoln.svg
 ```
@@ -485,6 +498,9 @@ ascii-art billie-holiday.jpg -m svg -w 130 \
 
 </td>
 </tr>
+</table>
+
+<table>
 <tr>
 <td width="50%" valign="top">
 <img src="docs/gallery/albert-einstein.svg" alt="Albert Einstein, rendered as ASCII art" width="100%">
@@ -492,8 +508,8 @@ ascii-art billie-holiday.jpg -m svg -w 130 \
 <b>Albert Einstein</b><br><sub>Orren Jack Turner, 1947</sub>
 
 ```bash
-ascii-art albert-einstein.jpg -m svg -w 110 \
-  --pixel-width 715 -c " ·•●" \
+ascii-art albert-einstein.jpg -m svg \
+  -w 110 --pixel-width 715 -c " ·•●" \
   --gradient "#F2E8D5,#F2E8D5" \
   -o albert-einstein.svg
 ```
@@ -595,6 +611,9 @@ ascii-art in.jpg \
 
 </td>
 </tr>
+</table>
+
+<table>
 <tr>
 <td width="25%" valign="top">
 <img src="docs/gallery/audrey-hepburn.svg" alt="Audrey Hepburn, rendered as ASCII art" width="100%">
@@ -669,6 +688,9 @@ ascii-art in.jpg \
 
 </td>
 </tr>
+</table>
+
+<table>
 <tr>
 <td width="25%" valign="top">
 <img src="docs/gallery/nikola-tesla.svg" alt="Nikola Tesla, rendered as ASCII art" width="100%">
