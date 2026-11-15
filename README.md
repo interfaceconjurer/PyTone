@@ -84,79 +84,203 @@ Circles grow with brightness, so the painting's light falls in rings of `· ∘ 
 
 <!-- GALLERY:old-masters -->
 <table>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/pearl-earring.svg" alt="Girl with a Pearl Earring, rendered as ASCII art" width="100%"><br>
-      <b>Girl with a Pearl Earring</b><br><sub>Johannes Vermeer, c. 1665</sub>
-      <blockquote><sub><samp>ascii-art pearl-earring.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o pearl-earring.svg</samp></sub></blockquote>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/lady-with-an-ermine.svg" alt="Lady with an Ermine, rendered as ASCII art" width="100%"><br>
-      <b>Lady with an Ermine</b><br><sub>Leonardo da Vinci, c. 1490</sub>
-      <blockquote><sub><samp>ascii-art lady-with-an-ermine.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o lady-with-an-ermine.svg</samp></sub><br><sub>Prep: auto-level, gamma 1.2</sub></blockquote>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/medusa.svg" alt="Medusa, rendered as ASCII art" width="100%"><br>
-      <b>Medusa</b><br><sub>Caravaggio, c. 1597</sub>
-      <blockquote><sub><samp>ascii-art medusa.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o medusa.svg</samp></sub><br><sub>Prep: auto-level, gamma 1.2</sub></blockquote>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/starry-night.svg" alt="The Starry Night, rendered as ASCII art" width="100%"><br>
-      <b>The Starry Night</b><br><sub>Vincent van Gogh, 1889</sub>
-      <blockquote><sub><samp>ascii-art starry-night.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o starry-night.svg</samp></sub></blockquote>
-    </td>
-  </tr>
+<tr>
+<td width="50%" valign="top">
+<img src="docs/gallery/pearl-earring.svg" alt="Girl with a Pearl Earring, rendered as ASCII art" width="100%">
+
+<b>Girl with a Pearl Earring</b><br><sub>Johannes Vermeer, c. 1665</sub>
+
+```bash
+ascii-art pearl-earring.jpg -m svg -w 110 \
+  --pixel-width 715 -c " ·∘○◯●" -s 1.4 \
+  -b 1.9 -o pearl-earring.svg
+```
+
+</td>
+<td width="50%" valign="top">
+<img src="docs/gallery/lady-with-an-ermine.svg" alt="Lady with an Ermine, rendered as ASCII art" width="100%">
+
+<b>Lady with an Ermine</b><br><sub>Leonardo da Vinci, c. 1490</sub>
+
+```bash
+ascii-art lady-with-an-ermine.jpg -m svg \
+  -w 110 --pixel-width 715 -c " ·∘○◯●" \
+  -s 1.4 -b 1.9 -o lady-with-an-ermine.svg
+```
+
+<sub>Prep: auto-level, gamma 1.2</sub>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<img src="docs/gallery/medusa.svg" alt="Medusa, rendered as ASCII art" width="100%">
+
+<b>Medusa</b><br><sub>Caravaggio, c. 1597</sub>
+
+```bash
+ascii-art medusa.jpg -m svg -w 110 \
+  --pixel-width 715 -c " ·∘○◯●" -s 1.4 \
+  -b 1.9 -o medusa.svg
+```
+
+<sub>Prep: auto-level, gamma 1.2</sub>
+
+</td>
+<td width="50%" valign="top">
+<img src="docs/gallery/starry-night.svg" alt="The Starry Night, rendered as ASCII art" width="100%">
+
+<b>The Starry Night</b><br><sub>Vincent van Gogh, 1889</sub>
+
+```bash
+ascii-art starry-night.jpg -m svg -w 110 \
+  --pixel-width 715 -c " ·∘○◯●" -s 1.4 \
+  -b 1.9 -o starry-night.svg
+```
+
+</td>
+</tr>
 </table>
 
 <sub>More from this section.</sub>
 
 <table>
-  <tr>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/great-wave.svg" alt="The Great Wave off Kanagawa, rendered as ASCII art" width="100%"><br>
-      <sub><b>The Great Wave off Kanagawa</b><br>Katsushika Hokusai, c. 1831</sub><br>
-      <blockquote><sub><samp>ascii-art great-wave.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.6 -b 1.2 -o great-wave.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/david-goliath.svg" alt="David with the Head of Goliath, rendered as ASCII art" width="100%"><br>
-      <sub><b>David with the Head of Goliath</b><br>Caravaggio, 1610</sub><br>
-      <blockquote><sub><samp>ascii-art david-goliath.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o david-goliath.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/rembrandt-self-portrait.svg" alt="Self-Portrait, rendered as ASCII art" width="100%"><br>
-      <sub><b>Self-Portrait</b><br>Rembrandt, 1659</sub><br>
-      <blockquote><sub><samp>ascii-art rembrandt-self-portrait.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o rembrandt-self-portrait.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/virgin-annunciate.svg" alt="Virgin Annunciate, rendered as ASCII art" width="100%"><br>
-      <sub><b>Virgin Annunciate</b><br>Antonello da Messina, c. 1475</sub><br>
-      <blockquote><sub><samp>ascii-art virgin-annunciate.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o virgin-annunciate.svg</samp></sub></blockquote>
-    </td>
-  </tr>
-  <tr>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/man-in-a-red-turban.svg" alt="Portrait of a Man (Self-Portrait?), rendered as ASCII art" width="100%"><br>
-      <sub><b>Portrait of a Man (Self-Portrait?)</b><br>Jan van Eyck, 1433</sub><br>
-      <blockquote><sub><samp>ascii-art man-in-a-red-turban.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o man-in-a-red-turban.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/magdalene-smoking-flame.svg" alt="Magdalene with the Smoking Flame, rendered as ASCII art" width="100%"><br>
-      <sub><b>Magdalene with the Smoking Flame</b><br>Georges de La Tour, c. 1640</sub><br>
-      <blockquote><sub><samp>ascii-art magdalene-smoking-flame.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o magdalene-smoking-flame.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/mona-lisa.svg" alt="Mona Lisa, rendered as ASCII art" width="100%"><br>
-      <sub><b>Mona Lisa</b><br>Leonardo da Vinci, c. 1503–1519</sub><br>
-      <blockquote><sub><samp>ascii-art mona-lisa.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o mona-lisa.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/christ-crucified.svg" alt="Christ Crucified, rendered as ASCII art" width="100%"><br>
-      <sub><b>Christ Crucified</b><br>Diego Velázquez, c. 1632</sub><br>
-      <blockquote><sub><samp>ascii-art christ-crucified.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o christ-crucified.svg</samp></sub></blockquote>
-    </td>
-  </tr>
+<tr>
+<td width="25%" valign="top">
+<img src="docs/gallery/great-wave.svg" alt="The Great Wave off Kanagawa, rendered as ASCII art" width="100%">
+
+<b>The Great Wave off Kanagawa</b><br><sub>Katsushika Hokusai, c. 1831</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 715 -c " ·∘○◯●" \
+ -s 1.6 -b 1.2 \
+ -o out.svg
+```
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/david-goliath.svg" alt="David with the Head of Goliath, rendered as ASCII art" width="100%">
+
+<b>David with the Head of Goliath</b><br><sub>Caravaggio, 1610</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 715 -c " ·∘○◯●" \
+ -s 1.4 -b 1.9 \
+ -o out.svg
+```
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/rembrandt-self-portrait.svg" alt="Self-Portrait, rendered as ASCII art" width="100%">
+
+<b>Self-Portrait</b><br><sub>Rembrandt, 1659</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 715 -c " ·∘○◯●" \
+ -s 1.4 -b 1.9 \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, gamma 1.2</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/virgin-annunciate.svg" alt="Virgin Annunciate, rendered as ASCII art" width="100%">
+
+<b>Virgin Annunciate</b><br><sub>Antonello da Messina, c. 1475</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 715 -c " ·∘○◯●" \
+ -s 1.4 -b 1.9 \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, -level 10%,100%, gamma 1.3</sub>
+
+</td>
+</tr>
+<tr>
+<td width="25%" valign="top">
+<img src="docs/gallery/man-in-a-red-turban.svg" alt="Portrait of a Man (Self-Portrait?), rendered as ASCII art" width="100%">
+
+<b>Portrait of a Man (Self-Portrait?)</b><br><sub>Jan van Eyck, 1433</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 715 -c " ·∘○◯●" \
+ -s 1.4 -b 1.9 \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, gamma 1.2</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/magdalene-smoking-flame.svg" alt="Magdalene with the Smoking Flame, rendered as ASCII art" width="100%">
+
+<b>Magdalene with the Smoking Flame</b><br><sub>Georges de La Tour, c. 1640</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 715 -c " ·∘○◯●" \
+ -s 1.4 -b 1.9 \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, gamma 1.5</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/mona-lisa.svg" alt="Mona Lisa, rendered as ASCII art" width="100%">
+
+<b>Mona Lisa</b><br><sub>Leonardo da Vinci, c. 1503–1519</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 715 -c " ·∘○◯●" \
+ -s 1.4 -b 1.9 \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, gamma 1.3</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/christ-crucified.svg" alt="Christ Crucified, rendered as ASCII art" width="100%">
+
+<b>Christ Crucified</b><br><sub>Diego Velázquez, c. 1632</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 715 -c " ·∘○◯●" \
+ -s 1.4 -b 1.9 \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, -level 8%,100%</sub>
+
+</td>
+</tr>
 </table>
 <!-- /GALLERY:old-masters -->
 
@@ -166,67 +290,160 @@ NASA and ESA imagery. Where it fits, the ramp matches the subject: Saturn in rin
 
 <!-- GALLERY:space -->
 <table>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/jupiter.svg" alt="Jupiter, in cloud bands, rendered as ASCII art" width="100%"><br>
-      <b>Jupiter, in cloud bands</b><br><sub>NASA, ESA, A. Simon (GSFC), OPAL, 2024</sub>
-      <blockquote><sub><samp>ascii-art jupiter.jpg -m svg -w 120 --pixel-width 720 -c " -=≡" -s 1.8 -b 1.6 -o jupiter.svg</samp></sub><br><sub>Prep: -modulate 100,220 -sigmoidal-contrast 7x50%</sub></blockquote>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/whirlpool-galaxy.svg" alt="Whirlpool Galaxy (M51), rendered as ASCII art" width="100%"><br>
-      <b>Whirlpool Galaxy (M51)</b><br><sub>NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team</sub>
-      <blockquote><sub><samp>ascii-art whirlpool-galaxy.jpg -m svg -w 130 --pixel-width 715 -c " ·∘○◯●" -s 1.6 -b 1.4 -o whirlpool-galaxy.svg</samp></sub><br><sub>Prep: -level 12%,100% -clahe 25x25%+128+3 -sigmoidal-contrast 4x45%</sub></blockquote>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/moon.svg" alt="The Moon, in moon phases, rendered as ASCII art" width="100%"><br>
-      <b>The Moon, in moon phases</b><br><sub>Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)</sub>
-      <blockquote><sub><samp>ascii-art moon.jpg -m svg -w 108 --pixel-width 1188 -c " 🌑🌒🌓🌔🌕" -o moon.svg</samp></sub><br><sub>Prep: custom lit-sphere render, 1.19× horizontal stretch for emoji width</sub></blockquote>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/saturn.svg" alt="Saturn in rings, rendered as ASCII art" width="100%"><br>
-      <b>Saturn in rings</b><br><sub>NASA/JPL/Space Science Institute (Cassini), 2008</sub>
-      <blockquote><sub><samp>ascii-art saturn.jpg -m svg -w 160 --pixel-width 800 -c " ·∘○◯" -s 1.4 -b 1.5 -o saturn.svg</samp></sub></blockquote>
-    </td>
-  </tr>
+<tr>
+<td width="50%" valign="top">
+<img src="docs/gallery/jupiter.svg" alt="Jupiter, in cloud bands, rendered as ASCII art" width="100%">
+
+<b>Jupiter, in cloud bands</b><br><sub>NASA, ESA, A. Simon (GSFC), OPAL, 2024</sub>
+
+```bash
+ascii-art jupiter.jpg -m svg -w 120 \
+  --pixel-width 720 -c " -=≡" -s 1.8 -b 1.6 \
+  -o jupiter.svg
+```
+
+<sub>Prep: -modulate 100,220 -sigmoidal-contrast 7x50%</sub>
+
+</td>
+<td width="50%" valign="top">
+<img src="docs/gallery/whirlpool-galaxy.svg" alt="Whirlpool Galaxy (M51), rendered as ASCII art" width="100%">
+
+<b>Whirlpool Galaxy (M51)</b><br><sub>NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team</sub>
+
+```bash
+ascii-art whirlpool-galaxy.jpg -m svg -w 130 \
+  --pixel-width 715 -c " ·∘○◯●" -s 1.6 \
+  -b 1.4 -o whirlpool-galaxy.svg
+```
+
+<sub>Prep: -level 12%,100% -clahe 25x25%+128+3 -sigmoidal-contrast 4x45%</sub>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<img src="docs/gallery/moon.svg" alt="The Moon, in moon phases, rendered as ASCII art" width="100%">
+
+<b>The Moon, in moon phases</b><br><sub>Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)</sub>
+
+```bash
+ascii-art moon.jpg -m svg -w 108 \
+  --pixel-width 1188 -c " 🌑🌒🌓🌔🌕" -o moon.svg
+```
+
+<sub>Prep: custom lit-sphere render, 1.19× horizontal stretch for emoji width</sub>
+
+</td>
+<td width="50%" valign="top">
+<img src="docs/gallery/saturn.svg" alt="Saturn in rings, rendered as ASCII art" width="100%">
+
+<b>Saturn in rings</b><br><sub>NASA/JPL/Space Science Institute (Cassini), 2008</sub>
+
+```bash
+ascii-art saturn.jpg -m svg -w 160 \
+  --pixel-width 800 -c " ·∘○◯" -s 1.4 -b 1.5 \
+  -o saturn.svg
+```
+
+</td>
+</tr>
 </table>
 
 <sub>More from this section.</sub>
 
 <table>
-  <tr>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/pleiades.svg" alt="The Pleiades, in stars, rendered as ASCII art" width="100%"><br>
-      <sub><b>The Pleiades, in stars</b><br>NASA, ESA, AURA/Caltech, Palomar Observatory</sub><br>
-      <blockquote><sub><samp>ascii-art pleiades.jpg -m svg -w 130 --pixel-width 845 -c "  ·∘+✦★" -s 1.7 -b 2.0 -o pleiades.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/ring-nebula.svg" alt="Ring Nebula (M57), JWST, rendered as ASCII art" width="100%"><br>
-      <sub><b>Ring Nebula (M57), JWST</b><br>NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson</sub><br>
-      <blockquote><sub><samp>ascii-art ring-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o ring-nebula.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/sun.svg" alt="The Sun, SDO/AIA, rendered as ASCII art" width="100%"><br>
-      <sub><b>The Sun, SDO/AIA</b><br>NASA/GSFC/SDO, Oct 2014</sub><br>
-      <blockquote><sub><samp>ascii-art sun.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.8 -o sun.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/blue-marble.svg" alt="The Blue Marble, rendered as ASCII art" width="100%"><br>
-      <sub><b>The Blue Marble</b><br>NASA / Apollo 17 crew, 1972</sub><br>
-      <blockquote><sub><samp>ascii-art blue-marble.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.4 -o blue-marble.svg</samp></sub></blockquote>
-    </td>
-  </tr>
-  <tr>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/helix-nebula.svg" alt="Helix Nebula (NGC 7293), rendered as ASCII art" width="100%"><br>
-      <sub><b>Helix Nebula (NGC 7293)</b><br>NASA, ESA, C.R. O'Dell (Vanderbilt)</sub><br>
-      <blockquote><sub><samp>ascii-art helix-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o helix-nebula.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%"></td>
-    <td width="25%"></td>
-    <td width="25%"></td>
-  </tr>
+<tr>
+<td width="25%" valign="top">
+<img src="docs/gallery/pleiades.svg" alt="The Pleiades, in stars, rendered as ASCII art" width="100%">
+
+<b>The Pleiades, in stars</b><br><sub>NASA, ESA, AURA/Caltech, Palomar Observatory</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 130 \
+ --pixel-width \
+ 845 -c "  ·∘+✦★" \
+ -s 1.7 -b 2.0 \
+ -o out.svg
+```
+
+<sub>Prep: crop, -level 10%,100%, gamma 1.3</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/ring-nebula.svg" alt="Ring Nebula (M57), JWST, rendered as ASCII art" width="100%">
+
+<b>Ring Nebula (M57), JWST</b><br><sub>NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 120 \
+ --pixel-width \
+ 720 -c " ·∘○◯●" \
+ -s 1.5 -b 1.5 \
+ -o out.svg
+```
+
+<sub>Prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/sun.svg" alt="The Sun, SDO/AIA, rendered as ASCII art" width="100%">
+
+<b>The Sun, SDO/AIA</b><br><sub>NASA/GSFC/SDO, Oct 2014</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 120 \
+ --pixel-width \
+ 720 -c " ·∘○◯●" \
+ -s 1.5 -b 1.8 \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, gamma 2.2</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/blue-marble.svg" alt="The Blue Marble, rendered as ASCII art" width="100%">
+
+<b>The Blue Marble</b><br><sub>NASA / Apollo 17 crew, 1972</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 120 \
+ --pixel-width \
+ 720 -c " ·∘○◯●" \
+ -s 1.5 -b 1.4 \
+ -o out.svg
+```
+
+<sub>Prep: -sigmoidal-contrast 3x50%</sub>
+
+</td>
+</tr>
+<tr>
+<td width="25%" valign="top">
+<img src="docs/gallery/helix-nebula.svg" alt="Helix Nebula (NGC 7293), rendered as ASCII art" width="100%">
+
+<b>Helix Nebula (NGC 7293)</b><br><sub>NASA, ESA, C.R. O'Dell (Vanderbilt)</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 120 \
+ --pixel-width \
+ 720 -c " ·∘○◯●" \
+ -s 1.5 -b 1.5 \
+ -o out.svg
+```
+
+<sub>Prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%</sub>
+
+</td>
+<td width="25%"></td>
+<td width="25%"></td>
+<td width="25%"></td>
+</tr>
 </table>
 <!-- /GALLERY:space -->
 
@@ -236,97 +453,277 @@ Halftone dots in a single ink, `-c " ·•●" --gradient "#F2E8D5,#F2E8D5"`, pl
 
 <!-- GALLERY:photography -->
 <table>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/abraham-lincoln.svg" alt="Abraham Lincoln, rendered as ASCII art" width="100%"><br>
-      <b>Abraham Lincoln</b><br><sub>Alexander Gardner, 1863</sub>
-      <blockquote><sub><samp>ascii-art abraham-lincoln.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o abraham-lincoln.svg</samp></sub><br><sub>Prep: crop, -level 10%,100% -gamma 1.2 -sigmoidal-contrast 3x45%</sub></blockquote>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/billie-holiday.svg" alt="Billie Holiday, rendered as ASCII art" width="100%"><br>
-      <b>Billie Holiday</b><br><sub>William P. Gottlieb, c. 1947</sub>
-      <blockquote><sub><samp>ascii-art billie-holiday.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o billie-holiday.svg</samp></sub><br><sub>Prep: crop</sub></blockquote>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/albert-einstein.svg" alt="Albert Einstein, rendered as ASCII art" width="100%"><br>
-      <b>Albert Einstein</b><br><sub>Orren Jack Turner, 1947</sub>
-      <blockquote><sub><samp>ascii-art albert-einstein.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o albert-einstein.svg</samp></sub><br><sub>Prep: crop, -level 12%,100% -gamma 1.5 -sigmoidal-contrast 3x40%</sub></blockquote>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/gallery/marilyn-pop-a.svg" alt="Marilyn, pop (yellow → magenta), rendered as ASCII art" width="100%"><br>
-      <b>Marilyn, pop (yellow → magenta)</b><br><sub>Frank Powolny, 1953</sub>
-      <blockquote><sub><samp>ascii-art marilyn-pop-a.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradient "#FFD60A,#FF006E" -o marilyn-pop-a.svg</samp></sub><br><sub>Prep: auto-level, gamma 1.15</sub></blockquote>
-    </td>
-  </tr>
+<tr>
+<td width="50%" valign="top">
+<img src="docs/gallery/abraham-lincoln.svg" alt="Abraham Lincoln, rendered as ASCII art" width="100%">
+
+<b>Abraham Lincoln</b><br><sub>Alexander Gardner, 1863</sub>
+
+```bash
+ascii-art abraham-lincoln.jpg -m svg -w 110 \
+  --pixel-width 715 -c " ·•●" \
+  --gradient "#F2E8D5,#F2E8D5" \
+  -o abraham-lincoln.svg
+```
+
+<sub>Prep: crop, -level 10%,100% -gamma 1.2 -sigmoidal-contrast 3x45%</sub>
+
+</td>
+<td width="50%" valign="top">
+<img src="docs/gallery/billie-holiday.svg" alt="Billie Holiday, rendered as ASCII art" width="100%">
+
+<b>Billie Holiday</b><br><sub>William P. Gottlieb, c. 1947</sub>
+
+```bash
+ascii-art billie-holiday.jpg -m svg -w 130 \
+  --pixel-width 845 -c " ·•●" \
+  --gradient "#F2E8D5,#F2E8D5" \
+  -o billie-holiday.svg
+```
+
+<sub>Prep: crop</sub>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<img src="docs/gallery/albert-einstein.svg" alt="Albert Einstein, rendered as ASCII art" width="100%">
+
+<b>Albert Einstein</b><br><sub>Orren Jack Turner, 1947</sub>
+
+```bash
+ascii-art albert-einstein.jpg -m svg -w 110 \
+  --pixel-width 715 -c " ·•●" \
+  --gradient "#F2E8D5,#F2E8D5" \
+  -o albert-einstein.svg
+```
+
+<sub>Prep: crop, -level 12%,100% -gamma 1.5 -sigmoidal-contrast 3x40%</sub>
+
+</td>
+<td width="50%" valign="top">
+<img src="docs/gallery/marilyn-pop-a.svg" alt="Marilyn, pop (yellow → magenta), rendered as ASCII art" width="100%">
+
+<b>Marilyn, pop (yellow → magenta)</b><br><sub>Frank Powolny, 1953</sub>
+
+```bash
+ascii-art marilyn-pop-a.jpg -m svg -w 120 \
+  --pixel-width 840 -c " ·•●" \
+  --gradient "#FFD60A,#FF006E" \
+  -o marilyn-pop-a.svg
+```
+
+<sub>Prep: auto-level, gamma 1.15</sub>
+
+</td>
+</tr>
 </table>
 
 <sub>More from this section.</sub>
 
 <table>
-  <tr>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/baldwin-iv.svg" alt="Baldwin IV, the Leper King, rendered as ASCII art" width="100%"><br>
-      <sub><b>Baldwin IV, the Leper King</b><br>Film still, Kingdom of Heaven (2005)</sub><br>
-      <blockquote><sub><samp>ascii-art baldwin-iv.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" -s 1.4 -b 1.15 -o baldwin-iv.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/muhammad-ali.svg" alt="Muhammad Ali, rendered as ASCII art" width="100%"><br>
-      <sub><b>Muhammad Ali</b><br>Ira Rosenberg (NYWTS), 1967</sub><br>
-      <blockquote><sub><samp>ascii-art muhammad-ali.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o muhammad-ali.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/einstein-pop.svg" alt="Einstein, pop (magenta → amber), rendered as ASCII art" width="100%"><br>
-      <sub><b>Einstein, pop (magenta → amber)</b><br>Orren Jack Turner, 1947</sub><br>
-      <blockquote><sub><samp>ascii-art einstein-pop.jpg -m svg -w 110 --pixel-width 770 -c " ·•●" --gradient "#FF006E,#FFBE0B" -o einstein-pop.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/greta-garbo.svg" alt="Greta Garbo, rendered as ASCII art" width="100%"><br>
-      <sub><b>Greta Garbo</b><br>Clarence Sinclair Bull, 1931</sub><br>
-      <blockquote><sub><samp>ascii-art greta-garbo.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o greta-garbo.svg</samp></sub></blockquote>
-    </td>
-  </tr>
-  <tr>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/audrey-hepburn.svg" alt="Audrey Hepburn, rendered as ASCII art" width="100%"><br>
-      <sub><b>Audrey Hepburn</b><br>Bud Fraker (Paramount), 1953</sub><br>
-      <blockquote><sub><samp>ascii-art audrey-hepburn.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o audrey-hepburn.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/marilyn-pop-b.svg" alt="Marilyn, pop (aqua), rendered as ASCII art" width="100%"><br>
-      <sub><b>Marilyn, pop (aqua)</b><br>Frank Powolny, 1953</sub><br>
-      <blockquote><sub><samp>ascii-art marilyn-pop-b.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradient "#00F5D4,#00BBF9" -o marilyn-pop-b.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/marilyn-pop-c.svg" alt="Marilyn, pop (pink → violet), rendered as ASCII art" width="100%"><br>
-      <sub><b>Marilyn, pop (pink → violet)</b><br>Frank Powolny, 1953</sub><br>
-      <blockquote><sub><samp>ascii-art marilyn-pop-c.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradient "#F15BB5,#9B5DE5" -o marilyn-pop-c.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/marilyn-monroe.svg" alt="Marilyn Monroe, rendered as ASCII art" width="100%"><br>
-      <sub><b>Marilyn Monroe</b><br>Frank Powolny (20th Century Fox), 1953</sub><br>
-      <blockquote><sub><samp>ascii-art marilyn-monroe.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o marilyn-monroe.svg</samp></sub></blockquote>
-    </td>
-  </tr>
-  <tr>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/nikola-tesla.svg" alt="Nikola Tesla, rendered as ASCII art" width="100%"><br>
-      <sub><b>Nikola Tesla</b><br>Napoleon Sarony, c. 1890</sub><br>
-      <blockquote><sub><samp>ascii-art nikola-tesla.jpg -m svg -w 100 --pixel-width 650 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o nikola-tesla.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/migrant-mother.svg" alt="Migrant Mother, rendered as ASCII art" width="100%"><br>
-      <sub><b>Migrant Mother</b><br>Dorothea Lange, 1936</sub><br>
-      <blockquote><sub><samp>ascii-art migrant-mother.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o migrant-mother.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%" align="center" valign="top">
-      <img src="docs/gallery/frida-kahlo.svg" alt="Frida Kahlo, rendered as ASCII art" width="100%"><br>
-      <sub><b>Frida Kahlo</b><br>Guillermo Kahlo, 1932</sub><br>
-      <blockquote><sub><samp>ascii-art frida-kahlo.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o frida-kahlo.svg</samp></sub></blockquote>
-    </td>
-    <td width="25%"></td>
-  </tr>
+<tr>
+<td width="25%" valign="top">
+<img src="docs/gallery/baldwin-iv.svg" alt="Baldwin IV, the Leper King, rendered as ASCII art" width="100%">
+
+<b>Baldwin IV, the Leper King</b><br><sub>Film still, Kingdom of Heaven (2005)</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 130 \
+ --pixel-width \
+ 845 -c " ·•●" \
+ -s 1.4 -b 1.15 \
+ -o out.svg
+```
+
+<sub>Prep: crop to figure, -clahe 12x12%+128+3 -level 10%,100%</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/muhammad-ali.svg" alt="Muhammad Ali, rendered as ASCII art" width="100%">
+
+<b>Muhammad Ali</b><br><sub>Ira Rosenberg (NYWTS), 1967</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 715 -c " ·•●" \
+ --gradient \
+ "#F2E8D5,#F2E8D5" \
+ -o out.svg
+```
+
+<sub>Prep: crop, -sigmoidal-contrast 3x50%</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/einstein-pop.svg" alt="Einstein, pop (magenta → amber), rendered as ASCII art" width="100%">
+
+<b>Einstein, pop (magenta → amber)</b><br><sub>Orren Jack Turner, 1947</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 110 \
+ --pixel-width \
+ 770 -c " ·•●" \
+ --gradient \
+ "#FF006E,#FFBE0B" \
+ -o out.svg
+```
+
+<sub>Prep: same prep as Einstein</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/greta-garbo.svg" alt="Greta Garbo, rendered as ASCII art" width="100%">
+
+<b>Greta Garbo</b><br><sub>Clarence Sinclair Bull, 1931</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 120 \
+ --pixel-width \
+ 780 -c " ·•●" \
+ --gradient \
+ "#F2E8D5,#F2E8D5" \
+ -o out.svg
+```
+
+<sub>Prep: crop, -level 15%,100%</sub>
+
+</td>
+</tr>
+<tr>
+<td width="25%" valign="top">
+<img src="docs/gallery/audrey-hepburn.svg" alt="Audrey Hepburn, rendered as ASCII art" width="100%">
+
+<b>Audrey Hepburn</b><br><sub>Bud Fraker (Paramount), 1953</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 120 \
+ --pixel-width \
+ 780 -c " ·•●" \
+ --gradient \
+ "#F2E8D5,#F2E8D5" \
+ -o out.svg
+```
+
+<sub>Prep: crop, -level 20%,100% -gamma 1.8 -sigmoidal-contrast 3x40%</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/marilyn-pop-b.svg" alt="Marilyn, pop (aqua), rendered as ASCII art" width="100%">
+
+<b>Marilyn, pop (aqua)</b><br><sub>Frank Powolny, 1953</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 120 \
+ --pixel-width \
+ 840 -c " ·•●" \
+ --gradient \
+ "#00F5D4,#00BBF9" \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, gamma 1.15</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/marilyn-pop-c.svg" alt="Marilyn, pop (pink → violet), rendered as ASCII art" width="100%">
+
+<b>Marilyn, pop (pink → violet)</b><br><sub>Frank Powolny, 1953</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 120 \
+ --pixel-width \
+ 840 -c " ·•●" \
+ --gradient \
+ "#F15BB5,#9B5DE5" \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, gamma 1.15</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/marilyn-monroe.svg" alt="Marilyn Monroe, rendered as ASCII art" width="100%">
+
+<b>Marilyn Monroe</b><br><sub>Frank Powolny (20th Century Fox), 1953</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 130 \
+ --pixel-width \
+ 845 -c " ·•●" \
+ --gradient \
+ "#F2E8D5,#F2E8D5" \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, gamma 1.15</sub>
+
+</td>
+</tr>
+<tr>
+<td width="25%" valign="top">
+<img src="docs/gallery/nikola-tesla.svg" alt="Nikola Tesla, rendered as ASCII art" width="100%">
+
+<b>Nikola Tesla</b><br><sub>Napoleon Sarony, c. 1890</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 100 \
+ --pixel-width \
+ 650 -c " ·•●" \
+ --gradient \
+ "#F2E8D5,#F2E8D5" \
+ -o out.svg
+```
+
+<sub>Prep: crop</sub>
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/migrant-mother.svg" alt="Migrant Mother, rendered as ASCII art" width="100%">
+
+<b>Migrant Mother</b><br><sub>Dorothea Lange, 1936</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 100 \
+ --pixel-width \
+ 840 -c " ·•●" \
+ --gradient \
+ "#F2E8D5,#F2E8D5" \
+ -o out.svg
+```
+
+</td>
+<td width="25%" valign="top">
+<img src="docs/gallery/frida-kahlo.svg" alt="Frida Kahlo, rendered as ASCII art" width="100%">
+
+<b>Frida Kahlo</b><br><sub>Guillermo Kahlo, 1932</sub>
+
+```bash
+ascii-art in.jpg \
+ -m svg -w 100 \
+ --pixel-width \
+ 840 -c " ·•●" \
+ --gradient \
+ "#F2E8D5,#F2E8D5" \
+ -o out.svg
+```
+
+<sub>Prep: auto-level, gamma 1.4, -sigmoidal-contrast 4x50%</sub>
+
+</td>
+<td width="25%"></td>
+</tr>
 </table>
 <!-- /GALLERY:photography -->
 
