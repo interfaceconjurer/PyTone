@@ -14,6 +14,12 @@ _Turn any image into text • Terminal, HTML or SVG • Gradients, rainbows and 
 
 **A small Python CLI that turns images into ASCII art.** Point it at a photo, painting or logo and get plain text, truecolor terminal output, a self-contained HTML page, or a scalable SVG you can drop straight into a README. The hero above was made with it.
 
+**Try it in one line** (needs [uv](#prerequisite-uv)):
+
+```bash
+uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator ascii-art path/to/image.jpg
+```
+
 &nbsp;
 
 ## Table of Contents
@@ -23,7 +29,11 @@ _Turn any image into text • Terminal, HTML or SVG • Gradients, rainbows and 
   - [Old Masters in Light](#old-masters-in-light)
   - [Space](#space)
   - [Iconic Photography](#iconic-photography)
-- [Getting Started](#getting-started)
+- [Install](#install)
+  - [Prerequisite: uv](#prerequisite-uv)
+  - [Try It Without Installing](#try-it-without-installing)
+  - [Install the `ascii-art` Command](#install-the-ascii-art-command)
+  - [Notes for Scripts and AI Agents](#notes-for-scripts-and-ai-agents)
 - [Usage](#usage)
   - [Output Modes](#output-modes)
   - [Character Ramps](#character-ramps)
@@ -124,22 +134,92 @@ Halftone dots in a single ink, `-c " ·•●" --gradient "#F2E8D5,#F2E8D5"`, pl
 
 &nbsp;
 
-## Getting Started
+## Install
 
-Requires Python 3.10+.
+### Prerequisite: uv
+
+[uv](https://docs.astral.sh/uv/) is a fast Python package and tool manager. It also
+downloads Python 3.10+ automatically if it's missing, so you don't need Python first.
+
+Check whether you have it:
 
 ```bash
-# Clone and install into a virtualenv
-git clone https://github.com/interfaceconjurer/ascii-image-generator.git
-cd ascii-image-generator
-uv venv && uv pip install -e .        # or: python -m venv .venv && .venv/bin/pip install -e .
-source .venv/bin/activate
-
-# Try it
-ascii-art path/to/image.jpg
+uv --version
 ```
 
-`python -m ascii_art` works too, if you'd rather not use the entry point.
+If that fails, install uv with **one** of these:
+
+```bash
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+```bash
+# macOS with Homebrew
+brew install uv
+```
+
+```powershell
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Then open a new terminal so `uv` is on your PATH. For other options, see the
+[uv installation docs](https://docs.astral.sh/uv/getting-started/installation/).
+
+### Try It Without Installing
+
+```bash
+uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator ascii-art path/to/image.jpg
+```
+
+uv builds a cached, throwaway environment and runs the tool. Nothing stays installed.
+
+### Install the `ascii-art` Command
+
+```bash
+uv tool install git+https://github.com/interfaceconjurer/ascii-image-generator
+```
+
+Verify:
+
+```bash
+ascii-art --help
+```
+
+If you get `command not found`, run `uv tool update-shell` and open a new terminal.
+
+Upgrade with `uv tool upgrade ascii-art`. Uninstall with `uv tool uninstall ascii-art`.
+
+<details>
+<summary>Without uv (pipx or pip)</summary>
+
+```bash
+pipx install git+https://github.com/interfaceconjurer/ascii-image-generator
+```
+
+```bash
+pip install git+https://github.com/interfaceconjurer/ascii-image-generator
+```
+
+These need Python 3.10+ already installed.
+
+</details>
+
+### Notes for Scripts and AI Agents
+
+- **Command:** `ascii-art <image> [options]`. `python -m ascii_art` is equivalent.
+- **Inputs:** any image Pillow can open (JPEG, PNG, GIF, WebP, …).
+- **Output location:**
+  - `-m color` (default) and `-m plain` print to stdout, or write to `-o FILE`.
+  - `-m html` and `-m svg` always write a file: `-o FILE`, or `./ascii_art.html` /
+    `./ascii_art.svg` in the current directory, overwriting any existing file. They print
+    `Saved HTML to <path>` / `Saved SVG to <path>`.
+- **Color when piped:** `--color-mode auto` (default) drops ANSI escapes when stdout isn't a
+  terminal, so piped or redirected output is clean text.
+- **Exit codes:** `0` success · `1` input file not found or invalid `--gradient` · `2` invalid arguments.
+- **Full options:** `ascii-art --help` or the [Options](#options) table.
+- **Working on the code?** See [Development](#development) and [AGENTS.md](AGENTS.md).
 
 &nbsp;
 
@@ -276,7 +356,10 @@ rows = get_color_data("photo.jpg", width=100, gradient=[(61, 26, 77), (255, 215,
 ## Development
 
 ```bash
+git clone https://github.com/interfaceconjurer/ascii-image-generator.git
+cd ascii-image-generator
 uv venv && uv pip install -e ".[dev]"
+source .venv/bin/activate
 pytest
 ruff check .
 ```
