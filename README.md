@@ -76,221 +76,35 @@ peachpy photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
 
 ## Gallery
 
-Every piece below is a single command, shown under its image.
+Every piece below is a single command, printed under its image. All of a section's commands are in the box under its grid; tap a piece to jump there.
 
 ### Old Masters in Light
 
 Circles grow with brightness, so the painting's light falls in rings of `· ∘ ○ ◯ ●`.
 
 <!-- GALLERY:old-masters -->
-<table>
-<tr>
-<td width="50%" valign="top">
-<img src="docs/gallery/pearl-earring.svg" alt="Girl with a Pearl Earring, rendered as ASCII art" width="100%">
+<p align="left"><a href="#old-masters-commands"><img src="docs/gallery/cards/pearl-earring.svg" alt="Girl with a Pearl Earring, Johannes Vermeer, c. 1665" title="Girl with a Pearl Earring · Johannes Vermeer, c. 1665" width="52.17%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/virgin-annunciate.svg" alt="Virgin Annunciate, Antonello da Messina, c. 1475" title="Virgin Annunciate · Antonello da Messina, c. 1475" width="47.67%"></a><br><a href="#old-masters-commands"><img src="docs/gallery/cards/rembrandt-self-portrait.svg" alt="Self-Portrait, Rembrandt, 1659" title="Self-Portrait · Rembrandt, 1659" width="34.83%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/magdalene-smoking-flame.svg" alt="Magdalene with the Smoking Flame, Georges de La Tour, c. 1640" title="Magdalene with the Smoking Flame · Georges de La Tour, c. 1640" width="32.75%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/mona-lisa.svg" alt="Mona Lisa, Leonardo da Vinci, c. 1503–1519" title="Mona Lisa · Leonardo da Vinci, c. 1503–1519" width="32.1%"></a><br><a href="#old-masters-commands"><img src="docs/gallery/cards/lady-with-an-ermine.svg" alt="Lady with an Ermine, Leonardo da Vinci, c. 1490" title="Lady with an Ermine · Leonardo da Vinci, c. 1490" width="32.69%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/man-in-a-red-turban.svg" alt="Portrait of a Man (Self-Portrait?), Jan van Eyck, 1433" title="Portrait of a Man (Self-Portrait?) · Jan van Eyck, 1433" width="32.45%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/david-goliath.svg" alt="David with the Head of Goliath, Caravaggio, 1610" title="David with the Head of Goliath · Caravaggio, 1610" width="34.54%"></a></p>
 
-<b>Girl with a Pearl Earring</b><br><sub>Johannes Vermeer, c. 1665</sub>
+<a id="old-masters-commands"></a>
 
 ```bash
-peachpy pearl-earring.jpg -m svg -w 110 \
-  --pixel-width 715 -c " ·∘○◯●" -s 1.4 \
-  -b 1.9 -o pearl-earring.svg
+# Girl with a Pearl Earring
+peachpy pearl-earring.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o pearl-earring.svg
+# Virgin Annunciate   (prep: auto-level, -level 10%,100%, gamma 1.3)
+peachpy virgin-annunciate.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o virgin-annunciate.svg
+# Self-Portrait   (prep: auto-level, gamma 1.2)
+peachpy rembrandt-self-portrait.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o rembrandt-self-portrait.svg
+# Magdalene with the Smoking Flame   (prep: auto-level, gamma 1.5)
+peachpy magdalene-smoking-flame.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o magdalene-smoking-flame.svg
+# Mona Lisa   (prep: auto-level, gamma 1.3)
+peachpy mona-lisa.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o mona-lisa.svg
+# Lady with an Ermine   (prep: auto-level, gamma 1.2)
+peachpy lady-with-an-ermine.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o lady-with-an-ermine.svg
+# Portrait of a Man (Self-Portrait?)   (prep: auto-level, gamma 1.2)
+peachpy man-in-a-red-turban.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o man-in-a-red-turban.svg
+# David with the Head of Goliath
+peachpy david-goliath.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o david-goliath.svg
 ```
-
-</td>
-<td width="50%" valign="top">
-<img src="docs/gallery/rembrandt-self-portrait.svg" alt="Self-Portrait, rendered as ASCII art" width="100%">
-
-<b>Self-Portrait</b><br><sub>Rembrandt, 1659</sub>
-
-```bash
-peachpy rembrandt-self-portrait.jpg \
-  -m svg -w 110 --pixel-width 715 \
-  -c " ·∘○◯●" -s 1.4 -b 1.9 \
-  -o rembrandt-self-portrait.svg
-```
-
-<sub>Prep: auto-level, gamma 1.2</sub>
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%" valign="top">
-<img src="docs/gallery/magdalene-smoking-flame.svg" alt="Magdalene with the Smoking Flame, rendered as ASCII art" width="100%">
-
-<b>Magdalene with the Smoking Flame</b><br><sub>Georges de La Tour, c. 1640</sub>
-
-```bash
-peachpy magdalene-smoking-flame.jpg \
-  -m svg -w 110 --pixel-width 715 \
-  -c " ·∘○◯●" -s 1.4 -b 1.9 \
-  -o magdalene-smoking-flame.svg
-```
-
-<sub>Prep: auto-level, gamma 1.5</sub>
-
-</td>
-<td width="50%" valign="top">
-<img src="docs/gallery/virgin-annunciate.svg" alt="Virgin Annunciate, rendered as ASCII art" width="100%">
-
-<b>Virgin Annunciate</b><br><sub>Antonello da Messina, c. 1475</sub>
-
-```bash
-peachpy virgin-annunciate.jpg -m svg \
-  -w 110 --pixel-width 715 -c " ·∘○◯●" \
-  -s 1.4 -b 1.9 -o virgin-annunciate.svg
-```
-
-<sub>Prep: auto-level, -level 10%,100%, gamma 1.3</sub>
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%" valign="top">
-<img src="docs/gallery/mona-lisa.svg" alt="Mona Lisa, rendered as ASCII art" width="100%">
-
-<b>Mona Lisa</b><br><sub>Leonardo da Vinci, c. 1503–1519</sub>
-
-```bash
-peachpy mona-lisa.jpg -m svg -w 110 \
-  --pixel-width 715 -c " ·∘○◯●" -s 1.4 \
-  -b 1.9 -o mona-lisa.svg
-```
-
-<sub>Prep: auto-level, gamma 1.3</sub>
-
-</td>
-<td width="50%" valign="top">
-<img src="docs/gallery/starry-night.svg" alt="The Starry Night, rendered as ASCII art" width="100%">
-
-<b>The Starry Night</b><br><sub>Vincent van Gogh, 1889</sub>
-
-```bash
-peachpy starry-night.jpg -m svg -w 110 \
-  --pixel-width 715 -c " ·∘○◯●" -s 1.4 \
-  -b 1.9 -o starry-night.svg
-```
-
-</td>
-</tr>
-</table>
-
-<sub>More from this section.</sub>
-
-<table>
-<tr>
-<td width="25%" valign="top">
-<img src="docs/gallery/great-wave.svg" alt="The Great Wave off Kanagawa, rendered as ASCII art" width="100%">
-
-<b>The Great Wave off Kanagawa</b><br><sub>Katsushika Hokusai, c. 1831</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 110 \
- --pixel-width \
- 715 -c " ·∘○◯●" \
- -s 1.6 -b 1.2 \
- -o out.svg
-```
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/medusa.svg" alt="Medusa, rendered as ASCII art" width="100%">
-
-<b>Medusa</b><br><sub>Caravaggio, c. 1597</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 110 \
- --pixel-width \
- 715 -c " ·∘○◯●" \
- -s 1.4 -b 1.9 \
- -o out.svg
-```
-
-<sub>Prep: auto-level, gamma 1.2</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/david-goliath.svg" alt="David with the Head of Goliath, rendered as ASCII art" width="100%">
-
-<b>David with the Head of Goliath</b><br><sub>Caravaggio, 1610</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 110 \
- --pixel-width \
- 715 -c " ·∘○◯●" \
- -s 1.4 -b 1.9 \
- -o out.svg
-```
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/lady-with-an-ermine.svg" alt="Lady with an Ermine, rendered as ASCII art" width="100%">
-
-<b>Lady with an Ermine</b><br><sub>Leonardo da Vinci, c. 1490</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 110 \
- --pixel-width \
- 715 -c " ·∘○◯●" \
- -s 1.4 -b 1.9 \
- -o out.svg
-```
-
-<sub>Prep: auto-level, gamma 1.2</sub>
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="25%" valign="top">
-<img src="docs/gallery/man-in-a-red-turban.svg" alt="Portrait of a Man (Self-Portrait?), rendered as ASCII art" width="100%">
-
-<b>Portrait of a Man (Self-Portrait?)</b><br><sub>Jan van Eyck, 1433</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 110 \
- --pixel-width \
- 715 -c " ·∘○◯●" \
- -s 1.4 -b 1.9 \
- -o out.svg
-```
-
-<sub>Prep: auto-level, gamma 1.2</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/christ-crucified.svg" alt="Christ Crucified, rendered as ASCII art" width="100%">
-
-<b>Christ Crucified</b><br><sub>Diego Velázquez, c. 1632</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 110 \
- --pixel-width \
- 715 -c " ·∘○◯●" \
- -s 1.4 -b 1.9 \
- -o out.svg
-```
-
-<sub>Prep: auto-level, -level 8%,100%</sub>
-
-</td>
-<td width="25%"></td>
-<td width="25%"></td>
-</tr>
-</table>
 <!-- /GALLERY:old-masters -->
 
 ### Space
@@ -298,163 +112,34 @@ peachpy in.jpg \
 NASA and ESA imagery. Where it fits, the ramp matches the subject: Saturn in rings, the Moon in moon phases, Jupiter in bands.
 
 <!-- GALLERY:space -->
-<table>
-<tr>
-<td width="50%" valign="top">
-<img src="docs/gallery/whirlpool-galaxy.svg" alt="Whirlpool Galaxy (M51), rendered as ASCII art" width="100%">
+<p align="left"><a href="#space-commands"><img src="docs/gallery/cards/whirlpool-galaxy.svg" alt="Whirlpool Galaxy (M51), NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team" title="Whirlpool Galaxy (M51) · NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team" width="49.98%"></a><a href="#space-commands"><img src="docs/gallery/cards/ring-nebula.svg" alt="Ring Nebula (M57), JWST, NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson" title="Ring Nebula (M57), JWST · NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson" width="49.86%"></a><br><a href="#space-commands"><img src="docs/gallery/cards/saturn.svg" alt="Saturn in rings, NASA/JPL/Space Science Institute (Cassini), 2008" title="Saturn in rings · NASA/JPL/Space Science Institute (Cassini), 2008" width="39.26%"></a><a href="#space-commands"><img src="docs/gallery/cards/moon.svg" alt="The Moon, in moon phases, Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)" title="The Moon, in moon phases · Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)" width="29.63%"></a><a href="#space-commands"><img src="docs/gallery/cards/pleiades.svg" alt="The Pleiades, in stars, NASA, ESA, AURA/Caltech, Palomar Observatory" title="The Pleiades, in stars · NASA, ESA, AURA/Caltech, Palomar Observatory" width="30.8%"></a><br><a href="#space-commands"><img src="docs/gallery/cards/jupiter.svg" alt="Jupiter, in cloud bands, NASA, ESA, A. Simon (GSFC), OPAL, 2024" title="Jupiter, in cloud bands · NASA, ESA, A. Simon (GSFC), OPAL, 2024" width="33.67%"></a><a href="#space-commands"><img src="docs/gallery/cards/sun.svg" alt="The Sun, SDO/AIA, NASA/GSFC/SDO, Oct 2014" title="The Sun, SDO/AIA · NASA/GSFC/SDO, Oct 2014" width="33.67%"></a><a href="#space-commands"><img src="docs/gallery/cards/blue-marble.svg" alt="The Blue Marble, NASA / Apollo 17 crew, 1972" title="The Blue Marble · NASA / Apollo 17 crew, 1972" width="32.34%"></a><br><a href="#space-commands"><img src="docs/gallery/cards/helix-nebula.svg" alt="Helix Nebula (NGC 7293), NASA, ESA, C.R. O'Dell (Vanderbilt)" title="Helix Nebula (NGC 7293) · NASA, ESA, C.R. O'Dell (Vanderbilt)" width="32.28%"></a><a href="#space-commands"><img src="docs/gallery/cards/m87.svg" alt="M87* black hole, in rings, Event Horizon Telescope Collaboration, 2019" title="M87* black hole, in rings · Event Horizon Telescope Collaboration, 2019" width="33.8%"></a><a href="#space-commands"><img src="docs/gallery/cards/pluto.svg" alt="Pluto, NASA/JHUAPL/SwRI (New Horizons), 2015" title="Pluto · NASA/JHUAPL/SwRI (New Horizons), 2015" width="33.61%"></a></p>
 
-<b>Whirlpool Galaxy (M51)</b><br><sub>NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team</sub>
+<a id="space-commands"></a>
 
 ```bash
-peachpy whirlpool-galaxy.jpg -m svg \
-  -w 130 --pixel-width 715 -c " ·∘○◯●" \
-  -s 1.6 -b 1.4 -o whirlpool-galaxy.svg
+# Whirlpool Galaxy (M51)   (prep: -level 12%,100% -clahe 25x25%+128+3 -sigmoidal-contrast 4x45%)
+peachpy whirlpool-galaxy.jpg -m svg -w 130 --pixel-width 715 -c " ·∘○◯●" -s 1.6 -b 1.4 -o whirlpool-galaxy.svg
+# Ring Nebula (M57), JWST   (prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%)
+peachpy ring-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o ring-nebula.svg
+# Saturn in rings
+peachpy saturn.jpg -m svg -w 160 --pixel-width 800 -c " ·∘○◯" -s 1.4 -b 1.5 -o saturn.svg
+# The Moon, in moon phases   (prep: CGI lit sphere; 1.19× wide for emoji)
+peachpy moon.jpg -m svg -w 108 --pixel-width 1188 -c " 🌑🌒🌓🌔🌕" -o moon.svg
+# The Pleiades, in stars   (prep: crop, -level 10%,100%, gamma 1.3)
+peachpy pleiades.jpg -m svg -w 130 --pixel-width 845 -c "  ·∘+✦★" -s 1.7 -b 2.0 -o pleiades.svg
+# Jupiter, in cloud bands   (prep: -modulate 100,220 -sigmoidal-contrast 7x50%)
+peachpy jupiter.jpg -m svg -w 120 --pixel-width 720 -c " -=≡" -s 1.8 -b 1.6 -o jupiter.svg
+# The Sun, SDO/AIA   (prep: auto-level, gamma 2.2)
+peachpy sun.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.8 -o sun.svg
+# The Blue Marble   (prep: -sigmoidal-contrast 3x50%)
+peachpy blue-marble.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.4 -o blue-marble.svg
+# Helix Nebula (NGC 7293)   (prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%)
+peachpy helix-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o helix-nebula.svg
+# M87* black hole, in rings   (prep: center crop, gamma 1.2)
+peachpy m87.jpg -m svg -w 100 --pixel-width 650 -c " ·∘○◎◉" -s 1.3 -b 1.5 -o m87.svg
+# Pluto   (prep: -sigmoidal-contrast 4x55% -level 8%,100%, gamma 0.9)
+peachpy pluto.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.4 -b 1.3 -o pluto.svg
 ```
-
-<sub>Prep: -level 12%,100% -clahe 25x25%+128+3 -sigmoidal-contrast 4x45%</sub>
-
-</td>
-<td width="50%" valign="top">
-<img src="docs/gallery/ring-nebula.svg" alt="Ring Nebula (M57), JWST, rendered as ASCII art" width="100%">
-
-<b>Ring Nebula (M57), JWST</b><br><sub>NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson</sub>
-
-```bash
-peachpy ring-nebula.jpg -m svg -w 120 \
-  --pixel-width 720 -c " ·∘○◯●" -s 1.5 \
-  -b 1.5 -o ring-nebula.svg
-```
-
-<sub>Prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%</sub>
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%" valign="top">
-<img src="docs/gallery/sun.svg" alt="The Sun, SDO/AIA, rendered as ASCII art" width="100%">
-
-<b>The Sun, SDO/AIA</b><br><sub>NASA/GSFC/SDO, Oct 2014</sub>
-
-```bash
-peachpy sun.jpg -m svg -w 120 \
-  --pixel-width 720 -c " ·∘○◯●" -s 1.5 \
-  -b 1.8 -o sun.svg
-```
-
-<sub>Prep: auto-level, gamma 2.2</sub>
-
-</td>
-<td width="50%" valign="top">
-<img src="docs/gallery/pleiades.svg" alt="The Pleiades, in stars, rendered as ASCII art" width="100%">
-
-<b>The Pleiades, in stars</b><br><sub>NASA, ESA, AURA/Caltech, Palomar Observatory</sub>
-
-```bash
-peachpy pleiades.jpg -m svg -w 130 \
-  --pixel-width 845 -c "  ·∘+✦★" -s 1.7 \
-  -b 2.0 -o pleiades.svg
-```
-
-<sub>Prep: crop, -level 10%,100%, gamma 1.3</sub>
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="460" valign="top">
-<img src="docs/gallery/saturn.svg" alt="Saturn in rings, rendered as ASCII art" width="100%">
-
-<b>Saturn in rings</b><br><sub>NASA/JPL/Space Science Institute (Cassini), 2008</sub>
-
-```bash
-peachpy saturn.jpg -m svg -w 160 \
-  --pixel-width 800 -c " ·∘○◯" -s 1.4 \
-  -b 1.5 -o saturn.svg
-```
-
-</td>
-</tr>
-</table>
-
-<sub>More from this section.</sub>
-
-<table>
-<tr>
-<td width="25%" valign="top">
-<img src="docs/gallery/moon.svg" alt="The Moon, in moon phases, rendered as ASCII art" width="100%">
-
-<b>The Moon, in moon phases</b><br><sub>Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 108 \
- --pixel-width \
- 1188 \
- -c " 🌑🌒🌓🌔🌕" \
- -o out.svg
-```
-
-<sub>Prep: CGI lit sphere; 1.19× wide for emoji</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/jupiter.svg" alt="Jupiter, in cloud bands, rendered as ASCII art" width="100%">
-
-<b>Jupiter, in cloud bands</b><br><sub>NASA, ESA, A. Simon (GSFC), OPAL, 2024</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 120 \
- --pixel-width \
- 720 -c " -=≡" \
- -s 1.8 -b 1.6 \
- -o out.svg
-```
-
-<sub>Prep: -modulate 100,220 -sigmoidal-contrast 7x50%</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/blue-marble.svg" alt="The Blue Marble, rendered as ASCII art" width="100%">
-
-<b>The Blue Marble</b><br><sub>NASA / Apollo 17 crew, 1972</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 120 \
- --pixel-width \
- 720 -c " ·∘○◯●" \
- -s 1.5 -b 1.4 \
- -o out.svg
-```
-
-<sub>Prep: -sigmoidal-contrast 3x50%</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/helix-nebula.svg" alt="Helix Nebula (NGC 7293), rendered as ASCII art" width="100%">
-
-<b>Helix Nebula (NGC 7293)</b><br><sub>NASA, ESA, C.R. O'Dell (Vanderbilt)</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 120 \
- --pixel-width \
- 720 -c " ·∘○◯●" \
- -s 1.5 -b 1.5 \
- -o out.svg
-```
-
-<sub>Prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%</sub>
-
-</td>
-</tr>
-</table>
 <!-- /GALLERY:space -->
 
 ### Iconic Photography
@@ -462,291 +147,34 @@ peachpy in.jpg \
 Halftone dots in a single ink, `-c " ·•●" --gradient "#F2E8D5,#F2E8D5"`, plus pop-art color variants.
 
 <!-- GALLERY:photography -->
-<table>
-<tr>
-<td width="50%" valign="top">
-<img src="docs/gallery/marilyn-pop-a.svg" alt="Marilyn, pop (yellow → magenta), rendered as ASCII art" width="100%">
+<p align="left"><a href="#photography-commands"><img src="docs/gallery/cards/baldwin-iv.svg" alt="Baldwin IV, the Leper King, Film still, Kingdom of Heaven (2005)" title="Baldwin IV, the Leper King · Film still, Kingdom of Heaven (2005)" width="53.0%"></a><a href="#photography-commands"><img src="docs/gallery/cards/migrant-mother.svg" alt="Migrant Mother, Dorothea Lange, 1936" title="Migrant Mother · Dorothea Lange, 1936" width="46.84%"></a><br><a href="#photography-commands"><img src="docs/gallery/cards/abraham-lincoln.svg" alt="Abraham Lincoln, Alexander Gardner, 1863" title="Abraham Lincoln · Alexander Gardner, 1863" width="33.29%"></a><a href="#photography-commands"><img src="docs/gallery/cards/billie-holiday.svg" alt="Billie Holiday, William P. Gottlieb, c. 1947" title="Billie Holiday · William P. Gottlieb, c. 1947" width="33.17%"></a><a href="#photography-commands"><img src="docs/gallery/cards/audrey-hepburn.svg" alt="Audrey Hepburn, Bud Fraker (Paramount), 1953" title="Audrey Hepburn · Bud Fraker (Paramount), 1953" width="33.23%"></a><br><a href="#photography-commands"><img src="docs/gallery/cards/einstein-pop.svg" alt="Einstein, pop (magenta → amber), Orren Jack Turner, 1947" title="Einstein, pop (magenta → amber) · Orren Jack Turner, 1947" width="33.25%"></a><a href="#photography-commands"><img src="docs/gallery/cards/muhammad-ali.svg" alt="Muhammad Ali, Ira Rosenberg (NYWTS), 1967" title="Muhammad Ali · Ira Rosenberg (NYWTS), 1967" width="33.25%"></a><a href="#photography-commands"><img src="docs/gallery/cards/greta-garbo.svg" alt="Greta Garbo, Clarence Sinclair Bull, 1931" title="Greta Garbo · Clarence Sinclair Bull, 1931" width="33.18%"></a><br><a href="#photography-commands"><img src="docs/gallery/cards/nikola-tesla.svg" alt="Nikola Tesla, Napoleon Sarony, c. 1890" title="Nikola Tesla · Napoleon Sarony, c. 1890" width="34.52%"></a><a href="#photography-commands"><img src="docs/gallery/cards/frida-kahlo.svg" alt="Frida Kahlo, Guillermo Kahlo, 1932" title="Frida Kahlo · Guillermo Kahlo, 1932" width="30.49%"></a><a href="#photography-commands"><img src="docs/gallery/cards/marilyn-pop-a.svg" alt="Marilyn, pop (yellow → magenta), Frank Powolny, 1953" title="Marilyn, pop (yellow → magenta) · Frank Powolny, 1953" width="34.68%"></a></p>
 
-<b>Marilyn, pop (yellow → magenta)</b><br><sub>Frank Powolny, 1953</sub>
+<a id="photography-commands"></a>
 
 ```bash
-peachpy marilyn-pop-a.jpg -m svg -w 120 \
-  --pixel-width 840 -c " ·•●" \
-  --gradient "#FFD60A,#FF006E" \
-  -o marilyn-pop-a.svg
+# Baldwin IV, the Leper King   (prep: crop to figure, -clahe 12x12%+128+3 -level 10%,100%)
+peachpy baldwin-iv.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" -s 1.4 -b 1.15 -o baldwin-iv.svg
+# Migrant Mother
+peachpy migrant-mother.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o migrant-mother.svg
+# Abraham Lincoln   (prep: crop, -level 10%,100% -gamma 1.2 -sigmoidal-contrast 3x45%)
+peachpy abraham-lincoln.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o abraham-lincoln.svg
+# Billie Holiday   (prep: crop)
+peachpy billie-holiday.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o billie-holiday.svg
+# Audrey Hepburn   (prep: crop, -level 20%,100% -gamma 1.8 -sigmoidal-contrast 3x40%)
+peachpy audrey-hepburn.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o audrey-hepburn.svg
+# Einstein, pop (magenta → amber)   (prep: same prep as Einstein)
+peachpy einstein-pop.jpg -m svg -w 110 --pixel-width 770 -c " ·•●" --gradient "#FF006E,#FFBE0B" -o einstein-pop.svg
+# Muhammad Ali   (prep: crop, -sigmoidal-contrast 3x50%)
+peachpy muhammad-ali.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o muhammad-ali.svg
+# Greta Garbo   (prep: crop, -level 15%,100%)
+peachpy greta-garbo.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o greta-garbo.svg
+# Nikola Tesla   (prep: crop)
+peachpy nikola-tesla.jpg -m svg -w 100 --pixel-width 650 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o nikola-tesla.svg
+# Frida Kahlo   (prep: auto-level, gamma 1.4, -sigmoidal-contrast 4x50%)
+peachpy frida-kahlo.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o frida-kahlo.svg
+# Marilyn, pop (yellow → magenta)   (prep: auto-level, gamma 1.15)
+peachpy marilyn-pop-a.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradient "#FFD60A,#FF006E" -o marilyn-pop-a.svg
 ```
-
-<sub>Prep: auto-level, gamma 1.15</sub>
-
-</td>
-<td width="50%" valign="top">
-<img src="docs/gallery/einstein-pop.svg" alt="Einstein, pop (magenta → amber), rendered as ASCII art" width="100%">
-
-<b>Einstein, pop (magenta → amber)</b><br><sub>Orren Jack Turner, 1947</sub>
-
-```bash
-peachpy einstein-pop.jpg -m svg -w 110 \
-  --pixel-width 770 -c " ·•●" \
-  --gradient "#FF006E,#FFBE0B" \
-  -o einstein-pop.svg
-```
-
-<sub>Prep: same prep as Einstein</sub>
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%" valign="top">
-<img src="docs/gallery/migrant-mother.svg" alt="Migrant Mother, rendered as ASCII art" width="100%">
-
-<b>Migrant Mother</b><br><sub>Dorothea Lange, 1936</sub>
-
-```bash
-peachpy migrant-mother.jpg -m svg -w 100 \
-  --pixel-width 840 -c " ·•●" \
-  --gradient "#F2E8D5,#F2E8D5" \
-  -o migrant-mother.svg
-```
-
-</td>
-<td width="50%" valign="top">
-<img src="docs/gallery/audrey-hepburn.svg" alt="Audrey Hepburn, rendered as ASCII art" width="100%">
-
-<b>Audrey Hepburn</b><br><sub>Bud Fraker (Paramount), 1953</sub>
-
-```bash
-peachpy audrey-hepburn.jpg -m svg -w 120 \
-  --pixel-width 780 -c " ·•●" \
-  --gradient "#F2E8D5,#F2E8D5" \
-  -o audrey-hepburn.svg
-```
-
-<sub>Prep: crop, -level 20%,100% -gamma 1.8 -sigmoidal-contrast 3x40%</sub>
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="460" valign="top">
-<img src="docs/gallery/baldwin-iv.svg" alt="Baldwin IV, the Leper King, rendered as ASCII art" width="100%">
-
-<b>Baldwin IV, the Leper King</b><br><sub>Film still, Kingdom of Heaven (2005)</sub>
-
-```bash
-peachpy baldwin-iv.jpg -m svg -w 130 \
-  --pixel-width 845 -c " ·•●" -s 1.4 \
-  -b 1.15 -o baldwin-iv.svg
-```
-
-<sub>Prep: crop to figure, -clahe 12x12%+128+3 -level 10%,100%</sub>
-
-</td>
-</tr>
-</table>
-
-<sub>More from this section.</sub>
-
-<table>
-<tr>
-<td width="25%" valign="top">
-<img src="docs/gallery/albert-einstein.svg" alt="Albert Einstein, rendered as ASCII art" width="100%">
-
-<b>Albert Einstein</b><br><sub>Orren Jack Turner, 1947</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 110 \
- --pixel-width \
- 715 -c " ·•●" \
- --gradient \
- "#F2E8D5,#F2E8D5" \
- -o out.svg
-```
-
-<sub>Prep: crop, -level 12%,100% -gamma 1.5 -sigmoidal-contrast 3x40%</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/abraham-lincoln.svg" alt="Abraham Lincoln, rendered as ASCII art" width="100%">
-
-<b>Abraham Lincoln</b><br><sub>Alexander Gardner, 1863</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 110 \
- --pixel-width \
- 715 -c " ·•●" \
- --gradient \
- "#F2E8D5,#F2E8D5" \
- -o out.svg
-```
-
-<sub>Prep: crop, -level 10%,100% -gamma 1.2 -sigmoidal-contrast 3x45%</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/muhammad-ali.svg" alt="Muhammad Ali, rendered as ASCII art" width="100%">
-
-<b>Muhammad Ali</b><br><sub>Ira Rosenberg (NYWTS), 1967</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 110 \
- --pixel-width \
- 715 -c " ·•●" \
- --gradient \
- "#F2E8D5,#F2E8D5" \
- -o out.svg
-```
-
-<sub>Prep: crop, -sigmoidal-contrast 3x50%</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/greta-garbo.svg" alt="Greta Garbo, rendered as ASCII art" width="100%">
-
-<b>Greta Garbo</b><br><sub>Clarence Sinclair Bull, 1931</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 120 \
- --pixel-width \
- 780 -c " ·•●" \
- --gradient \
- "#F2E8D5,#F2E8D5" \
- -o out.svg
-```
-
-<sub>Prep: crop, -level 15%,100%</sub>
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="25%" valign="top">
-<img src="docs/gallery/marilyn-pop-b.svg" alt="Marilyn, pop (aqua), rendered as ASCII art" width="100%">
-
-<b>Marilyn, pop (aqua)</b><br><sub>Frank Powolny, 1953</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 120 \
- --pixel-width \
- 840 -c " ·•●" \
- --gradient \
- "#00F5D4,#00BBF9" \
- -o out.svg
-```
-
-<sub>Prep: auto-level, gamma 1.15</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/marilyn-pop-c.svg" alt="Marilyn, pop (pink → violet), rendered as ASCII art" width="100%">
-
-<b>Marilyn, pop (pink → violet)</b><br><sub>Frank Powolny, 1953</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 120 \
- --pixel-width \
- 840 -c " ·•●" \
- --gradient \
- "#F15BB5,#9B5DE5" \
- -o out.svg
-```
-
-<sub>Prep: auto-level, gamma 1.15</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/marilyn-monroe.svg" alt="Marilyn Monroe, rendered as ASCII art" width="100%">
-
-<b>Marilyn Monroe</b><br><sub>Frank Powolny (20th Century Fox), 1953</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 130 \
- --pixel-width \
- 845 -c " ·•●" \
- --gradient \
- "#F2E8D5,#F2E8D5" \
- -o out.svg
-```
-
-<sub>Prep: auto-level, gamma 1.15</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/billie-holiday.svg" alt="Billie Holiday, rendered as ASCII art" width="100%">
-
-<b>Billie Holiday</b><br><sub>William P. Gottlieb, c. 1947</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 130 \
- --pixel-width \
- 845 -c " ·•●" \
- --gradient \
- "#F2E8D5,#F2E8D5" \
- -o out.svg
-```
-
-<sub>Prep: crop</sub>
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="25%" valign="top">
-<img src="docs/gallery/nikola-tesla.svg" alt="Nikola Tesla, rendered as ASCII art" width="100%">
-
-<b>Nikola Tesla</b><br><sub>Napoleon Sarony, c. 1890</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 100 \
- --pixel-width \
- 650 -c " ·•●" \
- --gradient \
- "#F2E8D5,#F2E8D5" \
- -o out.svg
-```
-
-<sub>Prep: crop</sub>
-
-</td>
-<td width="25%" valign="top">
-<img src="docs/gallery/frida-kahlo.svg" alt="Frida Kahlo, rendered as ASCII art" width="100%">
-
-<b>Frida Kahlo</b><br><sub>Guillermo Kahlo, 1932</sub>
-
-```bash
-peachpy in.jpg \
- -m svg -w 100 \
- --pixel-width \
- 840 -c " ·•●" \
- --gradient \
- "#F2E8D5,#F2E8D5" \
- -o out.svg
-```
-
-<sub>Prep: auto-level, gamma 1.4, -sigmoidal-contrast 4x50%</sub>
-
-</td>
-<td width="25%"></td>
-<td width="25%"></td>
-</tr>
-</table>
 <!-- /GALLERY:photography -->
 
 &nbsp;
@@ -1001,12 +429,8 @@ ruff check .
 | Lady with an Ermine | Leonardo da Vinci, c. 1490 | [source](https://commons.wikimedia.org/wiki/File:Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg) | Public domain |
 | Portrait of a Man (Self-Portrait?) | Jan van Eyck, 1433 | [source](https://commons.wikimedia.org/wiki/File:Portrait_of_a_Man_in_a_Turban_%28Jan_van_Eyck%29.jpg) | Public domain |
 | Magdalene with the Smoking Flame | Georges de La Tour, c. 1640 | [source](https://commons.wikimedia.org/wiki/File:Georges_de_La_Tour_007.jpg) | Public domain |
-| Medusa | Caravaggio, c. 1597 | [source](https://commons.wikimedia.org/wiki/File:Caravaggio_-_Medusa_Uffizi_-_High_quality.jpg) | CC0 |
 | Self-Portrait | Rembrandt, 1659 | [source](https://commons.wikimedia.org/wiki/File:Rembrandt_self_portrait.jpg) | Public domain |
 | Mona Lisa | Leonardo da Vinci, c. 1503–1519 | [source](https://commons.wikimedia.org/wiki/File:Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg) | Public domain |
-| The Great Wave off Kanagawa | Katsushika Hokusai, c. 1831 | [source](https://www.metmuseum.org/art/collection/search/39799) | CC0 (The Met Open Access) |
-| The Starry Night | Vincent van Gogh, 1889 | [source](https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg) | Public domain |
-| Christ Crucified | Diego Velázquez, c. 1632 | [source](https://commons.wikimedia.org/wiki/File:Cristo_crucificado.jpg) | Public domain |
 | David with the Head of Goliath | Caravaggio, 1610 | [source](https://commons.wikimedia.org/wiki/File:David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg) | Public domain |
 | Virgin Annunciate | Antonello da Messina, c. 1475 | [source](https://commons.wikimedia.org/wiki/File:Antonello_da_Messina_-_Virgin_Annunciate_-_Galleria_Regionale_della_Sicilia%2C_Palermo.jpg) | Public domain |
 | Saturn in rings | NASA/JPL/Space Science Institute (Cassini), 2008 | [source](https://commons.wikimedia.org/wiki/File:Saturn_during_Equinox.jpg) | Public domain |
@@ -1018,13 +442,11 @@ ruff check .
 | The Blue Marble | NASA / Apollo 17 crew, 1972 | [source](https://commons.wikimedia.org/wiki/File:The_Blue_Marble_%28remastered%29.jpg) | Public domain |
 | Helix Nebula (NGC 7293) | NASA, ESA, C.R. O'Dell (Vanderbilt) | [source](https://commons.wikimedia.org/wiki/File:NGC7293_%282004%29.jpg) | Public domain |
 | The Pleiades, in stars | NASA, ESA, AURA/Caltech, Palomar Observatory | [source](https://commons.wikimedia.org/wiki/File:Pleiades_large.jpg) | Public domain |
-| Marilyn Monroe | Frank Powolny (20th Century Fox), 1953 | [source](https://commons.wikimedia.org/wiki/File:Monroe_1953_publicity_%28cropped%29.jpg) | Public domain |
+| M87* black hole, in rings | Event Horizon Telescope Collaboration, 2019 | [source](https://commons.wikimedia.org/wiki/File:Black_hole_-_Messier_87_crop_max_res.jpg) | CC BY 4.0 (credit: EHT Collaboration) |
+| Pluto | NASA/JHUAPL/SwRI (New Horizons), 2015 | [source](https://commons.wikimedia.org/wiki/File:Pluto_in_True_Color_-_High-Res.jpg) | Public domain |
 | Marilyn, pop (yellow → magenta) | Frank Powolny, 1953 | [source](https://commons.wikimedia.org/wiki/File:Monroe_1953_publicity_%28cropped%29.jpg) | Public domain |
-| Marilyn, pop (aqua) | Frank Powolny, 1953 | [source](https://commons.wikimedia.org/wiki/File:Monroe_1953_publicity_%28cropped%29.jpg) | Public domain |
-| Marilyn, pop (pink → violet) | Frank Powolny, 1953 | [source](https://commons.wikimedia.org/wiki/File:Monroe_1953_publicity_%28cropped%29.jpg) | Public domain |
 | Migrant Mother | Dorothea Lange, 1936 | [source](https://commons.wikimedia.org/wiki/File:Lange-MigrantMother02.jpg) | Public domain |
 | Frida Kahlo | Guillermo Kahlo, 1932 | [source](https://commons.wikimedia.org/wiki/File:Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg) | Public domain |
-| Albert Einstein | Orren Jack Turner, 1947 | [source](https://commons.wikimedia.org/wiki/File:Albert_Einstein_Head.jpg) | Public domain |
 | Abraham Lincoln | Alexander Gardner, 1863 | [source](https://commons.wikimedia.org/wiki/File:Abraham_Lincoln_O-77_matte_collodion_print.jpg) | Public domain |
 | Billie Holiday | William P. Gottlieb, c. 1947 | [source](https://commons.wikimedia.org/wiki/File:Billie_Holiday_0001_original.jpg) | Public domain |
 | Greta Garbo | Clarence Sinclair Bull, 1931 | [source](https://commons.wikimedia.org/wiki/File:Greta_Garbo_in_1931_by_Clarence_Sinclair_Bull.jpg) | Public domain |
