@@ -1,4 +1,4 @@
-"""Command-line interface for ascii-art."""
+"""Command-line interface for PeachPy (`peachpy`)."""
 
 import argparse
 import sys
@@ -19,7 +19,7 @@ from .svg_output import save_svg
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="ascii-art",
+        prog="peachpy",
         description="Generate ASCII art from images.",
     )
     parser.add_argument("image", type=Path, help="Path to the input image")
@@ -165,7 +165,7 @@ def main(argv: list[str] | None = None) -> int:
             gradient=gradient_colors,
             row_factor=HTML_ROW_FACTOR,
         )
-        output_path = args.output or Path("ascii_art.html")
+        output_path = args.output or Path("peachpy.html")
         save_html(rows, output_path, title=args.image.stem, pixel_width=args.pixel_width)
         print(f"Saved HTML to {output_path}")
 
@@ -181,7 +181,7 @@ def main(argv: list[str] | None = None) -> int:
             gradient=gradient_colors,
             row_factor=SVG_ROW_FACTOR,
         )
-        output_path = args.output or Path("ascii_art.svg")
+        output_path = args.output or Path("peachpy.svg")
         # Calculate char dimensions based on pixel width if provided
         if args.pixel_width and rows:
             char_count = len(rows[0])
