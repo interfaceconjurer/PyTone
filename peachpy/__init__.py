@@ -12,5 +12,5 @@ Usage:
 
 from .core import DEFAULT_CHARS, get_color_data, image_to_ascii
 
-__all__ = ["image_to_ascii", "get_color_data", "DEFAULT_CHARS"]
+__all__ = ["DEFAULT_CHARS", "get_color_data", "image_to_ascii"]
 __version__ = "0.1.0"

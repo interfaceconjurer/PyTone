@@ -8,7 +8,7 @@
 
 </div>
 
-[Python 3.10+](https://www.python.org/downloads/) • [License: MIT](LICENSE) • [Pillow](https://python-pillow.org)
+[Python 3.11+](https://www.python.org/downloads/) • [License: MIT](LICENSE) • [Pillow](https://python-pillow.org)
 
 _Turn any image into text • Terminal, HTML or SVG • Gradients, rainbows and any glyph ramp you like_
 
@@ -186,7 +186,7 @@ peachpy marilyn-pop-a.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradi
 ### Prerequisite: uv
 
 [uv](https://docs.astral.sh/uv/) is a fast Python package and tool manager. It also
-downloads Python 3.10+ automatically if it's missing, so you don't need Python first.
+downloads Python 3.11+ automatically if it's missing, so you don't need Python first.
 
 Check whether you have it:
 
@@ -249,22 +249,28 @@ pipx install git+https://github.com/interfaceconjurer/ascii-image-generator
 pip install git+https://github.com/interfaceconjurer/ascii-image-generator
 ```
 
-These need Python 3.10+ already installed.
+These need Python 3.11+ already installed.
 
 </details>
 
 ### Notes for Scripts and AI Agents
 
 - **Command:** `peachpy <image> [options]`. `python -m peachpy` is equivalent.
-- **Inputs:** any image Pillow can open (JPEG, PNG, GIF, WebP, …).
+- **Runtime:** Python 3.11+ with Pillow 13.0+ (the dependency floor includes upstream decoder security fixes).
+- **Inputs:** any image Pillow can open (JPEG, PNG, GIF, WebP, …). EXIF orientation is
+  applied; animated images use their first frame. Transparency is composited over black.
 - **Output location:**
   - `-m color` (default) and `-m plain` print to stdout, or write to `-o FILE`.
   - `-m html` and `-m svg` always write a file: `-o FILE`, or `./peachpy.html` /
     `./peachpy.svg` in the current directory, overwriting any existing file. They print
     `Saved HTML to <path>` / `Saved SVG to <path>`.
 - **Color when piped:** `--color-mode auto` (default) drops ANSI escapes when stdout isn't a
-  terminal, so piped or redirected output is clean text.
-- **Exit codes:** `0` success · `1` input file not found or invalid `--gradient` · `2` invalid arguments.
+  terminal. Files written with `-o` also contain clean text unless color is explicitly requested.
+- **File integrity:** output cannot refer to the input image, including symbolic and hard
+  links. Files are replaced atomically after a successful write; failed writes preserve
+  existing output. Parent directories must already exist.
+- **Exit codes:** `0` success · `1` image/file errors, invalid `--gradient`, or a closed
+  stdout pipe · `2` invalid arguments. Expected errors go to stderr without a traceback.
 - **Full options:** `peachpy --help` or the [Options](#options) table.
 - **Working on the code?** See [Development](#development) and [AGENTS.md](AGENTS.md).
 
@@ -395,6 +401,11 @@ rows = get_color_data("photo.jpg", width=100, gradient=[(61, 26, 77), (255, 215,
 - **Transparent PNG areas render black.** Flatten onto a background first if you need white.
 - **`-s` and `-b` don't affect `plain` mode**, which has no color.
 - **Ramps can be any length.** Ramps longer than 256 characters are spread evenly across the gray levels.
+- **Each ramp entry is one Unicode code point.** Wide characters, combining marks and
+  multi-code-point emoji can affect alignment; terminal display widths vary. Empty ramps,
+  control characters and line separators are rejected.
+- **Dimensions must be positive integers.** Saturation and brightness must be finite and
+  nonnegative. `--rainbow` and `--gradient` are mutually exclusive.
 
 &nbsp;
 
@@ -409,7 +420,13 @@ uv venv && uv pip install -e ".[dev]"
 source .venv/bin/activate
 pytest
 ruff check .
+ruff format --check .
+python -m build
 ```
+
+CI checks Python 3.11–3.14, the minimum Pillow version, macOS and Windows, and builds
+and installs the distribution. See [Architecture and engineering review](docs/architecture.md)
+for module responsibilities, regression evidence and known limitations.
 
 &nbsp;
 

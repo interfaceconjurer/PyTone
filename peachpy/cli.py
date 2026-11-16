@@ -1,20 +1,27 @@
 """Command-line interface for PeachPy (`peachpy`)."""
 
 import argparse
+import os
+import re
 import sys
 from pathlib import Path
 
+from PIL import Image
+
 from .color import render_colored
+from .contracts import RGB, character_ramp, finite_number, positive_int
 from .core import (
     DEFAULT_CHARS,
     HTML_ROW_FACTOR,
     SVG_CELL_ASPECT,
     SVG_ROW_FACTOR,
+    TERMINAL_ROW_FACTOR,
     get_color_data,
     image_to_ascii,
 )
-from .html_output import save_html
-from .svg_output import save_svg
+from .html_output import render_html
+from .output import write_text
+from .svg_output import render_svg
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -24,7 +31,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("image", type=Path, help="Path to the input image")
     parser.add_argument(
-        "-w", "--width", type=int, default=120, help="Output width in characters (default: %(default)s)"
+        "-w",
+        "--width",
+        type=int,
+        default=120,
+        help="Output width in characters (default: %(default)s)",
     )
     parser.add_argument(
         "-c",
@@ -64,19 +75,20 @@ def build_parser() -> argparse.ArgumentParser:
         "--pixel-width",
         type=int,
         default=None,
-        help="Output width in pixels for HTML mode (calculates font-size automatically)",
+        help="Output width in pixels for HTML or SVG mode",
     )
     parser.add_argument(
         "--invert",
         action="store_true",
         help="Invert the image colors (black becomes white, white becomes black)",
     )
-    parser.add_argument(
+    effects = parser.add_mutually_exclusive_group()
+    effects.add_argument(
         "--rainbow",
         action="store_true",
         help="Apply rainbow gradient colors instead of original image colors",
     )
-    parser.add_argument(
+    effects.add_argument(
         "--gradient",
         type=str,
         default=None,
@@ -88,109 +100,103 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def parse_gradient(gradient_str: str) -> list[tuple[int, int, int]] | None:
-    """Parse a gradient string like '#FF0000,#0000FF' or '#3D1A4D,#9B59B6,#FFD700' into a list of RGB tuples."""
-    if not gradient_str:
-        return None
-
-    parts = gradient_str.split(',')
+def parse_gradient(gradient_str: str) -> list[RGB]:
+    """Parse two or more comma-separated six-digit hex colors, with optional #."""
+    parts = gradient_str.split(",")
     if len(parts) < 2:
-        raise ValueError(f"Gradient must have at least 2 colors separated by commas (e.g., '#FF0000,#0000FF'), got {len(parts)} part(s)")
+        raise ValueError("gradient must have at least 2 colors separated by commas")
+    colors = []
+    for part in parts:
+        value = part.strip().removeprefix("#")
+        if re.fullmatch(r"[0-9a-fA-F]{6}", value) is None:
+            raise ValueError(f"invalid hex color {part!r}: expected six hex digits")
+        colors.append((int(value[:2], 16), int(value[2:4], 16), int(value[4:], 16)))
+    return colors
 
-    def hex_to_rgb(hex_color: str) -> tuple[int, int, int]:
-        hex_color = hex_color.strip().lstrip('#')
-        if len(hex_color) != 6:
-            raise ValueError(f"Invalid hex color '#{hex_color}' - must be 6 characters")
-        try:
-            return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
-        except ValueError:
-            raise ValueError(f"Invalid hex color '#{hex_color}' - must contain only hex digits (0-9, A-F)")
 
-    return [hex_to_rgb(part) for part in parts]
+def _convert(args: argparse.Namespace, gradient: list[RGB] | None) -> None:
+    output_path = args.output
+    if output_path is None and args.mode in {"html", "svg"}:
+        output_path = Path(f"peachpy.{args.mode}")
+    if output_path is not None and (
+        output_path.resolve() == args.image.resolve()
+        or (output_path.exists() and output_path.samefile(args.image))
+    ):
+        raise ValueError("output path must not refer to the input image")
+
+    if args.mode == "plain":
+        result = image_to_ascii(args.image, width=args.width, chars=args.chars, invert=args.invert)
+    else:
+        row_factors = {"html": HTML_ROW_FACTOR, "svg": SVG_ROW_FACTOR}
+        rows = get_color_data(
+            args.image,
+            width=args.width,
+            chars=args.chars,
+            saturation=args.saturation,
+            brightness=args.brightness,
+            invert=args.invert,
+            rainbow=args.rainbow,
+            gradient=gradient,
+            row_factor=row_factors.get(args.mode, TERMINAL_ROW_FACTOR),
+        )
+        if args.mode == "color":
+            color_mode = args.color_mode
+            if color_mode == "auto":
+                color_mode = "none" if output_path is not None else None
+            result = render_colored(rows, mode=color_mode)
+        elif args.mode == "html":
+            result = render_html(rows, title=args.image.stem, pixel_width=args.pixel_width)
+        else:
+            char_width = args.pixel_width / args.width if args.pixel_width is not None else 10.0
+            result = render_svg(
+                rows,
+                title=args.image.stem,
+                char_width=char_width,
+                char_height=char_width * SVG_CELL_ASPECT,
+            )
+
+    if output_path is None:
+        print(result, flush=True)
+    else:
+        write_text(output_path, result)
+        label = f" {args.mode.upper()}" if args.mode in {"html", "svg"} else ""
+        print(f"Saved{label} to {output_path}", flush=True)
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
 
-    if not args.image.exists():
-        print(f"Error: file not found: {args.image}", file=sys.stderr)
-        return 1
+    try:
+        positive_int(args.width, "width")
+        character_ramp(args.chars)
+        finite_number(args.saturation, "saturation")
+        finite_number(args.brightness, "brightness")
+        if args.pixel_width is not None:
+            positive_int(args.pixel_width, "pixel_width")
+    except ValueError as error:
+        parser.error(str(error))
 
     # Parse and validate gradient parameter
-    gradient_colors = None
-    if args.gradient:
-        try:
-            gradient_colors = parse_gradient(args.gradient)
-        except ValueError as e:
-            print(f"Error: {e}", file=sys.stderr)
-            return 1
-
-    if args.mode == "plain":
-        result = image_to_ascii(args.image, width=args.width, chars=args.chars, invert=args.invert)
-        if args.output:
-            args.output.write_text(result, encoding="utf-8")
-            print(f"Saved to {args.output}")
-        else:
-            print(result)
-
-    elif args.mode == "color":
-        rows = get_color_data(
-            args.image,
-            width=args.width,
-            chars=args.chars,
-            saturation=args.saturation,
-            brightness=args.brightness,
-            invert=args.invert,
-            rainbow=args.rainbow,
-            gradient=gradient_colors,
-        )
-        color_mode = None if args.color_mode == "auto" else args.color_mode
-        result = render_colored(rows, mode=color_mode)
-        if args.output:
-            args.output.write_text(result, encoding="utf-8")
-            print(f"Saved to {args.output}")
-        else:
-            print(result)
-
-    elif args.mode == "html":
-        rows = get_color_data(
-            args.image,
-            width=args.width,
-            chars=args.chars,
-            saturation=args.saturation,
-            brightness=args.brightness,
-            invert=args.invert,
-            rainbow=args.rainbow,
-            gradient=gradient_colors,
-            row_factor=HTML_ROW_FACTOR,
-        )
-        output_path = args.output or Path("peachpy.html")
-        save_html(rows, output_path, title=args.image.stem, pixel_width=args.pixel_width)
-        print(f"Saved HTML to {output_path}")
-
-    elif args.mode == "svg":
-        rows = get_color_data(
-            args.image,
-            width=args.width,
-            chars=args.chars,
-            saturation=args.saturation,
-            brightness=args.brightness,
-            invert=args.invert,
-            rainbow=args.rainbow,
-            gradient=gradient_colors,
-            row_factor=SVG_ROW_FACTOR,
-        )
-        output_path = args.output or Path("peachpy.svg")
-        # Calculate char dimensions based on pixel width if provided
-        if args.pixel_width and rows:
-            char_count = len(rows[0])
-            char_width = args.pixel_width / char_count
-            char_height = char_width * SVG_CELL_ASPECT
-        else:
-            char_width = 10.0
-            char_height = char_width * SVG_CELL_ASPECT
-        save_svg(rows, output_path, title=args.image.stem, char_width=char_width, char_height=char_height)
-        print(f"Saved SVG to {output_path}")
+    try:
+        gradient = parse_gradient(args.gradient) if args.gradient is not None else None
+        _convert(args, gradient)
+    except BrokenPipeError:
+        # Process-level stdout cleanup belongs to entrypoint(), not the library API.
+        raise
+    except (OSError, ValueError, OverflowError, Image.DecompressionBombError) as error:
+        print(f"Error: {error}", file=sys.stderr)
+        return 1
 
     return 0
+
+
+def entrypoint() -> int:
+    """Run the process CLI, including clean shutdown when a pipe reader exits."""
+    try:
+        return main()
+    except BrokenPipeError:
+        # Prevent Python from retrying the failed stdout flush during shutdown.
+        with open(os.devnull, "w") as sink:
+            os.dup2(sink.fileno(), sys.stdout.fileno())
+        return 1

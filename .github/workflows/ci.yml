@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: "3.11"
+            pillow: "Pillow==13.0.0"
+          - os: ubuntu-latest
+            python: "3.12"
+            pillow: "Pillow"
+          - os: ubuntu-latest
+            python: "3.13"
+            pillow: "Pillow"
+          - os: ubuntu-latest
+            python: "3.14"
+            pillow: "Pillow"
+          - os: macos-latest
+            python: "3.12"
+            pillow: "Pillow"
+          - os: windows-latest
+            python: "3.12"
+            pillow: "Pillow"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install ".[dev]" "${{ matrix.pillow }}"
+      - run: python -m pytest -W error
+      - run: python -m ruff check .
+      - run: python -m ruff format --check .
+
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install build
+      - run: python -m build
+      - run: python -m venv /tmp/peachpy-wheel
+      - run: /tmp/peachpy-wheel/bin/python -m pip install dist/*.whl
+      - run: /tmp/peachpy-wheel/bin/peachpy --help
+        working-directory: /tmp
+      - run: /tmp/peachpy-wheel/bin/python -m peachpy --help
+        working-directory: /tmp
