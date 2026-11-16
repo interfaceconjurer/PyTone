@@ -76,78 +76,35 @@ peachpy photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
 
 ## Gallery
 
-Every piece below is a single command, printed under its image. Tap a piece, or open **Commands** under each section, to copy it.
+Every piece below is a single command, printed under its image. All of a section's commands are in the box under its grid; tap a piece to jump there.
 
 ### Old Masters in Light
 
 Circles grow with brightness, so the painting's light falls in rings of `· ∘ ○ ◯ ●`.
 
 <!-- GALLERY:old-masters -->
-<p align="left"><a href="#pearl-earring"><img src="docs/gallery/cards/pearl-earring.svg" alt="Girl with a Pearl Earring, Johannes Vermeer, c. 1665" title="Girl with a Pearl Earring · Johannes Vermeer, c. 1665" width="52.17%"></a><a href="#virgin-annunciate"><img src="docs/gallery/cards/virgin-annunciate.svg" alt="Virgin Annunciate, Antonello da Messina, c. 1475" title="Virgin Annunciate · Antonello da Messina, c. 1475" width="47.67%"></a><br><a href="#rembrandt-self-portrait"><img src="docs/gallery/cards/rembrandt-self-portrait.svg" alt="Self-Portrait, Rembrandt, 1659" title="Self-Portrait · Rembrandt, 1659" width="34.83%"></a><a href="#magdalene-smoking-flame"><img src="docs/gallery/cards/magdalene-smoking-flame.svg" alt="Magdalene with the Smoking Flame, Georges de La Tour, c. 1640" title="Magdalene with the Smoking Flame · Georges de La Tour, c. 1640" width="32.75%"></a><a href="#mona-lisa"><img src="docs/gallery/cards/mona-lisa.svg" alt="Mona Lisa, Leonardo da Vinci, c. 1503–1519" title="Mona Lisa · Leonardo da Vinci, c. 1503–1519" width="32.1%"></a><br><a href="#lady-with-an-ermine"><img src="docs/gallery/cards/lady-with-an-ermine.svg" alt="Lady with an Ermine, Leonardo da Vinci, c. 1490" title="Lady with an Ermine · Leonardo da Vinci, c. 1490" width="32.69%"></a><a href="#man-in-a-red-turban"><img src="docs/gallery/cards/man-in-a-red-turban.svg" alt="Portrait of a Man (Self-Portrait?), Jan van Eyck, 1433" title="Portrait of a Man (Self-Portrait?) · Jan van Eyck, 1433" width="32.45%"></a><a href="#david-goliath"><img src="docs/gallery/cards/david-goliath.svg" alt="David with the Head of Goliath, Caravaggio, 1610" title="David with the Head of Goliath · Caravaggio, 1610" width="34.54%"></a></p>
+<p align="left"><a href="#old-masters-commands"><img src="docs/gallery/cards/pearl-earring.svg" alt="Girl with a Pearl Earring, Johannes Vermeer, c. 1665" title="Girl with a Pearl Earring · Johannes Vermeer, c. 1665" width="52.17%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/virgin-annunciate.svg" alt="Virgin Annunciate, Antonello da Messina, c. 1475" title="Virgin Annunciate · Antonello da Messina, c. 1475" width="47.67%"></a><br><a href="#old-masters-commands"><img src="docs/gallery/cards/rembrandt-self-portrait.svg" alt="Self-Portrait, Rembrandt, 1659" title="Self-Portrait · Rembrandt, 1659" width="34.83%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/magdalene-smoking-flame.svg" alt="Magdalene with the Smoking Flame, Georges de La Tour, c. 1640" title="Magdalene with the Smoking Flame · Georges de La Tour, c. 1640" width="32.75%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/mona-lisa.svg" alt="Mona Lisa, Leonardo da Vinci, c. 1503–1519" title="Mona Lisa · Leonardo da Vinci, c. 1503–1519" width="32.1%"></a><br><a href="#old-masters-commands"><img src="docs/gallery/cards/lady-with-an-ermine.svg" alt="Lady with an Ermine, Leonardo da Vinci, c. 1490" title="Lady with an Ermine · Leonardo da Vinci, c. 1490" width="32.69%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/man-in-a-red-turban.svg" alt="Portrait of a Man (Self-Portrait?), Jan van Eyck, 1433" title="Portrait of a Man (Self-Portrait?) · Jan van Eyck, 1433" width="32.45%"></a><a href="#old-masters-commands"><img src="docs/gallery/cards/david-goliath.svg" alt="David with the Head of Goliath, Caravaggio, 1610" title="David with the Head of Goliath · Caravaggio, 1610" width="34.54%"></a></p>
 
-<details><summary>Commands for this section</summary>
-
-<a id="pearl-earring"></a>**Girl with a Pearl Earring** · Johannes Vermeer, c. 1665
+<a id="old-masters-commands"></a>
 
 ```bash
+# Girl with a Pearl Earring
 peachpy pearl-earring.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o pearl-earring.svg
-```
-
-<a id="virgin-annunciate"></a>**Virgin Annunciate** · Antonello da Messina, c. 1475
-
-```bash
+# Virgin Annunciate   (prep: auto-level, -level 10%,100%, gamma 1.3)
 peachpy virgin-annunciate.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o virgin-annunciate.svg
-```
-
-<sub>Prep: auto-level, -level 10%,100%, gamma 1.3</sub>
-
-<a id="rembrandt-self-portrait"></a>**Self-Portrait** · Rembrandt, 1659
-
-```bash
+# Self-Portrait   (prep: auto-level, gamma 1.2)
 peachpy rembrandt-self-portrait.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o rembrandt-self-portrait.svg
-```
-
-<sub>Prep: auto-level, gamma 1.2</sub>
-
-<a id="magdalene-smoking-flame"></a>**Magdalene with the Smoking Flame** · Georges de La Tour, c. 1640
-
-```bash
+# Magdalene with the Smoking Flame   (prep: auto-level, gamma 1.5)
 peachpy magdalene-smoking-flame.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o magdalene-smoking-flame.svg
-```
-
-<sub>Prep: auto-level, gamma 1.5</sub>
-
-<a id="mona-lisa"></a>**Mona Lisa** · Leonardo da Vinci, c. 1503–1519
-
-```bash
+# Mona Lisa   (prep: auto-level, gamma 1.3)
 peachpy mona-lisa.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o mona-lisa.svg
-```
-
-<sub>Prep: auto-level, gamma 1.3</sub>
-
-<a id="lady-with-an-ermine"></a>**Lady with an Ermine** · Leonardo da Vinci, c. 1490
-
-```bash
+# Lady with an Ermine   (prep: auto-level, gamma 1.2)
 peachpy lady-with-an-ermine.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o lady-with-an-ermine.svg
-```
-
-<sub>Prep: auto-level, gamma 1.2</sub>
-
-<a id="man-in-a-red-turban"></a>**Portrait of a Man (Self-Portrait?)** · Jan van Eyck, 1433
-
-```bash
+# Portrait of a Man (Self-Portrait?)   (prep: auto-level, gamma 1.2)
 peachpy man-in-a-red-turban.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o man-in-a-red-turban.svg
-```
-
-<sub>Prep: auto-level, gamma 1.2</sub>
-
-<a id="david-goliath"></a>**David with the Head of Goliath** · Caravaggio, 1610
-
-```bash
+# David with the Head of Goliath
 peachpy david-goliath.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o david-goliath.svg
 ```
-
-</details>
 <!-- /GALLERY:old-masters -->
 
 ### Space
@@ -155,97 +112,34 @@ peachpy david-goliath.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -
 NASA and ESA imagery. Where it fits, the ramp matches the subject: Saturn in rings, the Moon in moon phases, Jupiter in bands.
 
 <!-- GALLERY:space -->
-<p align="left"><a href="#whirlpool-galaxy"><img src="docs/gallery/cards/whirlpool-galaxy.svg" alt="Whirlpool Galaxy (M51), NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team" title="Whirlpool Galaxy (M51) · NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team" width="49.98%"></a><a href="#ring-nebula"><img src="docs/gallery/cards/ring-nebula.svg" alt="Ring Nebula (M57), JWST, NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson" title="Ring Nebula (M57), JWST · NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson" width="49.86%"></a><br><a href="#saturn"><img src="docs/gallery/cards/saturn.svg" alt="Saturn in rings, NASA/JPL/Space Science Institute (Cassini), 2008" title="Saturn in rings · NASA/JPL/Space Science Institute (Cassini), 2008" width="39.26%"></a><a href="#moon"><img src="docs/gallery/cards/moon.svg" alt="The Moon, in moon phases, Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)" title="The Moon, in moon phases · Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)" width="29.63%"></a><a href="#pleiades"><img src="docs/gallery/cards/pleiades.svg" alt="The Pleiades, in stars, NASA, ESA, AURA/Caltech, Palomar Observatory" title="The Pleiades, in stars · NASA, ESA, AURA/Caltech, Palomar Observatory" width="30.8%"></a><br><a href="#jupiter"><img src="docs/gallery/cards/jupiter.svg" alt="Jupiter, in cloud bands, NASA, ESA, A. Simon (GSFC), OPAL, 2024" title="Jupiter, in cloud bands · NASA, ESA, A. Simon (GSFC), OPAL, 2024" width="33.67%"></a><a href="#sun"><img src="docs/gallery/cards/sun.svg" alt="The Sun, SDO/AIA, NASA/GSFC/SDO, Oct 2014" title="The Sun, SDO/AIA · NASA/GSFC/SDO, Oct 2014" width="33.67%"></a><a href="#blue-marble"><img src="docs/gallery/cards/blue-marble.svg" alt="The Blue Marble, NASA / Apollo 17 crew, 1972" title="The Blue Marble · NASA / Apollo 17 crew, 1972" width="32.34%"></a><br><a href="#helix-nebula"><img src="docs/gallery/cards/helix-nebula.svg" alt="Helix Nebula (NGC 7293), NASA, ESA, C.R. O'Dell (Vanderbilt)" title="Helix Nebula (NGC 7293) · NASA, ESA, C.R. O'Dell (Vanderbilt)" width="32.28%"></a><a href="#m87"><img src="docs/gallery/cards/m87.svg" alt="M87* black hole, in rings, Event Horizon Telescope Collaboration, 2019" title="M87* black hole, in rings · Event Horizon Telescope Collaboration, 2019" width="33.8%"></a><a href="#pluto"><img src="docs/gallery/cards/pluto.svg" alt="Pluto, NASA/JHUAPL/SwRI (New Horizons), 2015" title="Pluto · NASA/JHUAPL/SwRI (New Horizons), 2015" width="33.61%"></a></p>
+<p align="left"><a href="#space-commands"><img src="docs/gallery/cards/whirlpool-galaxy.svg" alt="Whirlpool Galaxy (M51), NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team" title="Whirlpool Galaxy (M51) · NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team" width="49.98%"></a><a href="#space-commands"><img src="docs/gallery/cards/ring-nebula.svg" alt="Ring Nebula (M57), JWST, NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson" title="Ring Nebula (M57), JWST · NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson" width="49.86%"></a><br><a href="#space-commands"><img src="docs/gallery/cards/saturn.svg" alt="Saturn in rings, NASA/JPL/Space Science Institute (Cassini), 2008" title="Saturn in rings · NASA/JPL/Space Science Institute (Cassini), 2008" width="39.26%"></a><a href="#space-commands"><img src="docs/gallery/cards/moon.svg" alt="The Moon, in moon phases, Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)" title="The Moon, in moon phases · Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)" width="29.63%"></a><a href="#space-commands"><img src="docs/gallery/cards/pleiades.svg" alt="The Pleiades, in stars, NASA, ESA, AURA/Caltech, Palomar Observatory" title="The Pleiades, in stars · NASA, ESA, AURA/Caltech, Palomar Observatory" width="30.8%"></a><br><a href="#space-commands"><img src="docs/gallery/cards/jupiter.svg" alt="Jupiter, in cloud bands, NASA, ESA, A. Simon (GSFC), OPAL, 2024" title="Jupiter, in cloud bands · NASA, ESA, A. Simon (GSFC), OPAL, 2024" width="33.67%"></a><a href="#space-commands"><img src="docs/gallery/cards/sun.svg" alt="The Sun, SDO/AIA, NASA/GSFC/SDO, Oct 2014" title="The Sun, SDO/AIA · NASA/GSFC/SDO, Oct 2014" width="33.67%"></a><a href="#space-commands"><img src="docs/gallery/cards/blue-marble.svg" alt="The Blue Marble, NASA / Apollo 17 crew, 1972" title="The Blue Marble · NASA / Apollo 17 crew, 1972" width="32.34%"></a><br><a href="#space-commands"><img src="docs/gallery/cards/helix-nebula.svg" alt="Helix Nebula (NGC 7293), NASA, ESA, C.R. O'Dell (Vanderbilt)" title="Helix Nebula (NGC 7293) · NASA, ESA, C.R. O'Dell (Vanderbilt)" width="32.28%"></a><a href="#space-commands"><img src="docs/gallery/cards/m87.svg" alt="M87* black hole, in rings, Event Horizon Telescope Collaboration, 2019" title="M87* black hole, in rings · Event Horizon Telescope Collaboration, 2019" width="33.8%"></a><a href="#space-commands"><img src="docs/gallery/cards/pluto.svg" alt="Pluto, NASA/JHUAPL/SwRI (New Horizons), 2015" title="Pluto · NASA/JHUAPL/SwRI (New Horizons), 2015" width="33.61%"></a></p>
 
-<details><summary>Commands for this section</summary>
-
-<a id="whirlpool-galaxy"></a>**Whirlpool Galaxy (M51)** · NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team
+<a id="space-commands"></a>
 
 ```bash
+# Whirlpool Galaxy (M51)   (prep: -level 12%,100% -clahe 25x25%+128+3 -sigmoidal-contrast 4x45%)
 peachpy whirlpool-galaxy.jpg -m svg -w 130 --pixel-width 715 -c " ·∘○◯●" -s 1.6 -b 1.4 -o whirlpool-galaxy.svg
-```
-
-<sub>Prep: -level 12%,100% -clahe 25x25%+128+3 -sigmoidal-contrast 4x45%</sub>
-
-<a id="ring-nebula"></a>**Ring Nebula (M57), JWST** · NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson
-
-```bash
+# Ring Nebula (M57), JWST   (prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%)
 peachpy ring-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o ring-nebula.svg
-```
-
-<sub>Prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%</sub>
-
-<a id="saturn"></a>**Saturn in rings** · NASA/JPL/Space Science Institute (Cassini), 2008
-
-```bash
+# Saturn in rings
 peachpy saturn.jpg -m svg -w 160 --pixel-width 800 -c " ·∘○◯" -s 1.4 -b 1.5 -o saturn.svg
-```
-
-<a id="moon"></a>**The Moon, in moon phases** · Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)
-
-```bash
+# The Moon, in moon phases   (prep: CGI lit sphere; 1.19× wide for emoji)
 peachpy moon.jpg -m svg -w 108 --pixel-width 1188 -c " 🌑🌒🌓🌔🌕" -o moon.svg
-```
-
-<sub>Prep: CGI lit sphere; 1.19× wide for emoji</sub>
-
-<a id="pleiades"></a>**The Pleiades, in stars** · NASA, ESA, AURA/Caltech, Palomar Observatory
-
-```bash
+# The Pleiades, in stars   (prep: crop, -level 10%,100%, gamma 1.3)
 peachpy pleiades.jpg -m svg -w 130 --pixel-width 845 -c "  ·∘+✦★" -s 1.7 -b 2.0 -o pleiades.svg
-```
-
-<sub>Prep: crop, -level 10%,100%, gamma 1.3</sub>
-
-<a id="jupiter"></a>**Jupiter, in cloud bands** · NASA, ESA, A. Simon (GSFC), OPAL, 2024
-
-```bash
+# Jupiter, in cloud bands   (prep: -modulate 100,220 -sigmoidal-contrast 7x50%)
 peachpy jupiter.jpg -m svg -w 120 --pixel-width 720 -c " -=≡" -s 1.8 -b 1.6 -o jupiter.svg
-```
-
-<sub>Prep: -modulate 100,220 -sigmoidal-contrast 7x50%</sub>
-
-<a id="sun"></a>**The Sun, SDO/AIA** · NASA/GSFC/SDO, Oct 2014
-
-```bash
+# The Sun, SDO/AIA   (prep: auto-level, gamma 2.2)
 peachpy sun.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.8 -o sun.svg
-```
-
-<sub>Prep: auto-level, gamma 2.2</sub>
-
-<a id="blue-marble"></a>**The Blue Marble** · NASA / Apollo 17 crew, 1972
-
-```bash
+# The Blue Marble   (prep: -sigmoidal-contrast 3x50%)
 peachpy blue-marble.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.4 -o blue-marble.svg
-```
-
-<sub>Prep: -sigmoidal-contrast 3x50%</sub>
-
-<a id="helix-nebula"></a>**Helix Nebula (NGC 7293)** · NASA, ESA, C.R. O'Dell (Vanderbilt)
-
-```bash
+# Helix Nebula (NGC 7293)   (prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%)
 peachpy helix-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o helix-nebula.svg
-```
-
-<sub>Prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%</sub>
-
-<a id="m87"></a>**M87* black hole, in rings** · Event Horizon Telescope Collaboration, 2019
-
-```bash
+# M87* black hole, in rings   (prep: center crop, gamma 1.2)
 peachpy m87.jpg -m svg -w 100 --pixel-width 650 -c " ·∘○◎◉" -s 1.3 -b 1.5 -o m87.svg
-```
-
-<sub>Prep: center crop, gamma 1.2</sub>
-
-<a id="pluto"></a>**Pluto** · NASA/JHUAPL/SwRI (New Horizons), 2015
-
-```bash
+# Pluto   (prep: -sigmoidal-contrast 4x55% -level 8%,100%, gamma 0.9)
 peachpy pluto.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.4 -b 1.3 -o pluto.svg
 ```
-
-<sub>Prep: -sigmoidal-contrast 4x55% -level 8%,100%, gamma 0.9</sub>
-
-</details>
 <!-- /GALLERY:space -->
 
 ### Iconic Photography
@@ -253,97 +147,34 @@ peachpy pluto.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.4 -b
 Halftone dots in a single ink, `-c " ·•●" --gradient "#F2E8D5,#F2E8D5"`, plus pop-art color variants.
 
 <!-- GALLERY:photography -->
-<p align="left"><a href="#baldwin-iv"><img src="docs/gallery/cards/baldwin-iv.svg" alt="Baldwin IV, the Leper King, Film still, Kingdom of Heaven (2005)" title="Baldwin IV, the Leper King · Film still, Kingdom of Heaven (2005)" width="53.0%"></a><a href="#migrant-mother"><img src="docs/gallery/cards/migrant-mother.svg" alt="Migrant Mother, Dorothea Lange, 1936" title="Migrant Mother · Dorothea Lange, 1936" width="46.84%"></a><br><a href="#abraham-lincoln"><img src="docs/gallery/cards/abraham-lincoln.svg" alt="Abraham Lincoln, Alexander Gardner, 1863" title="Abraham Lincoln · Alexander Gardner, 1863" width="33.29%"></a><a href="#billie-holiday"><img src="docs/gallery/cards/billie-holiday.svg" alt="Billie Holiday, William P. Gottlieb, c. 1947" title="Billie Holiday · William P. Gottlieb, c. 1947" width="33.17%"></a><a href="#audrey-hepburn"><img src="docs/gallery/cards/audrey-hepburn.svg" alt="Audrey Hepburn, Bud Fraker (Paramount), 1953" title="Audrey Hepburn · Bud Fraker (Paramount), 1953" width="33.23%"></a><br><a href="#einstein-pop"><img src="docs/gallery/cards/einstein-pop.svg" alt="Einstein, pop (magenta → amber), Orren Jack Turner, 1947" title="Einstein, pop (magenta → amber) · Orren Jack Turner, 1947" width="33.25%"></a><a href="#muhammad-ali"><img src="docs/gallery/cards/muhammad-ali.svg" alt="Muhammad Ali, Ira Rosenberg (NYWTS), 1967" title="Muhammad Ali · Ira Rosenberg (NYWTS), 1967" width="33.25%"></a><a href="#greta-garbo"><img src="docs/gallery/cards/greta-garbo.svg" alt="Greta Garbo, Clarence Sinclair Bull, 1931" title="Greta Garbo · Clarence Sinclair Bull, 1931" width="33.18%"></a><br><a href="#nikola-tesla"><img src="docs/gallery/cards/nikola-tesla.svg" alt="Nikola Tesla, Napoleon Sarony, c. 1890" title="Nikola Tesla · Napoleon Sarony, c. 1890" width="34.52%"></a><a href="#frida-kahlo"><img src="docs/gallery/cards/frida-kahlo.svg" alt="Frida Kahlo, Guillermo Kahlo, 1932" title="Frida Kahlo · Guillermo Kahlo, 1932" width="30.49%"></a><a href="#marilyn-pop-a"><img src="docs/gallery/cards/marilyn-pop-a.svg" alt="Marilyn, pop (yellow → magenta), Frank Powolny, 1953" title="Marilyn, pop (yellow → magenta) · Frank Powolny, 1953" width="34.68%"></a></p>
+<p align="left"><a href="#photography-commands"><img src="docs/gallery/cards/baldwin-iv.svg" alt="Baldwin IV, the Leper King, Film still, Kingdom of Heaven (2005)" title="Baldwin IV, the Leper King · Film still, Kingdom of Heaven (2005)" width="53.0%"></a><a href="#photography-commands"><img src="docs/gallery/cards/migrant-mother.svg" alt="Migrant Mother, Dorothea Lange, 1936" title="Migrant Mother · Dorothea Lange, 1936" width="46.84%"></a><br><a href="#photography-commands"><img src="docs/gallery/cards/abraham-lincoln.svg" alt="Abraham Lincoln, Alexander Gardner, 1863" title="Abraham Lincoln · Alexander Gardner, 1863" width="33.29%"></a><a href="#photography-commands"><img src="docs/gallery/cards/billie-holiday.svg" alt="Billie Holiday, William P. Gottlieb, c. 1947" title="Billie Holiday · William P. Gottlieb, c. 1947" width="33.17%"></a><a href="#photography-commands"><img src="docs/gallery/cards/audrey-hepburn.svg" alt="Audrey Hepburn, Bud Fraker (Paramount), 1953" title="Audrey Hepburn · Bud Fraker (Paramount), 1953" width="33.23%"></a><br><a href="#photography-commands"><img src="docs/gallery/cards/einstein-pop.svg" alt="Einstein, pop (magenta → amber), Orren Jack Turner, 1947" title="Einstein, pop (magenta → amber) · Orren Jack Turner, 1947" width="33.25%"></a><a href="#photography-commands"><img src="docs/gallery/cards/muhammad-ali.svg" alt="Muhammad Ali, Ira Rosenberg (NYWTS), 1967" title="Muhammad Ali · Ira Rosenberg (NYWTS), 1967" width="33.25%"></a><a href="#photography-commands"><img src="docs/gallery/cards/greta-garbo.svg" alt="Greta Garbo, Clarence Sinclair Bull, 1931" title="Greta Garbo · Clarence Sinclair Bull, 1931" width="33.18%"></a><br><a href="#photography-commands"><img src="docs/gallery/cards/nikola-tesla.svg" alt="Nikola Tesla, Napoleon Sarony, c. 1890" title="Nikola Tesla · Napoleon Sarony, c. 1890" width="34.52%"></a><a href="#photography-commands"><img src="docs/gallery/cards/frida-kahlo.svg" alt="Frida Kahlo, Guillermo Kahlo, 1932" title="Frida Kahlo · Guillermo Kahlo, 1932" width="30.49%"></a><a href="#photography-commands"><img src="docs/gallery/cards/marilyn-pop-a.svg" alt="Marilyn, pop (yellow → magenta), Frank Powolny, 1953" title="Marilyn, pop (yellow → magenta) · Frank Powolny, 1953" width="34.68%"></a></p>
 
-<details><summary>Commands for this section</summary>
-
-<a id="baldwin-iv"></a>**Baldwin IV, the Leper King** · Film still, Kingdom of Heaven (2005)
+<a id="photography-commands"></a>
 
 ```bash
+# Baldwin IV, the Leper King   (prep: crop to figure, -clahe 12x12%+128+3 -level 10%,100%)
 peachpy baldwin-iv.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" -s 1.4 -b 1.15 -o baldwin-iv.svg
-```
-
-<sub>Prep: crop to figure, -clahe 12x12%+128+3 -level 10%,100%</sub>
-
-<a id="migrant-mother"></a>**Migrant Mother** · Dorothea Lange, 1936
-
-```bash
+# Migrant Mother
 peachpy migrant-mother.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o migrant-mother.svg
-```
-
-<a id="abraham-lincoln"></a>**Abraham Lincoln** · Alexander Gardner, 1863
-
-```bash
+# Abraham Lincoln   (prep: crop, -level 10%,100% -gamma 1.2 -sigmoidal-contrast 3x45%)
 peachpy abraham-lincoln.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o abraham-lincoln.svg
-```
-
-<sub>Prep: crop, -level 10%,100% -gamma 1.2 -sigmoidal-contrast 3x45%</sub>
-
-<a id="billie-holiday"></a>**Billie Holiday** · William P. Gottlieb, c. 1947
-
-```bash
+# Billie Holiday   (prep: crop)
 peachpy billie-holiday.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o billie-holiday.svg
-```
-
-<sub>Prep: crop</sub>
-
-<a id="audrey-hepburn"></a>**Audrey Hepburn** · Bud Fraker (Paramount), 1953
-
-```bash
+# Audrey Hepburn   (prep: crop, -level 20%,100% -gamma 1.8 -sigmoidal-contrast 3x40%)
 peachpy audrey-hepburn.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o audrey-hepburn.svg
-```
-
-<sub>Prep: crop, -level 20%,100% -gamma 1.8 -sigmoidal-contrast 3x40%</sub>
-
-<a id="einstein-pop"></a>**Einstein, pop (magenta → amber)** · Orren Jack Turner, 1947
-
-```bash
+# Einstein, pop (magenta → amber)   (prep: same prep as Einstein)
 peachpy einstein-pop.jpg -m svg -w 110 --pixel-width 770 -c " ·•●" --gradient "#FF006E,#FFBE0B" -o einstein-pop.svg
-```
-
-<sub>Prep: same prep as Einstein</sub>
-
-<a id="muhammad-ali"></a>**Muhammad Ali** · Ira Rosenberg (NYWTS), 1967
-
-```bash
+# Muhammad Ali   (prep: crop, -sigmoidal-contrast 3x50%)
 peachpy muhammad-ali.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o muhammad-ali.svg
-```
-
-<sub>Prep: crop, -sigmoidal-contrast 3x50%</sub>
-
-<a id="greta-garbo"></a>**Greta Garbo** · Clarence Sinclair Bull, 1931
-
-```bash
+# Greta Garbo   (prep: crop, -level 15%,100%)
 peachpy greta-garbo.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o greta-garbo.svg
-```
-
-<sub>Prep: crop, -level 15%,100%</sub>
-
-<a id="nikola-tesla"></a>**Nikola Tesla** · Napoleon Sarony, c. 1890
-
-```bash
+# Nikola Tesla   (prep: crop)
 peachpy nikola-tesla.jpg -m svg -w 100 --pixel-width 650 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o nikola-tesla.svg
-```
-
-<sub>Prep: crop</sub>
-
-<a id="frida-kahlo"></a>**Frida Kahlo** · Guillermo Kahlo, 1932
-
-```bash
+# Frida Kahlo   (prep: auto-level, gamma 1.4, -sigmoidal-contrast 4x50%)
 peachpy frida-kahlo.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o frida-kahlo.svg
-```
-
-<sub>Prep: auto-level, gamma 1.4, -sigmoidal-contrast 4x50%</sub>
-
-<a id="marilyn-pop-a"></a>**Marilyn, pop (yellow → magenta)** · Frank Powolny, 1953
-
-```bash
+# Marilyn, pop (yellow → magenta)   (prep: auto-level, gamma 1.15)
 peachpy marilyn-pop-a.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradient "#FFD60A,#FF006E" -o marilyn-pop-a.svg
 ```
-
-<sub>Prep: auto-level, gamma 1.15</sub>
-
-</details>
 <!-- /GALLERY:photography -->
 
 &nbsp;
