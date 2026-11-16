@@ -77,10 +77,10 @@ The supported-version suite was run with warnings treated as errors on:
 
 | Environment | Result |
 | --- | --- |
-| Python 3.11.15 / Pillow 13.0.0 | 206 passed. |
-| Python 3.12.15 / Pillow 13.0.0 | 206 passed. |
-| Python 3.15.0rc3 / Pillow 13.0.0 | 206 passed; preview interpreter. |
-| Installed wheel, Python 3.12.15 / Pillow 13.0.0 | 206 passed outside the checkout. |
+| Python 3.11.15 / Pillow 13.0.0 | 208 passed. |
+| Python 3.12.15 / Pillow 13.0.0 | 208 passed. |
+| Python 3.15.0rc3 / Pillow 13.0.0 | 208 passed; preview interpreter. |
+| Installed wheel, Python 3.12.15 / Pillow 13.0.0 | 208 passed outside the checkout. |
 
 Source and wheel distributions build in isolated environments, including a wheel
 built from the source distribution. Archive inspection confirms the wheel contains
@@ -88,9 +88,13 @@ only the package and distribution metadata, and the sdist contains the sources a
 tests without scratch files or gallery assets. Ruff lint and formatting checks and
 `git diff --check` pass.
 
-The new CI configuration covers supported Python versions, minimum dependency
-versions, macOS and Windows, and distribution installation. Those remote jobs have
-not run in this review; their outcomes must be checked after pushing the branch.
+CI covers supported Python versions, minimum dependency versions, macOS and
+Windows, and distribution installation. The first Windows run exposed closed stdout
+pipes reporting `OSError(EINVAL)` rather than `BrokenPipeError`. Stdout writes now
+run outside conversion-error handling, and the process wrapper flushes argparse
+output before shutdown as well. Regression tests cover art and `--help` output
+through both entry points. See [PR #4](https://github.com/interfaceconjurer/ascii-image-generator/pull/4)
+for current remote CI results.
 
 ## Intentional behavior and limits
 

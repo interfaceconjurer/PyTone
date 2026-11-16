@@ -239,12 +239,13 @@ def test_installed_entrypoints_work_outside_the_repo(square_image, tmp_path, com
 
 
 @pytest.mark.parametrize("command", [[sys.executable, "-m", "peachpy"], [CONSOLE_SCRIPT]])
-def test_closed_stdout_pipe_is_a_clean_process_exit(square_image, command):
+@pytest.mark.parametrize("options", [["-m", "plain"], ["--help"]])
+def test_closed_stdout_pipe_is_a_clean_process_exit(square_image, command, options):
     read_fd, write_fd = os.pipe()
     os.close(read_fd)
     with os.fdopen(write_fd, "wb") as pipe:
         result = subprocess.run(
-            [*command, str(square_image), "-m", "plain"],
+            [*command, str(square_image), *options],
             stdout=pipe,
             stderr=subprocess.PIPE,
             timeout=30,

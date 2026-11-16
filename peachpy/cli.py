@@ -114,7 +114,7 @@ def parse_gradient(gradient_str: str) -> list[RGB]:
     return colors
 
 
-def _convert(args: argparse.Namespace, gradient: list[RGB] | None) -> None:
+def _convert(args: argparse.Namespace, gradient: list[RGB] | None) -> str:
     output_path = args.output
     if output_path is None and args.mode in {"html", "svg"}:
         output_path = Path(f"peachpy.{args.mode}")
@@ -156,11 +156,10 @@ def _convert(args: argparse.Namespace, gradient: list[RGB] | None) -> None:
             )
 
     if output_path is None:
-        print(result, flush=True)
-    else:
-        write_text(output_path, result)
-        label = f" {args.mode.upper()}" if args.mode in {"html", "svg"} else ""
-        print(f"Saved{label} to {output_path}", flush=True)
+        return result
+    write_text(output_path, result)
+    label = f" {args.mode.upper()}" if args.mode in {"html", "svg"} else ""
+    return f"Saved{label} to {output_path}"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -180,22 +179,26 @@ def main(argv: list[str] | None = None) -> int:
     # Parse and validate gradient parameter
     try:
         gradient = parse_gradient(args.gradient) if args.gradient is not None else None
-        _convert(args, gradient)
-    except BrokenPipeError:
-        # Process-level stdout cleanup belongs to entrypoint(), not the library API.
-        raise
+        result = _convert(args, gradient)
     except (OSError, ValueError, OverflowError, Image.DecompressionBombError) as error:
         print(f"Error: {error}", file=sys.stderr)
         return 1
 
+    # Keep stdout failures outside conversion error handling. Windows can report
+    # a closed pipe as OSError(EINVAL), rather than BrokenPipeError.
+    print(result, flush=True)
     return 0
 
 
 def entrypoint() -> int:
     """Run the process CLI, including clean shutdown when a pipe reader exits."""
     try:
-        return main()
-    except BrokenPipeError:
+        try:
+            return main()
+        finally:
+            # Also flush argparse output before its SystemExit (--help).
+            sys.stdout.flush()
+    except OSError:
         # Prevent Python from retrying the failed stdout flush during shutdown.
         with open(os.devnull, "w") as sink:
             os.dup2(sink.fileno(), sys.stdout.fileno())
