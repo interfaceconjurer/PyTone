@@ -52,28 +52,17 @@ uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator peachp
 
 <p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/00-pipeline.svg"><img src="docs/pipeline/00-pipeline.svg" alt="The PeachPy pipeline in six stages: image, resize, grayscale, glyph ramp, color and output. Each stage shows the real result of that step on a photo of Earth, with the flags that control it." width="100%"></picture></p>
 
-1. **Image.** The file is opened and normalized: EXIF rotation applied, first frame only,
-   transparency flattened onto black, converted to RGB.
-2. **Resize.** The image is scaled to `--width` columns. Rows are squashed to match the
-   shape of a character cell, so circles stay circles: 0.55 for terminals and 1/1.6 for SVG.
-3. **Grayscale.** Each cell's brightness (0–255) is computed.
-4. **Glyph ramp.** Brightness picks a character from `--chars`, ordered dark → light.
-   The ramp can be anything: ASCII, Unicode dots, block shading, emoji.
-5. **Color.** Each glyph keeps its source pixel's color, or is recolored by a diagonal
-   `--gradient` or a horizontal `--rainbow`. Both are modulated by the image's brightness
-   so the shape still reads.
-6. **Output.** The result is written as plain text, ANSI truecolor or 256-color, an HTML
-   `<pre>`, or an SVG of positioned `<text>` glyphs.
-
 ```bash
 # One command, end to end
 peachpy photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
 ```
 
-**Stage by stage.** Open any step for the full breakdown: what it does, why it matters, and what to know.
+**Stage by stage.** Open any step for what it does, why it matters, and what to know.
 
 <details>
 <summary><b>1. Image</b></summary>
+
+The file is opened and normalized: EXIF rotation applied, first frame only, transparency flattened onto black, converted to RGB.
 
 <p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/01-image.svg"><img src="docs/pipeline/01-image.svg" alt="Step 1, Image. PeachPy opens the file and normalizes it: EXIF rotation applied, first frame only, transparency flattened onto black, converted to RGB. Includes advice on choosing a source with a wide tonal range." width="100%"></picture></p>
 
@@ -82,12 +71,16 @@ peachpy photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
 <details>
 <summary><b>2. Resize</b></summary>
 
+The image is scaled to `--width` columns. Rows are squashed to match the shape of a character cell, so circles stay circles: 0.55 for terminals and 1/1.6 for SVG.
+
 <p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/02-resize.svg"><img src="docs/pipeline/02-resize.svg" alt="Step 2, Resize. The image is scaled to the chosen number of columns. Rows are squashed by a row factor of 0.55 for terminals, 0.6 for HTML and 0.625 for SVG so circles stay round. Shows the same picture at 16, 32 and 64 columns." width="100%"></picture></p>
 
 </details>
 
 <details>
 <summary><b>3. Grayscale</b></summary>
+
+Each cell's brightness (0–255) is computed.
 
 <p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/03-grayscale.svg"><img src="docs/pipeline/03-grayscale.svg" alt="Step 3, Grayscale. Each cell becomes one brightness from 0 to 255 using luma weights of 0.299 red, 0.587 green and 0.114 blue. Different colors with the same brightness pick the same glyph." width="100%"></picture></p>
 
@@ -96,6 +89,8 @@ peachpy photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
 <details>
 <summary><b>4. Glyph ramp</b></summary>
 
+Brightness picks a character from `--chars`, ordered dark → light. The ramp can be anything: ASCII, Unicode dots, block shading, emoji.
+
 <p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/04-glyph-ramp.svg"><img src="docs/pipeline/04-glyph-ramp.svg" alt="Step 4, Glyph ramp. Brightness is split into equal buckets, one per character in the ramp, ordered dark to light. Shows four ramps on the same picture and how to match a ramp to a dark or light background." width="100%"></picture></p>
 
 </details>
@@ -103,12 +98,16 @@ peachpy photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
 <details>
 <summary><b>5. Color</b></summary>
 
+Each glyph keeps its source pixel's color, or is recolored by a diagonal `--gradient` or a horizontal `--rainbow`. Both are modulated by the image's brightness so the shape still reads.
+
 <p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/05-color.svg"><img src="docs/pipeline/05-color.svg" alt="Step 5, Color. Glyphs keep their source color, or take a diagonal gradient or a horizontal rainbow, then saturation and brightness multipliers are applied." width="100%"></picture></p>
 
 </details>
 
 <details>
 <summary><b>6. Output</b></summary>
+
+The result is written as plain text, ANSI truecolor or 256-color, an HTML `<pre>`, or an SVG of positioned `<text>` glyphs.
 
 <p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/06-output.svg"><img src="docs/pipeline/06-output.svg" alt="Step 6, Output. The same glyph grid written as plain text, ANSI, HTML or SVG, with the strengths, trade-offs and real file size of each at 100 columns." width="100%"></picture></p>
 
