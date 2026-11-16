@@ -38,6 +38,15 @@ def gradient_image(tmp_path: Path) -> Path:
 
 
 class TestResizeImage:
+    @pytest.mark.parametrize("row_factor", [0, -1, float("nan"), float("inf")])
+    def test_invalid_row_factor(self, row_factor):
+        with pytest.raises(ValueError, match="row_factor"):
+            resize_image(Image.new("RGB", (4, 4)), row_factor=row_factor)
+
+    def test_empty_source_is_rejected(self):
+        with pytest.raises(ValueError, match="dimensions"):
+            resize_image(Image.new("RGB", (0, 4)))
+
     def test_preserves_target_width(self):
         img = Image.new("RGB", (400, 200))
         resized = resize_image(img, new_width=80)
@@ -51,6 +60,10 @@ class TestResizeImage:
 
 
 class TestPixelsToAscii:
+    def test_non_grayscale_input_is_rejected(self):
+        with pytest.raises(ValueError, match="grayscale"):
+            pixels_to_ascii(Image.new("RGB", (1, 1)))
+
     def test_output_length_matches_pixels(self):
         img = Image.new("L", (10, 10), color=128)
         result = pixels_to_ascii(img)
@@ -116,7 +129,7 @@ class TestRowFactor:
     def test_svg_row_factor_matches_cell_aspect(self):
         img = Image.new("RGB", (400, 400))
         resized = resize_image(img, new_width=100, row_factor=SVG_ROW_FACTOR)
-        # 100 columns × 1.6 cell height ≈ 100 cell widths: a square stays square.
+        # 100 columns x 1.6 cell height ≈ 100 cell widths: a square stays square.
         assert resized.height == 62
         assert abs(resized.height * SVG_CELL_ASPECT - 100) < SVG_CELL_ASPECT
 

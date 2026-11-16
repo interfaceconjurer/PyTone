@@ -1,5 +1,8 @@
 # Python Environment Setup Summary
 
+> Historical environment notes. For current requirements and setup, see
+> [README: Development](README.md#development).
+
 ## ✅ Completed Setup
 
 ### 1. Python Version Management

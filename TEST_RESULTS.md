@@ -1,5 +1,8 @@
 # ASCII Art Generator - Test Results
 
+> Historical manual test record for the former command and environment. See
+> [README: Development](README.md#development) for current checks and requirements.
+
 ## Installation
 ✅ Installed in dev mode with `pip install -e ".[dev]"`
 ✅ Fixed Python 3.10+ type hints for Python 3.9 compatibility
