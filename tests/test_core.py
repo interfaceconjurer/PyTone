@@ -1,11 +1,11 @@
-"""Tests for ascii_art core functionality."""
+"""Tests for peachpy core functionality."""
 
 from pathlib import Path
 
 import pytest
 from PIL import Image
 
-from ascii_art.core import (
+from peachpy.core import (
     DEFAULT_CHARS,
     SVG_CELL_ASPECT,
     SVG_ROW_FACTOR,

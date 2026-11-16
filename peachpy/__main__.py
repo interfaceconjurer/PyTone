@@ -1,4 +1,4 @@
-"""Entry point for `python -m ascii_art`."""
+"""Entry point for `python -m peachpy`."""
 
 import sys
 
