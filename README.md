@@ -12,12 +12,12 @@
 
 _Turn any image into text • Terminal, HTML or SVG • Gradients, rainbows and any glyph ramp you like_
 
-**A small Python CLI that turns images into ASCII art.** Point it at a photo, painting or logo and get plain text, truecolor terminal output, a self-contained HTML page, or a scalable SVG you can drop straight into a README. The hero above was made with it.
+**PeachPy is a small Python CLI that turns images into ASCII art.** Point it at a photo, painting or logo and get plain text, truecolor terminal output, a self-contained HTML page, or a scalable SVG you can drop straight into a README. The hero above was made with it.
 
 **Try it in one line** (needs [uv](#prerequisite-uv)):
 
 ```bash
-uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator ascii-art path/to/image.jpg
+uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator peachpy path/to/image.jpg
 ```
 
 &nbsp;
@@ -32,7 +32,7 @@ uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator ascii-
 - [Install](#install)
   - [Prerequisite: uv](#prerequisite-uv)
   - [Try It Without Installing](#try-it-without-installing)
-  - [Install the `ascii-art` Command](#install-the-ascii-art-command)
+  - [Install the `peachpy` Command](#install-the-peachpy-command)
   - [Notes for Scripts and AI Agents](#notes-for-scripts-and-ai-agents)
 - [Usage](#usage)
   - [Output Modes](#output-modes)
@@ -67,7 +67,7 @@ image ─▶ resize ─▶ grayscale ─▶ glyph ramp ─▶ color ─▶ text 
 
 ```bash
 # One command, end to end
-ascii-art photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
+peachpy photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
 ```
 
 &nbsp;
@@ -91,7 +91,7 @@ Circles grow with brightness, so the painting's light falls in rings of `· ∘ 
 <b>Girl with a Pearl Earring</b><br><sub>Johannes Vermeer, c. 1665</sub>
 
 ```bash
-ascii-art pearl-earring.jpg -m svg -w 110 \
+peachpy pearl-earring.jpg -m svg -w 110 \
   --pixel-width 715 -c " ·∘○◯●" -s 1.4 \
   -b 1.9 -o pearl-earring.svg
 ```
@@ -103,7 +103,7 @@ ascii-art pearl-earring.jpg -m svg -w 110 \
 <b>Self-Portrait</b><br><sub>Rembrandt, 1659</sub>
 
 ```bash
-ascii-art rembrandt-self-portrait.jpg \
+peachpy rembrandt-self-portrait.jpg \
   -m svg -w 110 --pixel-width 715 \
   -c " ·∘○◯●" -s 1.4 -b 1.9 \
   -o rembrandt-self-portrait.svg
@@ -123,7 +123,7 @@ ascii-art rembrandt-self-portrait.jpg \
 <b>Magdalene with the Smoking Flame</b><br><sub>Georges de La Tour, c. 1640</sub>
 
 ```bash
-ascii-art magdalene-smoking-flame.jpg \
+peachpy magdalene-smoking-flame.jpg \
   -m svg -w 110 --pixel-width 715 \
   -c " ·∘○◯●" -s 1.4 -b 1.9 \
   -o magdalene-smoking-flame.svg
@@ -138,7 +138,7 @@ ascii-art magdalene-smoking-flame.jpg \
 <b>Virgin Annunciate</b><br><sub>Antonello da Messina, c. 1475</sub>
 
 ```bash
-ascii-art virgin-annunciate.jpg -m svg \
+peachpy virgin-annunciate.jpg -m svg \
   -w 110 --pixel-width 715 -c " ·∘○◯●" \
   -s 1.4 -b 1.9 -o virgin-annunciate.svg
 ```
@@ -157,7 +157,7 @@ ascii-art virgin-annunciate.jpg -m svg \
 <b>Mona Lisa</b><br><sub>Leonardo da Vinci, c. 1503–1519</sub>
 
 ```bash
-ascii-art mona-lisa.jpg -m svg -w 110 \
+peachpy mona-lisa.jpg -m svg -w 110 \
   --pixel-width 715 -c " ·∘○◯●" -s 1.4 \
   -b 1.9 -o mona-lisa.svg
 ```
@@ -171,7 +171,7 @@ ascii-art mona-lisa.jpg -m svg -w 110 \
 <b>The Starry Night</b><br><sub>Vincent van Gogh, 1889</sub>
 
 ```bash
-ascii-art starry-night.jpg -m svg -w 110 \
+peachpy starry-night.jpg -m svg -w 110 \
   --pixel-width 715 -c " ·∘○◯●" -s 1.4 \
   -b 1.9 -o starry-night.svg
 ```
@@ -190,7 +190,7 @@ ascii-art starry-night.jpg -m svg -w 110 \
 <b>The Great Wave off Kanagawa</b><br><sub>Katsushika Hokusai, c. 1831</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 110 \
  --pixel-width \
  715 -c " ·∘○◯●" \
@@ -205,7 +205,7 @@ ascii-art in.jpg \
 <b>Medusa</b><br><sub>Caravaggio, c. 1597</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 110 \
  --pixel-width \
  715 -c " ·∘○◯●" \
@@ -222,7 +222,7 @@ ascii-art in.jpg \
 <b>David with the Head of Goliath</b><br><sub>Caravaggio, 1610</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 110 \
  --pixel-width \
  715 -c " ·∘○◯●" \
@@ -237,7 +237,7 @@ ascii-art in.jpg \
 <b>Lady with an Ermine</b><br><sub>Leonardo da Vinci, c. 1490</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 110 \
  --pixel-width \
  715 -c " ·∘○◯●" \
@@ -259,7 +259,7 @@ ascii-art in.jpg \
 <b>Portrait of a Man (Self-Portrait?)</b><br><sub>Jan van Eyck, 1433</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 110 \
  --pixel-width \
  715 -c " ·∘○◯●" \
@@ -276,7 +276,7 @@ ascii-art in.jpg \
 <b>Christ Crucified</b><br><sub>Diego Velázquez, c. 1632</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 110 \
  --pixel-width \
  715 -c " ·∘○◯●" \
@@ -306,7 +306,7 @@ NASA and ESA imagery. Where it fits, the ramp matches the subject: Saturn in rin
 <b>Whirlpool Galaxy (M51)</b><br><sub>NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team</sub>
 
 ```bash
-ascii-art whirlpool-galaxy.jpg -m svg \
+peachpy whirlpool-galaxy.jpg -m svg \
   -w 130 --pixel-width 715 -c " ·∘○◯●" \
   -s 1.6 -b 1.4 -o whirlpool-galaxy.svg
 ```
@@ -320,7 +320,7 @@ ascii-art whirlpool-galaxy.jpg -m svg \
 <b>Ring Nebula (M57), JWST</b><br><sub>NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson</sub>
 
 ```bash
-ascii-art ring-nebula.jpg -m svg -w 120 \
+peachpy ring-nebula.jpg -m svg -w 120 \
   --pixel-width 720 -c " ·∘○◯●" -s 1.5 \
   -b 1.5 -o ring-nebula.svg
 ```
@@ -339,7 +339,7 @@ ascii-art ring-nebula.jpg -m svg -w 120 \
 <b>The Sun, SDO/AIA</b><br><sub>NASA/GSFC/SDO, Oct 2014</sub>
 
 ```bash
-ascii-art sun.jpg -m svg -w 120 \
+peachpy sun.jpg -m svg -w 120 \
   --pixel-width 720 -c " ·∘○◯●" -s 1.5 \
   -b 1.8 -o sun.svg
 ```
@@ -353,7 +353,7 @@ ascii-art sun.jpg -m svg -w 120 \
 <b>The Pleiades, in stars</b><br><sub>NASA, ESA, AURA/Caltech, Palomar Observatory</sub>
 
 ```bash
-ascii-art pleiades.jpg -m svg -w 130 \
+peachpy pleiades.jpg -m svg -w 130 \
   --pixel-width 845 -c "  ·∘+✦★" -s 1.7 \
   -b 2.0 -o pleiades.svg
 ```
@@ -372,7 +372,7 @@ ascii-art pleiades.jpg -m svg -w 130 \
 <b>Saturn in rings</b><br><sub>NASA/JPL/Space Science Institute (Cassini), 2008</sub>
 
 ```bash
-ascii-art saturn.jpg -m svg -w 160 \
+peachpy saturn.jpg -m svg -w 160 \
   --pixel-width 800 -c " ·∘○◯" -s 1.4 \
   -b 1.5 -o saturn.svg
 ```
@@ -391,7 +391,7 @@ ascii-art saturn.jpg -m svg -w 160 \
 <b>The Moon, in moon phases</b><br><sub>Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 108 \
  --pixel-width \
  1188 \
@@ -408,7 +408,7 @@ ascii-art in.jpg \
 <b>Jupiter, in cloud bands</b><br><sub>NASA, ESA, A. Simon (GSFC), OPAL, 2024</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 120 \
  --pixel-width \
  720 -c " -=≡" \
@@ -425,7 +425,7 @@ ascii-art in.jpg \
 <b>The Blue Marble</b><br><sub>NASA / Apollo 17 crew, 1972</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 120 \
  --pixel-width \
  720 -c " ·∘○◯●" \
@@ -442,7 +442,7 @@ ascii-art in.jpg \
 <b>Helix Nebula (NGC 7293)</b><br><sub>NASA, ESA, C.R. O'Dell (Vanderbilt)</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 120 \
  --pixel-width \
  720 -c " ·∘○◯●" \
@@ -470,7 +470,7 @@ Halftone dots in a single ink, `-c " ·•●" --gradient "#F2E8D5,#F2E8D5"`, pl
 <b>Marilyn, pop (yellow → magenta)</b><br><sub>Frank Powolny, 1953</sub>
 
 ```bash
-ascii-art marilyn-pop-a.jpg -m svg -w 120 \
+peachpy marilyn-pop-a.jpg -m svg -w 120 \
   --pixel-width 840 -c " ·•●" \
   --gradient "#FFD60A,#FF006E" \
   -o marilyn-pop-a.svg
@@ -485,7 +485,7 @@ ascii-art marilyn-pop-a.jpg -m svg -w 120 \
 <b>Einstein, pop (magenta → amber)</b><br><sub>Orren Jack Turner, 1947</sub>
 
 ```bash
-ascii-art einstein-pop.jpg -m svg -w 110 \
+peachpy einstein-pop.jpg -m svg -w 110 \
   --pixel-width 770 -c " ·•●" \
   --gradient "#FF006E,#FFBE0B" \
   -o einstein-pop.svg
@@ -505,7 +505,7 @@ ascii-art einstein-pop.jpg -m svg -w 110 \
 <b>Migrant Mother</b><br><sub>Dorothea Lange, 1936</sub>
 
 ```bash
-ascii-art migrant-mother.jpg -m svg -w 100 \
+peachpy migrant-mother.jpg -m svg -w 100 \
   --pixel-width 840 -c " ·•●" \
   --gradient "#F2E8D5,#F2E8D5" \
   -o migrant-mother.svg
@@ -518,7 +518,7 @@ ascii-art migrant-mother.jpg -m svg -w 100 \
 <b>Audrey Hepburn</b><br><sub>Bud Fraker (Paramount), 1953</sub>
 
 ```bash
-ascii-art audrey-hepburn.jpg -m svg -w 120 \
+peachpy audrey-hepburn.jpg -m svg -w 120 \
   --pixel-width 780 -c " ·•●" \
   --gradient "#F2E8D5,#F2E8D5" \
   -o audrey-hepburn.svg
@@ -538,7 +538,7 @@ ascii-art audrey-hepburn.jpg -m svg -w 120 \
 <b>Baldwin IV, the Leper King</b><br><sub>Film still, Kingdom of Heaven (2005)</sub>
 
 ```bash
-ascii-art baldwin-iv.jpg -m svg -w 130 \
+peachpy baldwin-iv.jpg -m svg -w 130 \
   --pixel-width 845 -c " ·•●" -s 1.4 \
   -b 1.15 -o baldwin-iv.svg
 ```
@@ -559,7 +559,7 @@ ascii-art baldwin-iv.jpg -m svg -w 130 \
 <b>Albert Einstein</b><br><sub>Orren Jack Turner, 1947</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 110 \
  --pixel-width \
  715 -c " ·•●" \
@@ -577,7 +577,7 @@ ascii-art in.jpg \
 <b>Abraham Lincoln</b><br><sub>Alexander Gardner, 1863</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 110 \
  --pixel-width \
  715 -c " ·•●" \
@@ -595,7 +595,7 @@ ascii-art in.jpg \
 <b>Muhammad Ali</b><br><sub>Ira Rosenberg (NYWTS), 1967</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 110 \
  --pixel-width \
  715 -c " ·•●" \
@@ -613,7 +613,7 @@ ascii-art in.jpg \
 <b>Greta Garbo</b><br><sub>Clarence Sinclair Bull, 1931</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 120 \
  --pixel-width \
  780 -c " ·•●" \
@@ -636,7 +636,7 @@ ascii-art in.jpg \
 <b>Marilyn, pop (aqua)</b><br><sub>Frank Powolny, 1953</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 120 \
  --pixel-width \
  840 -c " ·•●" \
@@ -654,7 +654,7 @@ ascii-art in.jpg \
 <b>Marilyn, pop (pink → violet)</b><br><sub>Frank Powolny, 1953</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 120 \
  --pixel-width \
  840 -c " ·•●" \
@@ -672,7 +672,7 @@ ascii-art in.jpg \
 <b>Marilyn Monroe</b><br><sub>Frank Powolny (20th Century Fox), 1953</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 130 \
  --pixel-width \
  845 -c " ·•●" \
@@ -690,7 +690,7 @@ ascii-art in.jpg \
 <b>Billie Holiday</b><br><sub>William P. Gottlieb, c. 1947</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 130 \
  --pixel-width \
  845 -c " ·•●" \
@@ -713,7 +713,7 @@ ascii-art in.jpg \
 <b>Nikola Tesla</b><br><sub>Napoleon Sarony, c. 1890</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 100 \
  --pixel-width \
  650 -c " ·•●" \
@@ -731,7 +731,7 @@ ascii-art in.jpg \
 <b>Frida Kahlo</b><br><sub>Guillermo Kahlo, 1932</sub>
 
 ```bash
-ascii-art in.jpg \
+peachpy in.jpg \
  -m svg -w 100 \
  --pixel-width \
  840 -c " ·•●" \
@@ -789,12 +789,12 @@ Then open a new terminal so `uv` is on your PATH. For other options, see the
 ### Try It Without Installing
 
 ```bash
-uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator ascii-art path/to/image.jpg
+uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator peachpy path/to/image.jpg
 ```
 
 uv builds a cached, throwaway environment and runs the tool. Nothing stays installed.
 
-### Install the `ascii-art` Command
+### Install the `peachpy` Command
 
 ```bash
 uv tool install git+https://github.com/interfaceconjurer/ascii-image-generator
@@ -803,12 +803,12 @@ uv tool install git+https://github.com/interfaceconjurer/ascii-image-generator
 Verify:
 
 ```bash
-ascii-art --help
+peachpy --help
 ```
 
 If you get `command not found`, run `uv tool update-shell` and open a new terminal.
 
-Upgrade with `uv tool upgrade ascii-art`. Uninstall with `uv tool uninstall ascii-art`.
+Upgrade with `uv tool upgrade peachpy`. Uninstall with `uv tool uninstall peachpy`.
 
 <details>
 <summary>Without uv (pipx or pip)</summary>
@@ -827,17 +827,17 @@ These need Python 3.10+ already installed.
 
 ### Notes for Scripts and AI Agents
 
-- **Command:** `ascii-art <image> [options]`. `python -m ascii_art` is equivalent.
+- **Command:** `peachpy <image> [options]`. `python -m peachpy` is equivalent.
 - **Inputs:** any image Pillow can open (JPEG, PNG, GIF, WebP, …).
 - **Output location:**
   - `-m color` (default) and `-m plain` print to stdout, or write to `-o FILE`.
-  - `-m html` and `-m svg` always write a file: `-o FILE`, or `./ascii_art.html` /
-    `./ascii_art.svg` in the current directory, overwriting any existing file. They print
+  - `-m html` and `-m svg` always write a file: `-o FILE`, or `./peachpy.html` /
+    `./peachpy.svg` in the current directory, overwriting any existing file. They print
     `Saved HTML to <path>` / `Saved SVG to <path>`.
 - **Color when piped:** `--color-mode auto` (default) drops ANSI escapes when stdout isn't a
   terminal, so piped or redirected output is clean text.
 - **Exit codes:** `0` success · `1` input file not found or invalid `--gradient` · `2` invalid arguments.
-- **Full options:** `ascii-art --help` or the [Options](#options) table.
+- **Full options:** `peachpy --help` or the [Options](#options) table.
 - **Working on the code?** See [Development](#development) and [AGENTS.md](AGENTS.md).
 
 &nbsp;
@@ -850,20 +850,20 @@ These need Python 3.10+ already installed.
 
 ```bash
 # Colored terminal output (default; auto-detects truecolor / 256-color)
-ascii-art image.jpg
+peachpy image.jpg
 
 # Plain text
-ascii-art image.jpg -m plain -w 80
+peachpy image.jpg -m plain -w 80
 
 # Self-contained HTML page
-ascii-art image.jpg -m html -o art.html
+peachpy image.jpg -m html -o art.html
 
 # Scalable SVG, 1200px wide
-ascii-art image.jpg -m svg --pixel-width 1200 -o art.svg
+peachpy image.jpg -m svg --pixel-width 1200 -o art.svg
 ```
 
 When stdout isn't a terminal, color mode falls back to plain text. Use
-`--color-mode truecolor` to force escapes, for example `ascii-art image.jpg --color-mode truecolor > art.ans`.
+`--color-mode truecolor` to force escapes, for example `peachpy image.jpg --color-mode truecolor > art.ans`.
 
 ### Character Ramps
 
@@ -880,24 +880,24 @@ read well:
 | `" 🌑🌒🌓🌔🌕"`       | Moon phases                  |
 
 ```bash
-ascii-art image.jpg -m svg -c " ░▒▓█" -o blocks.svg
-ascii-art image.jpg --invert -c " ·•●"
+peachpy image.jpg -m svg -c " ░▒▓█" -o blocks.svg
+peachpy image.jpg --invert -c " ·•●"
 ```
 
 ### Color: Gradients and Rainbow
 
 ```bash
 # Diagonal gradient, top-left → bottom-right, 2 or more 6-digit hex stops
-ascii-art image.jpg -m svg --gradient "#3D1A4D,#9B59B6,#FFD700,#B8860B" -o gold.svg
+peachpy image.jpg -m svg --gradient "#3D1A4D,#9B59B6,#FFD700,#B8860B" -o gold.svg
 
 # A single-ink look: use the same color twice
-ascii-art image.jpg -m svg -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o ink.svg
+peachpy image.jpg -m svg -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o ink.svg
 
 # Horizontal rainbow, brighter
-ascii-art image.jpg -m svg --rainbow -b 1.5 -o rainbow.svg
+peachpy image.jpg -m svg --rainbow -b 1.5 -o rainbow.svg
 
 # Punchier source colors
-ascii-art image.jpg -m svg -s 1.6 -b 1.3 -o vivid.svg
+peachpy image.jpg -m svg -s 1.6 -b 1.3 -o vivid.svg
 ```
 
 ### Density
@@ -908,8 +908,8 @@ column the glyphs overlap and fuse into texture, and many of the gallery pieces 
 exactly that.
 
 ```bash
-ascii-art image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 1500 -o airy.svg
-ascii-art image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 715  -o dense.svg
+peachpy image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 1500 -o airy.svg
+peachpy image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 715  -o dense.svg
 ```
 
 &nbsp;
@@ -930,7 +930,7 @@ ascii-art image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 715  -o den
 | `--rainbow`        | off             | Recolor with a horizontal rainbow                              |
 | `--gradient`       | –               | Recolor with a diagonal gradient, e.g. `"#FF0000,#0000FF"`     |
 | `--color-mode`     | `auto`          | `auto`, `truecolor`, `256` or `none`                           |
-| `-o, --output`     | stdout          | Output file (HTML and SVG default to `ascii_art.html` / `.svg`) |
+| `-o, --output`     | stdout          | Output file (HTML and SVG default to `peachpy.html` / `.svg`) |
 
 &nbsp;
 
@@ -939,7 +939,7 @@ ascii-art image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 715  -o den
 ## Python API
 
 ```python
-from ascii_art import image_to_ascii, get_color_data
+from peachpy import image_to_ascii, get_color_data
 
 # Plain text
 print(image_to_ascii("photo.jpg", width=100))
