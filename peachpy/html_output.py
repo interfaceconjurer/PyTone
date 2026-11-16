@@ -3,9 +3,12 @@
 import html
 from pathlib import Path
 
+from .contracts import ColorRows, color_rows, document_text, positive_int
+from .output import write_text
+
 
 def render_html(
-    rows: list[list[tuple[str, tuple[int, int, int]]]],
+    rows: ColorRows,
     title: str = "ASCII Art",
     pixel_width: int | None = None,
 ) -> str:
@@ -19,6 +22,10 @@ def render_html(
     Returns:
         Complete HTML document as a string.
     """
+    color_rows(rows)
+    document_text(title)
+    if pixel_width is not None:
+        positive_int(pixel_width, "pixel_width")
     escaped_title = html.escape(title)
 
     lines = []
@@ -32,9 +39,9 @@ def render_html(
     body = "\n".join(lines)
 
     # Calculate font size based on desired pixel width
-    if pixel_width and rows:
+    if pixel_width is not None and rows and rows[0]:
         char_count = len(rows[0])  # Width in characters
-        # Monospace char width is roughly 0.6 × font-size
+        # Monospace char width is roughly 0.6 x font-size
         font_size = pixel_width / (char_count * 0.6)
         font_size_css = f"{font_size:.2f}px"
     else:
@@ -68,7 +75,7 @@ def render_html(
 
 
 def save_html(
-    rows: list[list[tuple[str, tuple[int, int, int]]]],
+    rows: ColorRows,
     output_path: str | Path,
     title: str = "ASCII Art",
     pixel_width: int | None = None,
@@ -77,6 +84,4 @@ def save_html(
 
     Returns the path to the saved file.
     """
-    output_path = Path(output_path)
-    output_path.write_text(render_html(rows, title=title, pixel_width=pixel_width), encoding="utf-8")
-    return output_path
+    return write_text(output_path, render_html(rows, title=title, pixel_width=pixel_width))

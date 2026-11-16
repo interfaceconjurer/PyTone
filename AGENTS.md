@@ -23,7 +23,7 @@ uv run pytest
 uv run ruff check .
 ```
 
-- Python ≥3.10, single runtime dependency: Pillow.
+- Python ≥3.11, single runtime dependency: Pillow ≥13.0.
 - Package `peachpy/`: `cli.py` (argparse entry point `peachpy`), `core.py` (resize,
   grayscale, glyph mapping, color data), `color.py` (ANSI), `html_output.py`, `svg_output.py`.
 - Tests live in `tests/`. Run them before and after changes.

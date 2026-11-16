@@ -3,7 +3,9 @@
 import colorsys
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageOps
+
+from .contracts import RGB, ColorRows, character_ramp, finite_number, positive_int, rgb_color
 
 # Default character ramp: dark → light
 DEFAULT_CHARS = "B S#&@$%*!:. "
@@ -11,7 +13,7 @@ DEFAULT_CHARS = "B S#&@$%*!:. "
 # Rows per column of source pixels. Terminal cells are roughly 1:1.8 (width:height),
 # so 0.55 keeps terminal output in proportion.
 TERMINAL_ROW_FACTOR = 0.55
-# SVG cells are char_width × char_width*1.6, so rows must be sampled at 1/1.6.
+# SVG cells are char_width x char_width*1.6, so rows must be sampled at 1/1.6.
 SVG_CELL_ASPECT = 1.6
 SVG_ROW_FACTOR = 1 / SVG_CELL_ASPECT
 # HTML uses Courier New (advance width 0.6em) with line-height 1.0, a 0.6:1 cell.
@@ -19,11 +21,18 @@ HTML_ROW_FACTOR = 0.6
 
 
 def load_image(path: str | Path) -> Image.Image:
-    """Load an image from disk."""
-    path = Path(path)
-    if not path.exists():
-        raise FileNotFoundError(f"Image not found: {path}")
-    return Image.open(path)
+    """Load the first frame as detached RGB, applying orientation and a black matte.
+
+    The source file is always closed before returning, including for multi-frame
+    images and decode failures. Pillow's decompression-bomb protections stay enabled.
+    """
+    with Image.open(path) as source:
+        oriented = ImageOps.exif_transpose(source)
+        if "A" not in oriented.getbands() and "transparency" not in oriented.info:
+            return oriented.convert("RGB")
+        rgba = oriented.convert("RGBA")
+        background = Image.new("RGBA", rgba.size, (0, 0, 0, 255))
+        return Image.alpha_composite(background, rgba).convert("RGB")
 
 
 def resize_image(
@@ -34,10 +43,14 @@ def resize_image(
     ``row_factor`` compensates for character cells being taller than wide. It should be
     the cell's width/height ratio: 0.55 for terminals (default), 1/1.6 for SVG output.
     """
+    positive_int(new_width, "width")
+    finite_number(row_factor, "row_factor", positive=True)
     width, height = img.size
+    if width == 0 or height == 0:
+        raise ValueError("image dimensions must be positive")
     aspect_ratio = height / width
     new_height = max(1, int(aspect_ratio * new_width * row_factor))
-    return img.resize((new_width, new_height))
+    return img.resize((new_width, new_height), resample=Image.Resampling.BICUBIC)
 
 
 def adjust_color(
@@ -53,6 +66,9 @@ def adjust_color(
     Returns:
         Adjusted (r, g, b) tuple.
     """
+    rgb_color((r, g, b))
+    finite_number(saturation, "saturation")
+    finite_number(brightness, "brightness")
     if saturation == 1.0 and brightness == 1.0:
         return (r, g, b)
 
@@ -79,7 +95,11 @@ def pixels_to_ascii(img: Image.Image, chars: str = DEFAULT_CHARS, invert: bool =
     Returns:
         A single string of ASCII characters (no newlines).
     """
-    pixels = list(img.get_flattened_data())
+    character_ramp(chars)
+    if img.mode != "L":
+        raise ValueError("pixels_to_ascii requires a grayscale image in mode 'L'")
+    # Raw L bytes contain one byte per pixel.
+    pixels = img.tobytes()
     if invert:
         pixels = [255 - pixel for pixel in pixels]
     n = len(chars)
@@ -107,6 +127,8 @@ def image_to_ascii(
     Returns:
         Multi-line ASCII art string.
     """
+    character_ramp(chars)
+    positive_int(width, "width")
     img = load_image(path)
     img = resize_image(img, new_width=width)
 
@@ -118,6 +140,22 @@ def image_to_ascii(
     return "\n".join(lines)
 
 
+def _gradient_color(stops: list[RGB], position: float, gray: float) -> RGB:
+    """Interpolate every stop consistently, then preserve shape through HSV modulation."""
+    scaled = position * (len(stops) - 1)
+    segment = min(int(scaled), len(stops) - 2)
+    fraction = scaled - segment
+    first, second = stops[segment], stops[segment + 1]
+    r, g, b = (
+        (start + (end - start) * fraction) / 255.0 for start, end in zip(first, second, strict=True)
+    )
+    h, s, v = colorsys.rgb_to_hsv(r, g, b)
+    # The power curve retains saturation in darker areas. Preserve the stop's
+    # own brightness, scaling from 30% in shadows to 100% in highlights.
+    r, g, b = colorsys.hsv_to_rgb(h, s * gray**0.5, v * (0.3 + 0.7 * gray))
+    return (int(r * 255), int(g * 255), int(b * 255))
+
+
 def get_color_data(
     path: str | Path,
     width: int = 120,
@@ -126,9 +164,9 @@ def get_color_data(
     brightness: float = 1.0,
     invert: bool = False,
     rainbow: bool = False,
-    gradient: list[tuple[int, int, int]] | None = None,
+    gradient: list[RGB] | None = None,
     row_factor: float = TERMINAL_ROW_FACTOR,
-) -> list[list[tuple[str, tuple[int, int, int]]]]:
+) -> ColorRows:
     """Convert an image to ASCII with per-character RGB color data.
 
     Args:
@@ -146,85 +184,60 @@ def get_color_data(
 
     Returns a list of rows, each row a list of (char, (r, g, b)) tuples.
     """
+    positive_int(width, "width")
+    character_ramp(chars)
+    finite_number(saturation, "saturation")
+    finite_number(brightness, "brightness")
+    finite_number(row_factor, "row_factor", positive=True)
+    if rainbow and gradient is not None:
+        raise ValueError("rainbow and gradient are mutually exclusive")
+    if gradient is not None:
+        if len(gradient) < 2:
+            raise ValueError("gradient must contain at least two colors")
+        for color in gradient:
+            rgb_color(color)
+
     img = load_image(path)
     img = resize_image(img, new_width=width, row_factor=row_factor)
 
     # Get RGB values from the resized image
-    rgb_img = img.convert("RGB")
-    rgb_pixels = list(rgb_img.get_flattened_data())
-
-    # Invert RGB colors if requested
-    if invert:
-        rgb_pixels = [(255 - r, 255 - g, 255 - b) for r, g, b in rgb_pixels]
+    rgb_pixels = img.load()
 
     # Get ASCII characters from grayscale
     grayscale = img.convert("L")
     ascii_str = pixels_to_ascii(grayscale, chars, invert=invert)
 
-    def shape_value(x: int, y: int) -> float:
-        """Grayscale (0-1) used to modulate rainbow/gradient colors, matching the glyphs."""
-        value = grayscale.getpixel((x, y)) / 255.0
-        return 1.0 - value if invert else value
+    gray_pixels = grayscale.tobytes()
 
     # Pair each character with its color
-    rows: list[list[tuple[str, tuple[int, int, int]]]] = []
-    for y in range(rgb_img.height):
+    rows: ColorRows = []
+    for y in range(img.height):
         row = []
-        for x in range(rgb_img.width):
-            idx = y * rgb_img.width + x
-            char = ascii_str[idx] if idx < len(ascii_str) else " "
-            color = rgb_pixels[idx] if idx < len(rgb_pixels) else (0, 0, 0)
+        for x in range(img.width):
+            idx = y * img.width + x
+            char = ascii_str[idx]
+            color: RGB = rgb_pixels[x, y]
+            if invert:
+                color = (255 - color[0], 255 - color[1], 255 - color[2])
+            gray_val = gray_pixels[idx] / 255.0
+            if invert:
+                gray_val = 1.0 - gray_val
 
             # Apply rainbow gradient if requested
             if rainbow:
-                # Get grayscale value for saturation (shape definition)
-                gray_val = shape_value(x, y)
                 # Create rainbow based on horizontal position
-                hue = x / rgb_img.width
+                hue = x / img.width
                 # Use grayscale for saturation, keep brightness at maximum
                 # Dark areas = less saturated (more white), bright areas = fully saturated
                 r, g, b = colorsys.hsv_to_rgb(hue, gray_val, 1.0)
                 color = (int(r * 255), int(g * 255), int(b * 255))
 
-            # Apply custom gradient if requested
-            elif gradient:
-                # Get grayscale value for saturation (shape definition)
-                gray_val = shape_value(x, y)
-                # Calculate diagonal position from top-left (0.0) to bottom-right (1.0)
-                t = (x / rgb_img.width + y / rgb_img.height) / 2.0
-
-                # Find which segment of the gradient we're in
-                num_colors = len(gradient)
-                if num_colors == 2:
-                    # Simple two-color gradient
-                    color1, color2 = gradient[0], gradient[1]
-                    segment_t = t
-                else:
-                    # Multi-stop gradient: divide t into segments
-                    segment_size = 1.0 / (num_colors - 1)
-                    segment_index = min(int(t / segment_size), num_colors - 2)
-                    color1 = gradient[segment_index]
-                    color2 = gradient[segment_index + 1]
-                    # Calculate position within this segment (0.0 to 1.0)
-                    segment_t = (t - segment_index * segment_size) / segment_size
-
-                # Interpolate between color1 and color2 within this segment
-                r_grad = color1[0] + (color2[0] - color1[0]) * segment_t
-                g_grad = color1[1] + (color2[1] - color1[1]) * segment_t
-                b_grad = color1[2] + (color2[2] - color1[2]) * segment_t
-
-                # Convert gradient color to HSV
-                h, s, v = colorsys.rgb_to_hsv(r_grad / 255.0, g_grad / 255.0, b_grad / 255.0)
-                # Modulate saturation and brightness by grayscale to preserve image structure
-                # Use power curve to keep colors more vibrant in darker areas
-                # gray_val^0.5 reduces desaturation effect (dark areas retain more color)
-                saturation_factor = gray_val ** 0.5
-                brightness_factor = 0.3 + (0.7 * gray_val)  # Darker areas = 30% brightness, bright areas = 100%
-                s = min(s * saturation_factor, 1.0)
-                v = brightness_factor
-                # Convert back to RGB
-                r, g, b = colorsys.hsv_to_rgb(h, s, v)
-                color = (int(r * 255), int(g * 255), int(b * 255))
+            elif gradient is not None:
+                # Normalize only axes that have multiple cells. This reaches the
+                # final stop for a single row/column, and uses the first for 1x1.
+                axes = (img.width > 1) + (img.height > 1)
+                t = (x / max(img.width - 1, 1) + y / max(img.height - 1, 1)) / max(axes, 1)
+                color = _gradient_color(gradient, t, gray_val)
 
             # Apply color adjustments
             color = adjust_color(*color, saturation=saturation, brightness=brightness)

@@ -3,6 +3,8 @@
 import os
 import sys
 
+from .contracts import ColorRows, color_rows, rgb_color
+
 
 def supports_truecolor() -> bool:
     """Detect whether the terminal supports 24-bit truecolor."""
@@ -33,18 +35,31 @@ def detect_color_mode() -> str:
 
 def rgb_to_ansi_truecolor(r: int, g: int, b: int) -> str:
     """Return ANSI escape code for 24-bit truecolor foreground."""
+    rgb_color((r, g, b))
     return f"\033[38;2;{r};{g};{b}m"
 
 
 def rgb_to_ansi_256(r: int, g: int, b: int) -> str:
     """Convert RGB to the nearest ANSI 256-color and return escape code.
 
-    Uses the 6x6x6 color cube (indices 16-231).
+    Compare the 6x6x6 color cube and grayscale ramp using squared RGB distance.
+    The first 16 colors are terminal-defined, so they cannot be matched reliably.
     """
-    r_idx = round(r / 255 * 5)
-    g_idx = round(g / 255 * 5)
-    b_idx = round(b / 255 * 5)
+    rgb_color((r, g, b))
+    levels = (0, 95, 135, 175, 215, 255)
+    r_idx, g_idx, b_idx = (
+        min(range(6), key=lambda i: abs(channel - levels[i])) for channel in (r, g, b)
+    )
     color_index = 16 + 36 * r_idx + 6 * g_idx + b_idx
+    cube_distance = sum(
+        (channel - levels[index]) ** 2
+        for channel, index in zip((r, g, b), (r_idx, g_idx, b_idx), strict=True)
+    )
+    gray_index = max(0, min(23, round(((r + g + b) / 3 - 8) / 10)))
+    gray_value = 8 + gray_index * 10
+    gray_distance = sum((channel - gray_value) ** 2 for channel in (r, g, b))
+    if gray_distance < cube_distance:
+        color_index = 232 + gray_index
     return f"\033[38;5;{color_index}m"
 
 
@@ -63,12 +78,13 @@ def colorize_char(char: str, r: int, g: int, b: int, mode: str = "truecolor") ->
         return f"{rgb_to_ansi_truecolor(r, g, b)}{char}{RESET}"
     elif mode == "256":
         return f"{rgb_to_ansi_256(r, g, b)}{char}{RESET}"
-    else:
+    elif mode == "none":
         return char
+    raise ValueError(f"unknown color mode: {mode!r}")
 
 
 def render_colored(
-    rows: list[list[tuple[str, tuple[int, int, int]]]],
+    rows: ColorRows,
     mode: str | None = None,
 ) -> str:
     """Render color data as an ANSI-colored string.
@@ -80,8 +96,11 @@ def render_colored(
     Returns:
         Multi-line string with ANSI escape codes.
     """
+    color_rows(rows)
     if mode is None:
         mode = detect_color_mode()
+    if mode not in {"truecolor", "256", "none"}:
+        raise ValueError(f"unknown color mode: {mode!r}")
 
     lines = []
     for row in rows:
