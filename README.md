@@ -253,17 +253,17 @@ peachpy pluto.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.4 -b
 Halftone dots in a single ink, `-c " ·•●" --gradient "#F2E8D5,#F2E8D5"`, plus pop-art color variants.
 
 <!-- GALLERY:photography -->
-<p align="left"><a href="#marilyn-pop-a"><img src="docs/gallery/cards/marilyn-pop-a.svg" alt="Marilyn, pop (yellow → magenta), Frank Powolny, 1953" title="Marilyn, pop (yellow → magenta) · Frank Powolny, 1953" width="50.78%"></a><a href="#migrant-mother"><img src="docs/gallery/cards/migrant-mother.svg" alt="Migrant Mother, Dorothea Lange, 1936" title="Migrant Mother · Dorothea Lange, 1936" width="49.06%"></a><br><a href="#abraham-lincoln"><img src="docs/gallery/cards/abraham-lincoln.svg" alt="Abraham Lincoln, Alexander Gardner, 1863" title="Abraham Lincoln · Alexander Gardner, 1863" width="33.29%"></a><a href="#billie-holiday"><img src="docs/gallery/cards/billie-holiday.svg" alt="Billie Holiday, William P. Gottlieb, c. 1947" title="Billie Holiday · William P. Gottlieb, c. 1947" width="33.17%"></a><a href="#audrey-hepburn"><img src="docs/gallery/cards/audrey-hepburn.svg" alt="Audrey Hepburn, Bud Fraker (Paramount), 1953" title="Audrey Hepburn · Bud Fraker (Paramount), 1953" width="33.23%"></a><br><a href="#einstein-pop"><img src="docs/gallery/cards/einstein-pop.svg" alt="Einstein, pop (magenta → amber), Orren Jack Turner, 1947" title="Einstein, pop (magenta → amber) · Orren Jack Turner, 1947" width="33.25%"></a><a href="#muhammad-ali"><img src="docs/gallery/cards/muhammad-ali.svg" alt="Muhammad Ali, Ira Rosenberg (NYWTS), 1967" title="Muhammad Ali · Ira Rosenberg (NYWTS), 1967" width="33.25%"></a><a href="#greta-garbo"><img src="docs/gallery/cards/greta-garbo.svg" alt="Greta Garbo, Clarence Sinclair Bull, 1931" title="Greta Garbo · Clarence Sinclair Bull, 1931" width="33.18%"></a><br><a href="#nikola-tesla"><img src="docs/gallery/cards/nikola-tesla.svg" alt="Nikola Tesla, Napoleon Sarony, c. 1890" title="Nikola Tesla · Napoleon Sarony, c. 1890" width="33.41%"></a><a href="#frida-kahlo"><img src="docs/gallery/cards/frida-kahlo.svg" alt="Frida Kahlo, Guillermo Kahlo, 1932" title="Frida Kahlo · Guillermo Kahlo, 1932" width="29.51%"></a><a href="#baldwin-iv"><img src="docs/gallery/cards/baldwin-iv.svg" alt="Baldwin IV, the Leper King, Film still, Kingdom of Heaven (2005)" title="Baldwin IV, the Leper King · Film still, Kingdom of Heaven (2005)" width="36.77%"></a></p>
+<p align="left"><a href="#baldwin-iv"><img src="docs/gallery/cards/baldwin-iv.svg" alt="Baldwin IV, the Leper King, Film still, Kingdom of Heaven (2005)" title="Baldwin IV, the Leper King · Film still, Kingdom of Heaven (2005)" width="53.0%"></a><a href="#migrant-mother"><img src="docs/gallery/cards/migrant-mother.svg" alt="Migrant Mother, Dorothea Lange, 1936" title="Migrant Mother · Dorothea Lange, 1936" width="46.84%"></a><br><a href="#abraham-lincoln"><img src="docs/gallery/cards/abraham-lincoln.svg" alt="Abraham Lincoln, Alexander Gardner, 1863" title="Abraham Lincoln · Alexander Gardner, 1863" width="33.29%"></a><a href="#billie-holiday"><img src="docs/gallery/cards/billie-holiday.svg" alt="Billie Holiday, William P. Gottlieb, c. 1947" title="Billie Holiday · William P. Gottlieb, c. 1947" width="33.17%"></a><a href="#audrey-hepburn"><img src="docs/gallery/cards/audrey-hepburn.svg" alt="Audrey Hepburn, Bud Fraker (Paramount), 1953" title="Audrey Hepburn · Bud Fraker (Paramount), 1953" width="33.23%"></a><br><a href="#einstein-pop"><img src="docs/gallery/cards/einstein-pop.svg" alt="Einstein, pop (magenta → amber), Orren Jack Turner, 1947" title="Einstein, pop (magenta → amber) · Orren Jack Turner, 1947" width="33.25%"></a><a href="#muhammad-ali"><img src="docs/gallery/cards/muhammad-ali.svg" alt="Muhammad Ali, Ira Rosenberg (NYWTS), 1967" title="Muhammad Ali · Ira Rosenberg (NYWTS), 1967" width="33.25%"></a><a href="#greta-garbo"><img src="docs/gallery/cards/greta-garbo.svg" alt="Greta Garbo, Clarence Sinclair Bull, 1931" title="Greta Garbo · Clarence Sinclair Bull, 1931" width="33.18%"></a><br><a href="#nikola-tesla"><img src="docs/gallery/cards/nikola-tesla.svg" alt="Nikola Tesla, Napoleon Sarony, c. 1890" title="Nikola Tesla · Napoleon Sarony, c. 1890" width="34.52%"></a><a href="#frida-kahlo"><img src="docs/gallery/cards/frida-kahlo.svg" alt="Frida Kahlo, Guillermo Kahlo, 1932" title="Frida Kahlo · Guillermo Kahlo, 1932" width="30.49%"></a><a href="#marilyn-pop-a"><img src="docs/gallery/cards/marilyn-pop-a.svg" alt="Marilyn, pop (yellow → magenta), Frank Powolny, 1953" title="Marilyn, pop (yellow → magenta) · Frank Powolny, 1953" width="34.68%"></a></p>
 
 <details><summary>Commands for this section</summary>
 
-<a id="marilyn-pop-a"></a>**Marilyn, pop (yellow → magenta)** · Frank Powolny, 1953
+<a id="baldwin-iv"></a>**Baldwin IV, the Leper King** · Film still, Kingdom of Heaven (2005)
 
 ```bash
-peachpy marilyn-pop-a.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradient "#FFD60A,#FF006E" -o marilyn-pop-a.svg
+peachpy baldwin-iv.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" -s 1.4 -b 1.15 -o baldwin-iv.svg
 ```
 
-<sub>Prep: auto-level, gamma 1.15</sub>
+<sub>Prep: crop to figure, -clahe 12x12%+128+3 -level 10%,100%</sub>
 
 <a id="migrant-mother"></a>**Migrant Mother** · Dorothea Lange, 1936
 
@@ -335,13 +335,13 @@ peachpy frida-kahlo.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradien
 
 <sub>Prep: auto-level, gamma 1.4, -sigmoidal-contrast 4x50%</sub>
 
-<a id="baldwin-iv"></a>**Baldwin IV, the Leper King** · Film still, Kingdom of Heaven (2005)
+<a id="marilyn-pop-a"></a>**Marilyn, pop (yellow → magenta)** · Frank Powolny, 1953
 
 ```bash
-peachpy baldwin-iv.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" -s 1.4 -b 1.15 -o baldwin-iv.svg
+peachpy marilyn-pop-a.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradient "#FFD60A,#FF006E" -o marilyn-pop-a.svg
 ```
 
-<sub>Prep: crop to figure, -clahe 12x12%+128+3 -level 10%,100%</sub>
+<sub>Prep: auto-level, gamma 1.15</sub>
 
 </details>
 <!-- /GALLERY:photography -->
