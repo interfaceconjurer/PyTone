@@ -50,19 +50,17 @@ uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator peachp
 
 ## How It Works
 
-```text
-image ─▶ resize ─▶ grayscale ─▶ glyph ramp ─▶ color ─▶ text · ANSI · HTML · SVG
-```
-
-1. **Resize.** The image is scaled to `--width` columns. Rows are squashed to match the
+1. **Image.** The file is opened and normalized: EXIF rotation applied, first frame only,
+   transparency flattened onto black, converted to RGB.
+2. **Resize.** The image is scaled to `--width` columns. Rows are squashed to match the
    shape of a character cell, so circles stay circles: 0.55 for terminals and 1/1.6 for SVG.
-2. **Grayscale.** Each cell's brightness (0–255) is computed.
-3. **Glyph ramp.** Brightness picks a character from `--chars`, ordered dark → light.
+3. **Grayscale.** Each cell's brightness (0–255) is computed.
+4. **Glyph ramp.** Brightness picks a character from `--chars`, ordered dark → light.
    The ramp can be anything: ASCII, Unicode dots, block shading, emoji.
-4. **Color.** Each glyph keeps its source pixel's color, or is recolored by a diagonal
+5. **Color.** Each glyph keeps its source pixel's color, or is recolored by a diagonal
    `--gradient` or a horizontal `--rainbow`. Both are modulated by the image's brightness
    so the shape still reads.
-5. **Render.** The result is written as plain text, ANSI truecolor or 256-color, an HTML
+6. **Output.** The result is written as plain text, ANSI truecolor or 256-color, an HTML
    `<pre>`, or an SVG of positioned `<text>` glyphs.
 
 ```bash
