@@ -54,7 +54,7 @@ uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator peachp
 
 ```bash
 # One command, end to end
-peachpy photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
+peachpy earth.jpg -w 110 -c " ·∘○◯●" --gradient "#3D1A4D,#FFD700" -m svg -o earth.svg
 ```
 
 **Stage by stage.** Open any step for what it does, why it matters, and what to know.
