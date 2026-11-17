@@ -17,7 +17,7 @@ _Turn any image into text • Terminal, HTML or SVG • Gradients, rainbows and 
 **Try it in one line** (needs [uv](#prerequisite-uv)):
 
 ```bash
-uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator pytone path/to/image.jpg
+uvx --from git+https://github.com/interfaceconjurer/PyTone pytone path/to/image.jpg
 ```
 
 &nbsp;
@@ -267,7 +267,7 @@ Then open a new terminal so `uv` is on your PATH. For other options, see the
 ### Try It Without Installing
 
 ```bash
-uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator pytone path/to/image.jpg
+uvx --from git+https://github.com/interfaceconjurer/PyTone pytone path/to/image.jpg
 ```
 
 uv builds a cached, throwaway environment and runs the tool. Nothing stays installed.
@@ -275,7 +275,7 @@ uv builds a cached, throwaway environment and runs the tool. Nothing stays insta
 ### Install the `pytone` Command
 
 ```bash
-uv tool install git+https://github.com/interfaceconjurer/ascii-image-generator
+uv tool install git+https://github.com/interfaceconjurer/PyTone
 ```
 
 Verify:
@@ -292,11 +292,11 @@ Upgrade with `uv tool upgrade py-tone`. Uninstall with `uv tool uninstall py-ton
 <summary>Without uv (pipx or pip)</summary>
 
 ```bash
-pipx install git+https://github.com/interfaceconjurer/ascii-image-generator
+pipx install git+https://github.com/interfaceconjurer/PyTone
 ```
 
 ```bash
-pip install git+https://github.com/interfaceconjurer/ascii-image-generator
+pip install git+https://github.com/interfaceconjurer/PyTone
 ```
 
 These need Python 3.11+ already installed.
@@ -464,8 +464,8 @@ rows = get_color_data("photo.jpg", width=100, gradient=[(61, 26, 77), (255, 215,
 ## Development
 
 ```bash
-git clone https://github.com/interfaceconjurer/ascii-image-generator.git
-cd ascii-image-generator
+git clone https://github.com/interfaceconjurer/PyTone.git
+cd PyTone
 uv venv && uv pip install -e ".[dev]"
 source .venv/bin/activate
 pytest

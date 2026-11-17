@@ -93,7 +93,7 @@ Windows, and distribution installation. The first Windows run exposed closed std
 pipes reporting `OSError(EINVAL)` rather than `BrokenPipeError`. Stdout writes now
 run outside conversion-error handling, and the process wrapper flushes argparse
 output before shutdown as well. Regression tests cover art and `--help` output
-through both entry points. See [PR #4](https://github.com/interfaceconjurer/ascii-image-generator/pull/4)
+through both entry points. See [PR #4](https://github.com/interfaceconjurer/PyTone/pull/4)
 for current remote CI results.
 
 ## Intentional behavior and limits
