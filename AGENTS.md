@@ -27,4 +27,6 @@ uv run ruff check .
 - Package `pytone/`: `cli.py` (argparse entry point `pytone`), `core.py` (resize,
   grayscale, glyph mapping, color data), `color.py` (ANSI), `html_output.py`, `svg_output.py`.
 - Tests live in `tests/`. Run them before and after changes.
-- `scratch/` holds local working files and isn't part of the package.
+- `design/` holds the scripts, source images and font that build the artwork in `docs/`; see
+  [design/README.md](design/README.md). It isn't part of the package.
+- `docs/identity/` is the PyTone brand set (mark, wordmark, lockups).
