@@ -1,0 +1,452 @@
+[
+ {
+  "slug": "pearl-earring",
+  "section": "masters",
+  "svg": "try/v2_pd_pearl.svg",
+  "bg": "#0d1117",
+  "title": "Girl with a Pearl Earring",
+  "by": "Johannes Vermeer, c. 1665",
+  "source": [
+   "commons",
+   "1665 Girl with a Pearl Earring.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·∘○◯●\" -s 1.4 -b 1.9",
+  "prep": "auto-level"
+ },
+ {
+  "slug": "lady-with-an-ermine",
+  "section": "masters",
+  "svg": "try/v2_pd_ermine.svg",
+  "bg": "#0d1117",
+  "title": "Lady with an Ermine",
+  "by": "Leonardo da Vinci, c. 1490",
+  "source": [
+   "commons",
+   "Lady with an Ermine - Leonardo da Vinci - Google Art Project.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·∘○◯●\" -s 1.4 -b 1.9",
+  "prep": "auto-level, gamma 1.2"
+ },
+ {
+  "slug": "man-in-a-red-turban",
+  "section": "masters",
+  "svg": "try/v2_pd_vaneyck.svg",
+  "bg": "#0d1117",
+  "title": "Portrait of a Man (Self-Portrait?)",
+  "by": "Jan van Eyck, 1433",
+  "source": [
+   "commons",
+   "Portrait of a Man in a Turban (Jan van Eyck).jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·∘○◯●\" -s 1.4 -b 1.9",
+  "prep": "auto-level, gamma 1.2"
+ },
+ {
+  "slug": "magdalene-smoking-flame",
+  "section": "masters",
+  "svg": "try/v2_pd_latour_magdalene.svg",
+  "bg": "#0d1117",
+  "title": "Magdalene with the Smoking Flame",
+  "by": "Georges de La Tour, c. 1640",
+  "source": [
+   "commons",
+   "Georges de La Tour 007.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·∘○◯●\" -s 1.4 -b 1.9",
+  "prep": "auto-level, gamma 1.5"
+ },
+ {
+  "slug": "rembrandt-self-portrait",
+  "section": "masters",
+  "svg": "try/v2_pd_rembrandt69.svg",
+  "bg": "#0d1117",
+  "title": "Self-Portrait",
+  "by": "Rembrandt, 1659",
+  "source": [
+   "commons",
+   "Rembrandt self portrait.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·∘○◯●\" -s 1.4 -b 1.9",
+  "prep": "auto-level, gamma 1.2"
+ },
+ {
+  "slug": "mona-lisa",
+  "section": "masters",
+  "svg": "try/v2_pd_monalisa.svg",
+  "bg": "#0d1117",
+  "title": "Mona Lisa",
+  "by": "Leonardo da Vinci, c. 1503–1519",
+  "source": [
+   "commons",
+   "Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·∘○◯●\" -s 1.4 -b 1.9",
+  "prep": "auto-level, gamma 1.3"
+ },
+ {
+  "slug": "david-goliath",
+  "section": "masters",
+  "svg": "teams/masters/try/v2_david.svg",
+  "bg": "#0d1117",
+  "title": "David with the Head of Goliath",
+  "by": "Caravaggio, 1610",
+  "source": [
+   "commons",
+   "David with the Head of Goliath-Caravaggio (1610).jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·∘○◯●\" -s 1.4 -b 1.9",
+  "prep": "auto-level"
+ },
+ {
+  "slug": "virgin-annunciate",
+  "section": "masters",
+  "svg": "teams/masters/try/v2_antonello2_L2.svg",
+  "bg": "#0d1117",
+  "title": "Virgin Annunciate",
+  "by": "Antonello da Messina, c. 1475",
+  "source": [
+   "commons",
+   "Antonello da Messina - Virgin Annunciate - Galleria Regionale della Sicilia, Palermo.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·∘○◯●\" -s 1.4 -b 1.9",
+  "prep": "auto-level, -level 10%,100%, gamma 1.3"
+ },
+ {
+  "slug": "saturn",
+  "section": "space",
+  "svg": "try/v2_ov_saturn_ring.svg",
+  "bg": "#000000",
+  "title": "Saturn in rings",
+  "by": "NASA/JPL/Space Science Institute (Cassini), 2008",
+  "source": [
+   "commons",
+   "Saturn during Equinox.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 160 --pixel-width 800 -c \" ·∘○◯\" -s 1.4 -b 1.5",
+  "prep": "auto-level"
+ },
+ {
+  "slug": "moon",
+  "section": "space",
+  "svg": "try/cm_moon_final.svg",
+  "bg": "#000000",
+  "title": "The Moon, in moon phases",
+  "by": "Rendered from NASA SVS CGI Moon Kit (LRO color + LOLA elevation)",
+  "source": [
+   "url",
+   "https://svs.gsfc.nasa.gov/4720"
+  ],
+  "license": "Public domain (NASA)",
+  "args": "-w 108 --pixel-width 1188 -c \" 🌑🌒🌓🌔🌕\"",
+  "prep": "CGI lit sphere; 1.19× wide for emoji"
+ },
+ {
+  "slug": "jupiter",
+  "section": "space",
+  "svg": "teams/space/try/F_jupbands.svg",
+  "bg": "#000000",
+  "title": "Jupiter, in cloud bands",
+  "by": "NASA, ESA, A. Simon (GSFC), OPAL, 2024",
+  "source": [
+   "commons",
+   "Jupiter OPAL 2.png"
+  ],
+  "license": "Public domain",
+  "args": "-w 120 --pixel-width 720 -c \" -=≡\" -s 1.8 -b 1.6",
+  "prep": "-modulate 100,220 -sigmoidal-contrast 7x50%"
+ },
+ {
+  "slug": "whirlpool-galaxy",
+  "section": "space",
+  "svg": "teams/space/try/F_m51.svg",
+  "bg": "#000000",
+  "title": "Whirlpool Galaxy (M51)",
+  "by": "NASA, ESA, S. Beckwith (STScI), Hubble Heritage Team",
+  "source": [
+   "commons",
+   "Messier51 sRGB.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 130 --pixel-width 715 -c \" ·∘○◯●\" -s 1.6 -b 1.4",
+  "prep": "-level 12%,100% -clahe 25x25%+128+3 -sigmoidal-contrast 4x45%"
+ },
+ {
+  "slug": "ring-nebula",
+  "section": "space",
+  "svg": "teams/space/try/F_ring.svg",
+  "bg": "#000000",
+  "title": "Ring Nebula (M57), JWST",
+  "by": "NASA, ESA, CSA, M. Barlow, N. Cox, R. Wesson",
+  "source": [
+   "commons",
+   "Ring Nebula (NIRCam Image).png"
+  ],
+  "license": "Public domain (NASA); ESA copy CC BY 4.0",
+  "args": "-w 120 --pixel-width 720 -c \" ·∘○◯●\" -s 1.5 -b 1.5",
+  "prep": "center crop, -level 8%,100% -sigmoidal-contrast 4x40%"
+ },
+ {
+  "slug": "sun",
+  "section": "space",
+  "svg": "teams/space/try/F_sun2.svg",
+  "bg": "#000000",
+  "title": "The Sun, SDO/AIA",
+  "by": "NASA/GSFC/SDO, Oct 2014",
+  "source": [
+   "commons",
+   "Halloween Sun 2014.tiff"
+  ],
+  "license": "Public domain",
+  "args": "-w 120 --pixel-width 720 -c \" ·∘○◯●\" -s 1.5 -b 1.8",
+  "prep": "auto-level, gamma 2.2"
+ },
+ {
+  "slug": "blue-marble",
+  "section": "space",
+  "svg": "teams/space/try/F_earth.svg",
+  "bg": "#000000",
+  "title": "The Blue Marble",
+  "by": "NASA / Apollo 17 crew, 1972",
+  "source": [
+   "commons",
+   "The Blue Marble (remastered).jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 120 --pixel-width 720 -c \" ·∘○◯●\" -s 1.5 -b 1.4",
+  "prep": "-sigmoidal-contrast 3x50%"
+ },
+ {
+  "slug": "helix-nebula",
+  "section": "space",
+  "svg": "teams/space/try/F_helix.svg",
+  "bg": "#000000",
+  "title": "Helix Nebula (NGC 7293)",
+  "by": "NASA, ESA, C.R. O'Dell (Vanderbilt)",
+  "source": [
+   "commons",
+   "NGC7293 (2004).jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 120 --pixel-width 720 -c \" ·∘○◯●\" -s 1.5 -b 1.5",
+  "prep": "center crop, -level 8%,100% -sigmoidal-contrast 4x40%"
+ },
+ {
+  "slug": "pleiades",
+  "section": "space",
+  "svg": "teams/space/try/F_plei2.svg",
+  "bg": "#000000",
+  "title": "The Pleiades, in stars",
+  "by": "NASA, ESA, AURA/Caltech, Palomar Observatory",
+  "source": [
+   "commons",
+   "Pleiades large.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 130 --pixel-width 845 -c \"  ·∘+✦★\" -s 1.7 -b 2.0",
+  "prep": "crop, -level 10%,100%, gamma 1.3"
+ },
+ {
+  "slug": "m87",
+  "section": "space",
+  "svg": "teams/space/try/F_m87.svg",
+  "bg": "#000000",
+  "title": "M87* black hole, in rings",
+  "by": "Event Horizon Telescope Collaboration, 2019",
+  "source": [
+   "commons",
+   "Black hole - Messier 87 crop max res.jpg"
+  ],
+  "license": "CC BY 4.0 (credit: EHT Collaboration)",
+  "args": "-w 100 --pixel-width 650 -c \" ·∘○◎◉\" -s 1.3 -b 1.5",
+  "prep": "center crop, gamma 1.2"
+ },
+ {
+  "slug": "pluto",
+  "section": "space",
+  "svg": "teams/space/try/F_pluto.svg",
+  "bg": "#000000",
+  "title": "Pluto",
+  "by": "NASA/JHUAPL/SwRI (New Horizons), 2015",
+  "source": [
+   "commons",
+   "Pluto in True Color - High-Res.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 120 --pixel-width 720 -c \" ·∘○◯●\" -s 1.4 -b 1.3",
+  "prep": "-sigmoidal-contrast 4x55% -level 8%,100%, gamma 0.9"
+ },
+ {
+  "slug": "marilyn-pop-a",
+  "section": "photography",
+  "svg": "try/v2_pop_a.svg",
+  "bg": "#0d1117",
+  "title": "Marilyn, pop (yellow → magenta)",
+  "by": "Frank Powolny, 1953",
+  "source": [
+   "commons",
+   "Monroe 1953 publicity (cropped).jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 120 --pixel-width 840 -c \" ·•●\" --gradient \"#FFD60A,#FF006E\"",
+  "prep": "auto-level, gamma 1.15"
+ },
+ {
+  "slug": "migrant-mother",
+  "section": "photography",
+  "svg": "try/v2_lange_ht.svg",
+  "bg": "#0d1117",
+  "title": "Migrant Mother",
+  "by": "Dorothea Lange, 1936",
+  "source": [
+   "commons",
+   "Lange-MigrantMother02.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 100 --pixel-width 840 -c \" ·•●\" --gradient \"#F2E8D5,#F2E8D5\"",
+  "prep": "auto-level"
+ },
+ {
+  "slug": "frida-kahlo",
+  "section": "photography",
+  "svg": "try/v2_ht_frida.svg",
+  "bg": "#0d1117",
+  "title": "Frida Kahlo",
+  "by": "Guillermo Kahlo, 1932",
+  "source": [
+   "commons",
+   "Frida Kahlo, by Guillermo Kahlo.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 100 --pixel-width 840 -c \" ·•●\" --gradient \"#F2E8D5,#F2E8D5\"",
+  "prep": "auto-level, gamma 1.4, -sigmoidal-contrast 4x50%"
+ },
+ {
+  "slug": "abraham-lincoln",
+  "section": "photography",
+  "svg": "teams/photography/try/v_lincoln5.svg",
+  "bg": "#0d1117",
+  "title": "Abraham Lincoln",
+  "by": "Alexander Gardner, 1863",
+  "source": [
+   "commons",
+   "Abraham Lincoln O-77 matte collodion print.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·•●\" --gradient \"#F2E8D5,#F2E8D5\"",
+  "prep": "crop, -level 10%,100% -gamma 1.2 -sigmoidal-contrast 3x45%"
+ },
+ {
+  "slug": "billie-holiday",
+  "section": "photography",
+  "svg": "teams/photography/try/v_holiday.svg",
+  "bg": "#0d1117",
+  "title": "Billie Holiday",
+  "by": "William P. Gottlieb, c. 1947",
+  "source": [
+   "commons",
+   "Billie Holiday 0001 original.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 130 --pixel-width 845 -c \" ·•●\" --gradient \"#F2E8D5,#F2E8D5\"",
+  "prep": "crop"
+ },
+ {
+  "slug": "greta-garbo",
+  "section": "photography",
+  "svg": "teams/photography/try/v_garbo31_120.svg",
+  "bg": "#0d1117",
+  "title": "Greta Garbo",
+  "by": "Clarence Sinclair Bull, 1931",
+  "source": [
+   "commons",
+   "Greta Garbo in 1931 by Clarence Sinclair Bull.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 120 --pixel-width 780 -c \" ·•●\" --gradient \"#F2E8D5,#F2E8D5\"",
+  "prep": "crop, -level 15%,100%"
+ },
+ {
+  "slug": "nikola-tesla",
+  "section": "photography",
+  "svg": "teams/photography/try/v_tesla100.svg",
+  "bg": "#0d1117",
+  "title": "Nikola Tesla",
+  "by": "Napoleon Sarony, c. 1890",
+  "source": [
+   "commons",
+   "Tesla Sarony.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 100 --pixel-width 650 -c \" ·•●\" --gradient \"#F2E8D5,#F2E8D5\"",
+  "prep": "crop"
+ },
+ {
+  "slug": "muhammad-ali",
+  "section": "photography",
+  "svg": "teams/photography/try/v_ali3.svg",
+  "bg": "#0d1117",
+  "title": "Muhammad Ali",
+  "by": "Ira Rosenberg (NYWTS), 1967",
+  "source": [
+   "commons",
+   "Muhammad Ali NYWTS.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 715 -c \" ·•●\" --gradient \"#F2E8D5,#F2E8D5\"",
+  "prep": "crop, -sigmoidal-contrast 3x50%"
+ },
+ {
+  "slug": "audrey-hepburn",
+  "section": "photography",
+  "svg": "teams/photography/try/v_hepburn3.svg",
+  "bg": "#0d1117",
+  "title": "Audrey Hepburn",
+  "by": "Bud Fraker (Paramount), 1953",
+  "source": [
+   "commons",
+   "AudreyKHepburn.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 120 --pixel-width 780 -c \" ·•●\" --gradient \"#F2E8D5,#F2E8D5\"",
+  "prep": "crop, -level 20%,100% -gamma 1.8 -sigmoidal-contrast 3x40%"
+ },
+ {
+  "slug": "baldwin-iv",
+  "section": "photography",
+  "svg": "try/up_ht130.svg",
+  "bg": "#0d1117",
+  "title": "Baldwin IV, the Leper King",
+  "by": "Film still, Kingdom of Heaven (2005)",
+  "source": [
+   "url",
+   ""
+  ],
+  "license": "© 20th Century Studios, used for illustration",
+  "args": "-w 130 --pixel-width 845 -c \" ·•●\" -s 1.4 -b 1.15",
+  "prep": "crop to figure, -clahe 12x12%+128+3 -level 10%,100%"
+ },
+ {
+  "slug": "einstein-pop",
+  "section": "photography",
+  "svg": "teams/photography/try/pop_einstein2.svg",
+  "bg": "#0d1117",
+  "title": "Einstein, pop (magenta → amber)",
+  "by": "Orren Jack Turner, 1947",
+  "source": [
+   "commons",
+   "Albert Einstein Head.jpg"
+  ],
+  "license": "Public domain",
+  "args": "-w 110 --pixel-width 770 -c \" ·•●\" --gradient \"#FF006E,#FFBE0B\"",
+  "prep": "same prep as Einstein"
+ }
+]

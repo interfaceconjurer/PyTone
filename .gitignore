@@ -15,7 +15,12 @@ env/
 samples/*
 *.html
 !samples/*.html
+!docs/identity/*.html
 *.svg
 !samples/*.svg
 !docs/**/*.svg
 .DS_Store
+
+# Design generators write intermediate output here
+design/build/
+.sf/
