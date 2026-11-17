@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/hero_dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="docs/hero_light.svg">
-  <img src="docs/hero_dark.svg" alt="PyTone: a peach above bubble lettering, rendered in blossom glyphs by this tool" width="50%">
+  <img src="docs/hero_dark.svg" alt="PyTone: a snake made of halftone dots crossing a dot screen, above the PyTone wordmark, rendered in circle glyphs by this tool" width="100%">
 </picture>
 
 </div>
@@ -527,9 +527,10 @@ for module responsibilities, regression evidence and known limitations.
 
 <!-- /CREDITS -->
 
-**Hero.** The peach is the [Noto Emoji](https://github.com/googlefonts/noto-emoji) 3D peach
-(Apache 2.0, Google). The lettering is set in [Modak](https://fonts.google.com/specimen/Modak)
-(SIL Open Font License). Both were rendered with this tool using the blossom ramp `" ⁖⁘⁙❁✿"`.
+**Hero.** The snake is drawn as halftone dots crossing a dot screen. The wordmark is set in
+[Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) (SIL Open Font License). The
+lockup was rendered with this tool using the circles ramp `" ·∘○◯●"` and a gradient in the
+snake's seven section colors.
 
 Based on [Generating ASCII art from colored image using Python](https://dev.to/anuragrana/generating-ascii-art-from-colored-image-using-python-4ace)
 by Anurag Rana, extended with color, HTML and SVG output, gradients, rainbow and custom ramps.
