@@ -50,11 +50,11 @@ uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator pytone
 
 ## How It Works
 
-<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/00-pipeline.svg"><img src="docs/pipeline/00-pipeline.svg" alt="The PyTone pipeline in six stages: image, resize, grayscale, glyph ramp, color and output. Each stage shows the real result of that step on a photo of Earth, with the flags that control it." width="100%"></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/00-pipeline.svg"><img src="docs/pipeline/00-pipeline.svg" alt="The PyTone pipeline in six stages: image, resize, grayscale, glyph ramp, color and output. Each stage shows the real result of that step on a photo of Jupiter, with the flags that control it." width="100%"></picture></p>
 
 ```bash
 # One command, end to end
-pytone earth.jpg -w 110 -c " ·∘○◯●" --gradient "#3D1A4D,#FFD700" -m svg -o earth.svg
+pytone jupiter.jpg -w 110 -c " ·∘○◯●" --gradient "#3D1A4D,#FFD700" -m svg -o jupiter.svg
 ```
 
 **Stage by stage.** Open any step for what it does, why it matters, and what to know.
