@@ -8,7 +8,7 @@ See [README → Install](README.md#install). In short:
 
 ```bash
 uv --version || curl -LsSf https://astral.sh/uv/install.sh | sh
-uv tool install git+https://github.com/interfaceconjurer/ascii-image-generator
+uv tool install git+https://github.com/interfaceconjurer/PyTone
 pytone --help
 ```
 
