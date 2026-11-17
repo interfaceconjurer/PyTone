@@ -5,9 +5,9 @@ from html.parser import HTMLParser
 
 import pytest
 
-from peachpy.color import detect_color_mode, render_colored, rgb_to_ansi_256
-from peachpy.html_output import render_html, save_html
-from peachpy.svg_output import render_svg, save_svg
+from pytone.color import detect_color_mode, render_colored, rgb_to_ansi_256
+from pytone.html_output import render_html, save_html
+from pytone.svg_output import render_svg, save_svg
 
 RENDERERS = [render_colored, render_html, render_svg]
 

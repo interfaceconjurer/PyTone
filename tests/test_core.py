@@ -1,11 +1,11 @@
-"""Tests for peachpy core functionality."""
+"""Tests for pytone core functionality."""
 
 from pathlib import Path
 
 import pytest
 from PIL import Image
 
-from peachpy.core import (
+from pytone.core import (
     DEFAULT_CHARS,
     SVG_CELL_ASPECT,
     SVG_ROW_FACTOR,

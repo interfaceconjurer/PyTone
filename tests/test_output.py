@@ -5,7 +5,7 @@ from contextlib import contextmanager
 
 import pytest
 
-from peachpy import output
+from pytone import output
 
 
 @pytest.mark.parametrize("existing", [False, True])
