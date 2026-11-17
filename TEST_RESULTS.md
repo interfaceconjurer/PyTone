@@ -1,12 +1,12 @@
-# ASCII Art Generator - Test Results
+# PyTone - Test Results
 
-> Historical manual test record for the former command and environment. See
+> Historical manual test record for the earlier environment; command names updated to PyTone. See
 > [README: Development](README.md#development) for current checks and requirements.
 
 ## Installation
 ✅ Installed in dev mode with `pip install -e ".[dev]"`
 ✅ Fixed Python 3.10+ type hints for Python 3.9 compatibility
-✅ Entry point `ascii-art` installed successfully at `/Users/j.wright/Library/Python/3.9/bin/ascii-art`
+✅ Entry point `pytone` installed successfully at `/Users/j.wright/Library/Python/3.9/bin/pytone`
 
 ## Test Images Downloaded
 1. **portrait.jpg** (33KB) - Portrait/face image for testing facial features
@@ -39,23 +39,23 @@
 ## Edge Case Testing
 
 ### Custom Character Ramp
-✅ `python -m ascii_art portrait.jpg --mode plain -w 60 -c " .:-=+*#%@"`
+✅ `python -m pytone portrait.jpg --mode plain -w 60 -c " .:-=+*#%@"`
 - Custom characters applied correctly
 - Output saved to `portrait_custom_chars.txt`
 
 ### Very Narrow Width (20 chars)
-✅ `python -m ascii_art landscape.jpg --mode plain -w 20`
+✅ `python -m pytone landscape.jpg --mode plain -w 20`
 - Resized successfully to 20x11 characters
 - Output saved to `landscape_narrow.txt`
 
 ### Very Wide Width (200 chars)  
-✅ `python -m ascii_art colorful.jpg --mode plain -w 200`
+✅ `python -m pytone colorful.jpg --mode plain -w 200`
 - Resized successfully to 200x110 characters
 - Character variation preserved throughout image
 - Output saved to `colorful_wide.txt`
 
 ### Entry Point Test
-✅ `/Users/j.wright/Library/Python/3.9/bin/ascii-art logo.jpg --mode plain -w 80`
+✅ `/Users/j.wright/Library/Python/3.9/bin/pytone logo.jpg --mode plain -w 80`
 - Entry point executable works correctly
 - Output saved to `logo_entry_point.txt`
 
