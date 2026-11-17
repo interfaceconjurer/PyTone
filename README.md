@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/hero_dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="docs/hero_light.svg">
-  <img src="docs/hero_dark.svg" alt="PeachPy: a peach above bubble lettering, rendered in blossom glyphs by this tool" width="50%">
+  <img src="docs/hero_dark.svg" alt="PyTone: a snake made of halftone dots crossing a dot screen, beside the PyTone wordmark, rendered in circle glyphs by this tool" width="100%">
 </picture>
 
 </div>
@@ -12,12 +12,12 @@
 
 _Turn any image into text • Terminal, HTML or SVG • Gradients, rainbows and any glyph ramp you like_
 
-**PeachPy is a small Python CLI that turns images into ASCII art.** Point it at a photo, painting or logo and get plain text, truecolor terminal output, a self-contained HTML page, or a scalable SVG you can drop straight into a README. The hero above was made with it.
+**PyTone is a small Python CLI that turns images into ASCII art.** Point it at a photo, painting or logo and get plain text, truecolor terminal output, a self-contained HTML page, or a scalable SVG you can drop straight into a README. The hero above was made with it.
 
 **Try it in one line** (needs [uv](#prerequisite-uv)):
 
 ```bash
-uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator peachpy path/to/image.jpg
+uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator pytone path/to/image.jpg
 ```
 
 &nbsp;
@@ -32,7 +32,7 @@ uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator peachp
 - [Install](#install)
   - [Prerequisite: uv](#prerequisite-uv)
   - [Try It Without Installing](#try-it-without-installing)
-  - [Install the `peachpy` Command](#install-the-peachpy-command)
+  - [Install the `pytone` Command](#install-the-pytone-command)
   - [Notes for Scripts and AI Agents](#notes-for-scripts-and-ai-agents)
 - [Usage](#usage)
   - [Output Modes](#output-modes)
@@ -50,25 +50,75 @@ uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator peachp
 
 ## How It Works
 
-```text
-image ─▶ resize ─▶ grayscale ─▶ glyph ramp ─▶ color ─▶ text · ANSI · HTML · SVG
-```
-
-1. **Resize.** The image is scaled to `--width` columns. Rows are squashed to match the
-   shape of a character cell, so circles stay circles: 0.55 for terminals and 1/1.6 for SVG.
-2. **Grayscale.** Each cell's brightness (0–255) is computed.
-3. **Glyph ramp.** Brightness picks a character from `--chars`, ordered dark → light.
-   The ramp can be anything: ASCII, Unicode dots, block shading, emoji.
-4. **Color.** Each glyph keeps its source pixel's color, or is recolored by a diagonal
-   `--gradient` or a horizontal `--rainbow`. Both are modulated by the image's brightness
-   so the shape still reads.
-5. **Render.** The result is written as plain text, ANSI truecolor or 256-color, an HTML
-   `<pre>`, or an SVG of positioned `<text>` glyphs.
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/00-pipeline.svg"><img src="docs/pipeline/00-pipeline.svg" alt="The PyTone pipeline in six stages: image, resize, grayscale, glyph ramp, color and output. Each stage shows the real result of that step on a photo of Earth, with the flags that control it." width="100%"></picture></p>
 
 ```bash
 # One command, end to end
-peachpy photo.jpg -m svg -w 110 -c " ·∘○◯●" -o photo.svg
+pytone earth.jpg -w 110 -c " ·∘○◯●" --gradient "#3D1A4D,#FFD700" -m svg -o earth.svg
 ```
+
+**Stage by stage.** Open any step for what it does, why it matters, and what to know.
+
+<details>
+<summary><b>1. Image</b></summary>
+
+The file is opened and normalized: EXIF rotation applied, first frame only, transparency flattened onto black, converted to RGB.
+
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/01-image.svg"><img src="docs/pipeline/01-image.svg" alt="Step 1, Image. PyTone opens the file and normalizes it: EXIF rotation applied, first frame only, transparency flattened onto black, converted to RGB. Includes advice on choosing a source with a wide tonal range." width="100%"></picture></p>
+
+</details>
+
+<details>
+<summary><b>2. Resize</b></summary>
+
+The image is scaled to `--width` columns. Rows are squashed to match the shape of a character cell, so circles stay circles: 0.55 for terminals and 1/1.6 for SVG.
+
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/02-resize.svg"><img src="docs/pipeline/02-resize.svg" alt="Step 2, Resize. The image is scaled to the chosen number of columns. Rows are squashed by a row factor of 0.55 for terminals, 0.6 for HTML and 0.625 for SVG so circles stay round. Shows the same picture at 16, 32 and 64 columns." width="100%"></picture></p>
+
+</details>
+
+<details>
+<summary><b>3. Grayscale</b></summary>
+
+Each cell's brightness (0–255) is computed.
+
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/03-grayscale.svg"><img src="docs/pipeline/03-grayscale.svg" alt="Step 3, Grayscale. Each cell becomes one brightness from 0 to 255 using luma weights of 0.299 red, 0.587 green and 0.114 blue. Different colors with the same brightness pick the same glyph." width="100%"></picture></p>
+
+</details>
+
+<details>
+<summary><b>4. Glyph ramp</b></summary>
+
+Brightness picks a character from `--chars`, ordered dark → light. The ramp can be anything: ASCII, Unicode dots, block shading, emoji.
+
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/04-glyph-ramp.svg"><img src="docs/pipeline/04-glyph-ramp.svg" alt="Step 4, Glyph ramp. Brightness is split into equal buckets, one per character in the ramp, ordered dark to light. Shows four ramps on the same picture and how to match a ramp to a dark or light background." width="100%"></picture></p>
+
+</details>
+
+<details>
+<summary><b>5. Color</b></summary>
+
+Each glyph keeps its source pixel's color, or is recolored by a diagonal `--gradient` or a horizontal `--rainbow`. Both are modulated by the image's brightness so the shape still reads.
+
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/05-color.svg"><img src="docs/pipeline/05-color.svg" alt="Step 5, Color. Glyphs keep their source color, or take a diagonal gradient or a horizontal rainbow, then saturation and brightness multipliers are applied." width="100%"></picture></p>
+
+</details>
+
+<details>
+<summary><b>6. Output</b></summary>
+
+The result is written as plain text, ANSI truecolor or 256-color, an HTML `<pre>`, or an SVG of positioned `<text>` glyphs.
+
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/06-output.svg"><img src="docs/pipeline/06-output.svg" alt="Step 6, Output. The same glyph grid written as plain text, ANSI, HTML or SVG, with the strengths, trade-offs and real file size of each at 100 columns." width="100%"></picture></p>
+
+</details>
+
+<details>
+<summary><b>Choosing an output</b></summary>
+
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="docs/pipeline/light/07-choosing-output.svg"><img src="docs/pipeline/07-choosing-output.svg" alt="A decision guide for picking an output: ANSI for the terminal, text for pasting, HTML for sending a file, SVG for READMEs and docs, with a side-by-side comparison table." width="100%"></picture></p>
+
+</details>
 
 &nbsp;
 
@@ -89,21 +139,21 @@ Circles grow with brightness, so the painting's light falls in rings of `· ∘ 
 
 ```bash
 # Girl with a Pearl Earring
-peachpy pearl-earring.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o pearl-earring.svg
+pytone pearl-earring.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o pearl-earring.svg
 # Virgin Annunciate   (prep: auto-level, -level 10%,100%, gamma 1.3)
-peachpy virgin-annunciate.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o virgin-annunciate.svg
+pytone virgin-annunciate.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o virgin-annunciate.svg
 # Self-Portrait   (prep: auto-level, gamma 1.2)
-peachpy rembrandt-self-portrait.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o rembrandt-self-portrait.svg
+pytone rembrandt-self-portrait.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o rembrandt-self-portrait.svg
 # Magdalene with the Smoking Flame   (prep: auto-level, gamma 1.5)
-peachpy magdalene-smoking-flame.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o magdalene-smoking-flame.svg
+pytone magdalene-smoking-flame.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o magdalene-smoking-flame.svg
 # Mona Lisa   (prep: auto-level, gamma 1.3)
-peachpy mona-lisa.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o mona-lisa.svg
+pytone mona-lisa.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o mona-lisa.svg
 # Lady with an Ermine   (prep: auto-level, gamma 1.2)
-peachpy lady-with-an-ermine.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o lady-with-an-ermine.svg
+pytone lady-with-an-ermine.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o lady-with-an-ermine.svg
 # Portrait of a Man (Self-Portrait?)   (prep: auto-level, gamma 1.2)
-peachpy man-in-a-red-turban.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o man-in-a-red-turban.svg
+pytone man-in-a-red-turban.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o man-in-a-red-turban.svg
 # David with the Head of Goliath
-peachpy david-goliath.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o david-goliath.svg
+pytone david-goliath.jpg -m svg -w 110 --pixel-width 715 -c " ·∘○◯●" -s 1.4 -b 1.9 -o david-goliath.svg
 ```
 <!-- /GALLERY:old-masters -->
 
@@ -118,27 +168,27 @@ NASA and ESA imagery. Where it fits, the ramp matches the subject: Saturn in rin
 
 ```bash
 # Whirlpool Galaxy (M51)   (prep: -level 12%,100% -clahe 25x25%+128+3 -sigmoidal-contrast 4x45%)
-peachpy whirlpool-galaxy.jpg -m svg -w 130 --pixel-width 715 -c " ·∘○◯●" -s 1.6 -b 1.4 -o whirlpool-galaxy.svg
+pytone whirlpool-galaxy.jpg -m svg -w 130 --pixel-width 715 -c " ·∘○◯●" -s 1.6 -b 1.4 -o whirlpool-galaxy.svg
 # Ring Nebula (M57), JWST   (prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%)
-peachpy ring-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o ring-nebula.svg
+pytone ring-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o ring-nebula.svg
 # Saturn in rings
-peachpy saturn.jpg -m svg -w 160 --pixel-width 800 -c " ·∘○◯" -s 1.4 -b 1.5 -o saturn.svg
+pytone saturn.jpg -m svg -w 160 --pixel-width 800 -c " ·∘○◯" -s 1.4 -b 1.5 -o saturn.svg
 # The Moon, in moon phases   (prep: CGI lit sphere; 1.19× wide for emoji)
-peachpy moon.jpg -m svg -w 108 --pixel-width 1188 -c " 🌑🌒🌓🌔🌕" -o moon.svg
+pytone moon.jpg -m svg -w 108 --pixel-width 1188 -c " 🌑🌒🌓🌔🌕" -o moon.svg
 # The Pleiades, in stars   (prep: crop, -level 10%,100%, gamma 1.3)
-peachpy pleiades.jpg -m svg -w 130 --pixel-width 845 -c "  ·∘+✦★" -s 1.7 -b 2.0 -o pleiades.svg
+pytone pleiades.jpg -m svg -w 130 --pixel-width 845 -c "  ·∘+✦★" -s 1.7 -b 2.0 -o pleiades.svg
 # Jupiter, in cloud bands   (prep: -modulate 100,220 -sigmoidal-contrast 7x50%)
-peachpy jupiter.jpg -m svg -w 120 --pixel-width 720 -c " -=≡" -s 1.8 -b 1.6 -o jupiter.svg
+pytone jupiter.jpg -m svg -w 120 --pixel-width 720 -c " -=≡" -s 1.8 -b 1.6 -o jupiter.svg
 # The Sun, SDO/AIA   (prep: auto-level, gamma 2.2)
-peachpy sun.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.8 -o sun.svg
+pytone sun.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.8 -o sun.svg
 # The Blue Marble   (prep: -sigmoidal-contrast 3x50%)
-peachpy blue-marble.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.4 -o blue-marble.svg
+pytone blue-marble.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.4 -o blue-marble.svg
 # Helix Nebula (NGC 7293)   (prep: center crop, -level 8%,100% -sigmoidal-contrast 4x40%)
-peachpy helix-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o helix-nebula.svg
+pytone helix-nebula.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.5 -b 1.5 -o helix-nebula.svg
 # M87* black hole, in rings   (prep: center crop, gamma 1.2)
-peachpy m87.jpg -m svg -w 100 --pixel-width 650 -c " ·∘○◎◉" -s 1.3 -b 1.5 -o m87.svg
+pytone m87.jpg -m svg -w 100 --pixel-width 650 -c " ·∘○◎◉" -s 1.3 -b 1.5 -o m87.svg
 # Pluto   (prep: -sigmoidal-contrast 4x55% -level 8%,100%, gamma 0.9)
-peachpy pluto.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.4 -b 1.3 -o pluto.svg
+pytone pluto.jpg -m svg -w 120 --pixel-width 720 -c " ·∘○◯●" -s 1.4 -b 1.3 -o pluto.svg
 ```
 <!-- /GALLERY:space -->
 
@@ -153,27 +203,27 @@ Halftone dots in a single ink, `-c " ·•●" --gradient "#F2E8D5,#F2E8D5"`, pl
 
 ```bash
 # Baldwin IV, the Leper King   (prep: crop to figure, -clahe 12x12%+128+3 -level 10%,100%)
-peachpy baldwin-iv.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" -s 1.4 -b 1.15 -o baldwin-iv.svg
+pytone baldwin-iv.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" -s 1.4 -b 1.15 -o baldwin-iv.svg
 # Migrant Mother
-peachpy migrant-mother.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o migrant-mother.svg
+pytone migrant-mother.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o migrant-mother.svg
 # Abraham Lincoln   (prep: crop, -level 10%,100% -gamma 1.2 -sigmoidal-contrast 3x45%)
-peachpy abraham-lincoln.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o abraham-lincoln.svg
+pytone abraham-lincoln.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o abraham-lincoln.svg
 # Billie Holiday   (prep: crop)
-peachpy billie-holiday.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o billie-holiday.svg
+pytone billie-holiday.jpg -m svg -w 130 --pixel-width 845 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o billie-holiday.svg
 # Audrey Hepburn   (prep: crop, -level 20%,100% -gamma 1.8 -sigmoidal-contrast 3x40%)
-peachpy audrey-hepburn.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o audrey-hepburn.svg
+pytone audrey-hepburn.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o audrey-hepburn.svg
 # Einstein, pop (magenta → amber)   (prep: same prep as Einstein)
-peachpy einstein-pop.jpg -m svg -w 110 --pixel-width 770 -c " ·•●" --gradient "#FF006E,#FFBE0B" -o einstein-pop.svg
+pytone einstein-pop.jpg -m svg -w 110 --pixel-width 770 -c " ·•●" --gradient "#FF006E,#FFBE0B" -o einstein-pop.svg
 # Muhammad Ali   (prep: crop, -sigmoidal-contrast 3x50%)
-peachpy muhammad-ali.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o muhammad-ali.svg
+pytone muhammad-ali.jpg -m svg -w 110 --pixel-width 715 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o muhammad-ali.svg
 # Greta Garbo   (prep: crop, -level 15%,100%)
-peachpy greta-garbo.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o greta-garbo.svg
+pytone greta-garbo.jpg -m svg -w 120 --pixel-width 780 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o greta-garbo.svg
 # Nikola Tesla   (prep: crop)
-peachpy nikola-tesla.jpg -m svg -w 100 --pixel-width 650 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o nikola-tesla.svg
+pytone nikola-tesla.jpg -m svg -w 100 --pixel-width 650 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o nikola-tesla.svg
 # Frida Kahlo   (prep: auto-level, gamma 1.4, -sigmoidal-contrast 4x50%)
-peachpy frida-kahlo.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o frida-kahlo.svg
+pytone frida-kahlo.jpg -m svg -w 100 --pixel-width 840 -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o frida-kahlo.svg
 # Marilyn, pop (yellow → magenta)   (prep: auto-level, gamma 1.15)
-peachpy marilyn-pop-a.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradient "#FFD60A,#FF006E" -o marilyn-pop-a.svg
+pytone marilyn-pop-a.jpg -m svg -w 120 --pixel-width 840 -c " ·•●" --gradient "#FFD60A,#FF006E" -o marilyn-pop-a.svg
 ```
 <!-- /GALLERY:photography -->
 
@@ -217,12 +267,12 @@ Then open a new terminal so `uv` is on your PATH. For other options, see the
 ### Try It Without Installing
 
 ```bash
-uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator peachpy path/to/image.jpg
+uvx --from git+https://github.com/interfaceconjurer/ascii-image-generator pytone path/to/image.jpg
 ```
 
 uv builds a cached, throwaway environment and runs the tool. Nothing stays installed.
 
-### Install the `peachpy` Command
+### Install the `pytone` Command
 
 ```bash
 uv tool install git+https://github.com/interfaceconjurer/ascii-image-generator
@@ -231,12 +281,12 @@ uv tool install git+https://github.com/interfaceconjurer/ascii-image-generator
 Verify:
 
 ```bash
-peachpy --help
+pytone --help
 ```
 
 If you get `command not found`, run `uv tool update-shell` and open a new terminal.
 
-Upgrade with `uv tool upgrade peachpy`. Uninstall with `uv tool uninstall peachpy`.
+Upgrade with `uv tool upgrade py-tone`. Uninstall with `uv tool uninstall py-tone`.
 
 <details>
 <summary>Without uv (pipx or pip)</summary>
@@ -255,14 +305,14 @@ These need Python 3.11+ already installed.
 
 ### Notes for Scripts and AI Agents
 
-- **Command:** `peachpy <image> [options]`. `python -m peachpy` is equivalent.
+- **Command:** `pytone <image> [options]`. `python -m pytone` is equivalent.
 - **Runtime:** Python 3.11+ with Pillow 13.0+ (the dependency floor includes upstream decoder security fixes).
 - **Inputs:** any image Pillow can open (JPEG, PNG, GIF, WebP, …). EXIF orientation is
   applied; animated images use their first frame. Transparency is composited over black.
 - **Output location:**
   - `-m color` (default) and `-m plain` print to stdout, or write to `-o FILE`.
-  - `-m html` and `-m svg` always write a file: `-o FILE`, or `./peachpy.html` /
-    `./peachpy.svg` in the current directory, overwriting any existing file. They print
+  - `-m html` and `-m svg` always write a file: `-o FILE`, or `./pytone.html` /
+    `./pytone.svg` in the current directory, overwriting any existing file. They print
     `Saved HTML to <path>` / `Saved SVG to <path>`.
 - **Color when piped:** `--color-mode auto` (default) drops ANSI escapes when stdout isn't a
   terminal. Files written with `-o` also contain clean text unless color is explicitly requested.
@@ -271,7 +321,7 @@ These need Python 3.11+ already installed.
   existing output. Parent directories must already exist.
 - **Exit codes:** `0` success · `1` image/file errors, invalid `--gradient`, or a closed
   stdout pipe · `2` invalid arguments. Expected errors go to stderr without a traceback.
-- **Full options:** `peachpy --help` or the [Options](#options) table.
+- **Full options:** `pytone --help` or the [Options](#options) table.
 - **Working on the code?** See [Development](#development) and [AGENTS.md](AGENTS.md).
 
 &nbsp;
@@ -284,20 +334,20 @@ These need Python 3.11+ already installed.
 
 ```bash
 # Colored terminal output (default; auto-detects truecolor / 256-color)
-peachpy image.jpg
+pytone image.jpg
 
 # Plain text
-peachpy image.jpg -m plain -w 80
+pytone image.jpg -m plain -w 80
 
 # Self-contained HTML page
-peachpy image.jpg -m html -o art.html
+pytone image.jpg -m html -o art.html
 
 # Scalable SVG, 1200px wide
-peachpy image.jpg -m svg --pixel-width 1200 -o art.svg
+pytone image.jpg -m svg --pixel-width 1200 -o art.svg
 ```
 
 When stdout isn't a terminal, color mode falls back to plain text. Use
-`--color-mode truecolor` to force escapes, for example `peachpy image.jpg --color-mode truecolor > art.ans`.
+`--color-mode truecolor` to force escapes, for example `pytone image.jpg --color-mode truecolor > art.ans`.
 
 ### Character Ramps
 
@@ -314,24 +364,24 @@ read well:
 | `" 🌑🌒🌓🌔🌕"`       | Moon phases                  |
 
 ```bash
-peachpy image.jpg -m svg -c " ░▒▓█" -o blocks.svg
-peachpy image.jpg --invert -c " ·•●"
+pytone image.jpg -m svg -c " ░▒▓█" -o blocks.svg
+pytone image.jpg --invert -c " ·•●"
 ```
 
 ### Color: Gradients and Rainbow
 
 ```bash
 # Diagonal gradient, top-left → bottom-right, 2 or more 6-digit hex stops
-peachpy image.jpg -m svg --gradient "#3D1A4D,#9B59B6,#FFD700,#B8860B" -o gold.svg
+pytone image.jpg -m svg --gradient "#3D1A4D,#9B59B6,#FFD700,#B8860B" -o gold.svg
 
 # A single-ink look: use the same color twice
-peachpy image.jpg -m svg -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o ink.svg
+pytone image.jpg -m svg -c " ·•●" --gradient "#F2E8D5,#F2E8D5" -o ink.svg
 
 # Horizontal rainbow, brighter
-peachpy image.jpg -m svg --rainbow -b 1.5 -o rainbow.svg
+pytone image.jpg -m svg --rainbow -b 1.5 -o rainbow.svg
 
 # Punchier source colors
-peachpy image.jpg -m svg -s 1.6 -b 1.3 -o vivid.svg
+pytone image.jpg -m svg -s 1.6 -b 1.3 -o vivid.svg
 ```
 
 ### Density
@@ -342,8 +392,8 @@ column the glyphs overlap and fuse into texture, and many of the gallery pieces 
 exactly that.
 
 ```bash
-peachpy image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 1500 -o airy.svg
-peachpy image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 715  -o dense.svg
+pytone image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 1500 -o airy.svg
+pytone image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 715  -o dense.svg
 ```
 
 &nbsp;
@@ -364,7 +414,7 @@ peachpy image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 715  -o dense
 | `--rainbow`        | off             | Recolor with a horizontal rainbow                              |
 | `--gradient`       | –               | Recolor with a diagonal gradient, e.g. `"#FF0000,#0000FF"`     |
 | `--color-mode`     | `auto`          | `auto`, `truecolor`, `256` or `none`                           |
-| `-o, --output`     | stdout          | Output file (HTML and SVG default to `peachpy.html` / `.svg`) |
+| `-o, --output`     | stdout          | Output file (HTML and SVG default to `pytone.html` / `.svg`) |
 
 &nbsp;
 
@@ -373,7 +423,7 @@ peachpy image.jpg -m svg -w 110 -c " ·∘○◯●" --pixel-width 715  -o dense
 ## Python API
 
 ```python
-from peachpy import image_to_ascii, get_color_data
+from pytone import image_to_ascii, get_color_data
 
 # Plain text
 print(image_to_ascii("photo.jpg", width=100))
@@ -477,9 +527,10 @@ for module responsibilities, regression evidence and known limitations.
 
 <!-- /CREDITS -->
 
-**Hero.** The peach is the [Noto Emoji](https://github.com/googlefonts/noto-emoji) 3D peach
-(Apache 2.0, Google). The lettering is set in [Modak](https://fonts.google.com/specimen/Modak)
-(SIL Open Font License). Both were rendered with this tool using the blossom ramp `" ⁖⁘⁙❁✿"`.
+**Hero.** The snake is drawn as halftone dots crossing a dot screen. The wordmark is set in
+[Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) (SIL Open Font License). The
+lockup was rendered with this tool using the circles ramp `" ·∘○◯●"` and a gradient in the
+Python logo's blue and gold.
 
 Based on [Generating ASCII art from colored image using Python](https://dev.to/anuragrana/generating-ascii-art-from-colored-image-using-python-4ace)
 by Anurag Rana, extended with color, HTML and SVG output, gradients, rainbow and custom ramps.

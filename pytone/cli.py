@@ -1,4 +1,4 @@
-"""Command-line interface for PeachPy (`peachpy`)."""
+"""Command-line interface for PyTone (`pytone`)."""
 
 import argparse
 import os
@@ -26,7 +26,7 @@ from .svg_output import render_svg
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="peachpy",
+        prog="pytone",
         description="Generate ASCII art from images.",
     )
     parser.add_argument("image", type=Path, help="Path to the input image")
@@ -117,7 +117,7 @@ def parse_gradient(gradient_str: str) -> list[RGB]:
 def _convert(args: argparse.Namespace, gradient: list[RGB] | None) -> str:
     output_path = args.output
     if output_path is None and args.mode in {"html", "svg"}:
-        output_path = Path(f"peachpy.{args.mode}")
+        output_path = Path(f"pytone.{args.mode}")
     if output_path is not None and (
         output_path.resolve() == args.image.resolve()
         or (output_path.exists() and output_path.samefile(args.image))

@@ -1,6 +1,6 @@
 # Python Environment Setup Summary
 
-> Historical environment notes. For current requirements and setup, see
+> Historical environment notes; command names updated to PyTone. For current requirements and setup, see
 > [README: Development](README.md#development).
 
 ## ✅ Completed Setup
@@ -32,7 +32,7 @@ eval "$(pyenv init -)"
 - ✅ Fixed argparse help formatting bug
 - ✅ All 11 tests passing with Python 3.13.0
 - ✅ Project installed in dev mode
-- ✅ Entry point `ascii-art` working correctly
+- ✅ Entry point `pytone` working correctly
 
 ## Commands Reference
 
@@ -65,7 +65,7 @@ python -m pip install -e ".[dev]"
 pytest -v
 
 # Use the tool
-ascii-art samples/portrait.jpg --mode plain -w 80
+pytone samples/portrait.jpg --mode plain -w 80
 ```
 
 ## Verification
@@ -76,8 +76,8 @@ Python 3.13.0
 $ pytest -v
 ======================= 11 passed, 12 warnings in 0.03s ========================
 
-$ ascii-art --help
-usage: ascii-art [-h] [-w WIDTH] [-c CHARS] [-m {plain,color,html}]
+$ pytone --help
+usage: pytone [-h] [-w WIDTH] [-c CHARS] [-m {plain,color,html}]
                  [--color-mode {auto,truecolor,256,none}] [-o OUTPUT]
                  image
 

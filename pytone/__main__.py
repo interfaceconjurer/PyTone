@@ -1,4 +1,4 @@
-"""Entry point for `python -m peachpy`."""
+"""Entry point for `python -m pytone`."""
 
 import sys
 

@@ -10,10 +10,10 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from peachpy.cli import main, parse_gradient
+from pytone.cli import main, parse_gradient
 
 CONSOLE_SCRIPT = str(
-    Path(sysconfig.get_path("scripts")) / ("peachpy.exe" if os.name == "nt" else "peachpy")
+    Path(sysconfig.get_path("scripts")) / ("pytone.exe" if os.name == "nt" else "pytone")
 )
 
 
@@ -139,7 +139,7 @@ def test_output_alias_cannot_replace_source_image(square_image, tmp_path, link_k
 
 @pytest.mark.parametrize("mode", ["html", "svg"])
 def test_default_document_filename_cannot_replace_source(tmp_path, monkeypatch, mode):
-    path = tmp_path / f"peachpy.{mode}"
+    path = tmp_path / f"pytone.{mode}"
     Image.new("RGB", (4, 4), "red").save(path, format="PNG")
     original = path.read_bytes()
     monkeypatch.chdir(tmp_path)
@@ -161,7 +161,7 @@ def test_missing_output_directory_is_a_clean_error(square_image, tmp_path, capsy
 def test_document_default_outputs(square_image, tmp_path, monkeypatch, mode):
     monkeypatch.chdir(tmp_path)
     assert main([str(square_image), "-m", mode, "-w", "4"]) == 0
-    assert (tmp_path / f"peachpy.{mode}").is_file()
+    assert (tmp_path / f"pytone.{mode}").is_file()
 
 
 def test_file_auto_color_does_not_depend_on_stdout_terminal(square_image, tmp_path, monkeypatch):
@@ -224,7 +224,7 @@ def test_decompression_bomb_protection_is_preserved(square_image, monkeypatch, c
     assert "Traceback" not in captured.err
 
 
-@pytest.mark.parametrize("command", [[sys.executable, "-m", "peachpy"], [CONSOLE_SCRIPT]])
+@pytest.mark.parametrize("command", [[sys.executable, "-m", "pytone"], [CONSOLE_SCRIPT]])
 def test_installed_entrypoints_work_outside_the_repo(square_image, tmp_path, command):
     result = subprocess.run(
         [*command, str(square_image), "-m", "plain", "-w", "4"],
@@ -238,7 +238,7 @@ def test_installed_entrypoints_work_outside_the_repo(square_image, tmp_path, com
     assert all(len(line) == 4 for line in result.stdout.splitlines())
 
 
-@pytest.mark.parametrize("command", [[sys.executable, "-m", "peachpy"], [CONSOLE_SCRIPT]])
+@pytest.mark.parametrize("command", [[sys.executable, "-m", "pytone"], [CONSOLE_SCRIPT]])
 @pytest.mark.parametrize("options", [["-m", "plain"], ["--help"]])
 def test_closed_stdout_pipe_is_a_clean_process_exit(square_image, command, options):
     read_fd, write_fd = os.pipe()

@@ -5,8 +5,8 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from peachpy import core
-from peachpy.core import adjust_color, get_color_data, image_to_ascii, load_image
+from pytone import core
+from pytone.core import adjust_color, get_color_data, image_to_ascii, load_image
 
 
 @pytest.mark.parametrize(

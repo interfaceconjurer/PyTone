@@ -56,7 +56,7 @@ describe fixes absent from earlier releases, including native decoder issues.
 [PyPI release metadata](https://pypi.org/pypi/Pillow/13.0.0/json) reports the Python
 requirement and published advisory status. Advisory applicability depends on the
 format, installed optional codecs, and operations; an advisory listing alone does
-not establish that every issue is reachable through PeachPy.
+not establish that every issue is reachable through PyTone.
 
 Jordan approved raising the requirements to Python >=3.11 and Pillow >=13.0.
 Package metadata, agent guidance, README requirements, lint target, and the CI

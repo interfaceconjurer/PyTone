@@ -57,9 +57,9 @@ jobs:
           python-version: "3.12"
       - run: python -m pip install build
       - run: python -m build
-      - run: python -m venv /tmp/peachpy-wheel
-      - run: /tmp/peachpy-wheel/bin/python -m pip install dist/*.whl
-      - run: /tmp/peachpy-wheel/bin/peachpy --help
+      - run: python -m venv /tmp/pytone-wheel
+      - run: /tmp/pytone-wheel/bin/python -m pip install dist/*.whl
+      - run: /tmp/pytone-wheel/bin/pytone --help
         working-directory: /tmp
-      - run: /tmp/peachpy-wheel/bin/python -m peachpy --help
+      - run: /tmp/pytone-wheel/bin/python -m pytone --help
         working-directory: /tmp

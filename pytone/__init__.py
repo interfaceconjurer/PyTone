@@ -1,7 +1,7 @@
-"""PeachPy: generate ASCII art from images.
+"""PyTone: generate ASCII art from images.
 
 Usage:
-    from peachpy import image_to_ascii, get_color_data
+    from pytone import image_to_ascii, get_color_data
 
     # Plain text ASCII art
     art = image_to_ascii("photo.jpg", width=100)
