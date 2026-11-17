@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/hero_dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="docs/hero_light.svg">
-  <img src="docs/hero_dark.svg" alt="PyTone: a snake made of halftone dots crossing a dot screen, beside the PyTone wordmark, rendered in circle glyphs by this tool" width="100%">
+  <img src="docs/hero_dark.svg" alt="PyTone: a snake made of halftone dots crossing a dot screen, above the PyTone wordmark, rendered in circle glyphs by this tool" width="100%">
 </picture>
 
 </div>
